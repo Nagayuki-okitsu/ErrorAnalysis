@@ -1,0 +1,3 @@
+class ErrorList < ApplicationRecord
+
+end

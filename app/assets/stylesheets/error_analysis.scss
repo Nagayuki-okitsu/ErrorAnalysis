@@ -1,0 +1,116 @@
+// Place all the styles related to the errorAnalysis controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*背景*/
+.back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(164, 212, 231);
+    z-index: -1;
+}
+
+h1{
+    font-family: 'Corben', cursive;
+    text-align: center;
+}
+
+ /* === 検索全体のBOX===== */
+.searchArea{
+    position       : relative; 
+    width          : 250px;              /* BOXの幅               */
+    height         : 40px;               /* BOXの高さ             */
+    margin         : auto;               /* サンプルを中心に寄せ  */
+    letter-spacing : 0.1em;              /* 文字間隔              */
+    font-weight    : bold;               /* 太字                  */
+    line-height    : 0;                  /* 標準の行高さ          */
+  }
+   
+/* === テキスト入力欄のSTYLE設定 ============================= */
+.searchText {
+    position       : absolute;
+    display        : block;              /* ブロック化            */
+    box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+    height         : 40px;               /* BOXの高さ             */
+    width          : 100%;               /* テキスト入力の幅      */
+    margin         : 0;                  /* 外余白                */
+    padding        : 0 45px 0 8px;       /* 内余白                */
+    border         : 2px solid #666;     /* 枠線　幅,実践,色      */
+    border-radius  : 6px;                /* 角丸                  */
+    color          : #333;               /* 文字色                */
+    font-size      : 18px;               /* フォントサイズ        */
+    outline        : 0;                  /* 入力の薄い枠を非表示  */
+}
+   
+/* === 検索ボタン欄のSTYLE設定 =============================== */
+.searchButton {
+    position       : absolute;
+    box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+    height         : 28px;               /* 入力の高さ            */
+    margin         : 0;                  /* 外余白                */
+    padding        : 6px 10px;           /* 内余白                */
+    top            : 6px;                /* ボタン表示位置(上)    */
+    right          : 6px;                /* ボタン表示位置(右)    */
+    border         : none;               /* 枠線　幅,実践,色      */
+    border-radius  : 6px;                /* 右上下の角丸          */
+    background     : #666;               /* ボタンの色            */
+    color          : #fff;               /* 文字色                */
+    cursor         : pointer;            /* カーソル設定          */
+}
+   
+/* === テキスト入力欄にフォーカスか来たとき ================== */
+.searchText:focus {
+    background     : #cfe7ff;            /* フォーカス時の背景色  */
+}
+   
+/* === 検索ボタン欄にフォーカスか来たとき ==================== */
+.searchButton:hover {
+    background     : #333;               /* フォーカス時の背景色  */
+}
+   
+/* === 検索アイコンのSTYLE設定 =============================== */
+.searchImg {
+    display        : inline-block;       /* インラインブロック化  */
+    width          : auto;               /* 幅は高さに合わせる    */
+    height         : 16px;               /* 画像の高さ            */
+    margin         : 0;                  /* 余白                  */
+    vertical-align : middle;             /* 横の文字位置          */
+}
+   
+/* === IEの入力エリア右側×消し ============================== */
+.searchText::-ms-clear {
+    display        : none;               /* ×を消す              */
+}
+
+/*結果表示*/
+.resultbox {
+    position: relative;
+    margin: 2em 8em;
+    padding: 3% 5% 1% 5%;
+    border: 2px solid #666;
+    background-color: #fff;
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.resultbox p {
+    padding: 0 5% 2% 5%;
+    white-space: pre-wrap;
+}
+
+.mess{
+    text-align: center;
+}
+
+h4 {
+    position: relative;
+    background: #f4f4f4;
+    padding: 2px 5px 2px 20px;
+    font-size: 20px;
+    color: #474747;
+    border-radius: 0 10px 10px 0;
+}
+
