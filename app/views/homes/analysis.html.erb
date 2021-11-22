@@ -16,7 +16,7 @@
 
 <% if @errorList.empty? %>
   <div class="resultbox">
-    <p class="mess">検索ボックスにエラーメッセージを入力してください。</p>
+    <p class="mess">Please enter the error message</p>
   </div>
 <% else %>
   <% resultFlag = 0 %>
@@ -24,7 +24,7 @@
     <% err_mess = errorList.err_mess %>
 
     <% if params[:err_mess].include?("#{err_mess}")%>
-      <div class="resultbox" id="back paper">
+      <div class="resultbox">
 
         <h4><i class="fas fa-clone"></i>　key</h4>
           <p>"<%= errorList.err_mess %>"</p>
@@ -39,7 +39,7 @@
       <% resultFlag = 1%>
     <% elsif err_mess == @errorList[@errorList.length-1].err_mess && resultFlag == 0%>
       <div class="resultbox">
-        <p class="mess">該当するエラーはありませんでした。</p>
+        <p class="mess">No error was found</p>
       </div>
     <% end %>
 
