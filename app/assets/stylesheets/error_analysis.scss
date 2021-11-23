@@ -88,8 +88,11 @@ h1{
 /*結果表示*/
 .resultbox {
     position: relative;
-    margin: 2em 8em;
+    max-width: 950px;
+    min-width: 500px;
     padding: 3% 5% 1% 5%;
+    margin:0 auto;
+    margin-top: 50px;
     border: 2px solid #666;
     background-color: #fff;
     z-index: -1;
