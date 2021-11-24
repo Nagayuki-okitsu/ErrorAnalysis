@@ -1,24 +1,37 @@
 <div class="back"></div>
 
-<a href="/"><div class="title"></div></a>
-<h1>-ErrorAnalysis-</h1>
+<a class="top_link" href="/"></a>
 
+<nav>
 
-<%= form_with url:analysis_homes_path, method: :get, lonal: true do |f| %>
+  <h1>-ErrorAnalysis-</h1>
+  
+  <%= form_with url:analysis_homes_path, method: :get, lonal: true do |f| %>
   <div class="searchArea">
     <%= text_field_tag "err_mess","", {class: "searchText"} %>
     <div class="searchButton" onclick="goSearch()">
       <%= image_submit_tag 'search.png', {class:"searchImg"} %>
     </div>
   </div>
-<% end %>
+  <% end %>
 
+</nav>
+  
 
 
 <% if @errorList.empty? %>
   <div class="resultbox">
     <div class="example">
-      <%= image_tag 'sample_analysis.png',{class:"sample_img"}%>
+      <p>1 , Copy error message.</p>
+      <%= image_tag 'example_copy.png',{class:"ex_copy"}%><br>
+      <i class="fas fa-angle-double-down down"></i>
+
+      <p>2 , Paste into search box.</p>
+      <%= image_tag 'example_input.png',{class:"ex_input"}%><br>
+      <i class="fas fa-angle-double-down down"></i>
+
+      <p>3 , Click to view results.</p>
+      <%= image_tag 'example_result.png',{class:"ex_result"}%>
     </div>
   </div>
 <% else %>
