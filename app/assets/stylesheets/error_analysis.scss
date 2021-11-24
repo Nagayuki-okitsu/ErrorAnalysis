@@ -24,7 +24,7 @@ h1{
     position       : absolute;             
     height         : 60px;               
     width          : 40%;             
-    margin        : 0 30% 0 30%;      
+    margin         : 0 30% 0 30%;      
 }
 
  /* === 検索全体のBOX===== */
@@ -36,7 +36,7 @@ h1{
     letter-spacing : 0.1em;              /* 文字間隔              */
     font-weight    : bold;               /* 太字                  */
     line-height    : 0;                  /* 標準の行高さ          */
-  }
+}
    
 /* === テキスト入力欄のSTYLE設定 ============================= */
 .searchText {
@@ -94,6 +94,16 @@ h1{
     display        : none;               /* ×を消す              */
 }
 
+.example{
+    position: relative;
+    text-align: center;
+}
+
+.sample_img{
+    width: 100%;
+    max-width: 390px;
+}
+
 /*結果表示*/
 .resultbox {
     position: relative;
@@ -125,4 +135,3 @@ h4 {
     color: #474747;
     border-radius: 0 10px 10px 0;
 }
-

@@ -17,7 +17,9 @@
 
 <% if @errorList.empty? %>
   <div class="resultbox">
-    <p class="mess">Please enter the error message</p>
+    <div class="example">
+      <%= image_tag 'sample_analysis.png',{class:"sample_img"}%>
+    </div>
   </div>
 <% else %>
   <% resultFlag = 0 %>
