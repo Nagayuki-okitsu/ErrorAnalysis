@@ -42,7 +42,12 @@
       <% resultFlag = 1%>
     <% elsif err_mess == @errorList[@errorList.length-1].err_mess && resultFlag == 0%>
       <div class="resultbox">
-        <p class="mess">No error was found</p>
+        <div class="mess">
+          <h4 style="color:red;"><i class="fas fa-exclamation-circle"></i>　No error was found</h4>
+            <p>エラーキーワードを見つけることができませんでした。
+            出力されたエラーメッセージの全体をコピー＆ペーストまたは入力してください。
+            それでも見つからない場合はこのアプリケーションに登録されていないエラーです。</p>
+        </div>
       </div>
     <% end %>
 
