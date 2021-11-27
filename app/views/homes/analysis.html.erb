@@ -21,16 +21,22 @@
 
 <% if @errorList.empty? %>
   <div class="resultbox">
+
+    <div class="alertbox">
+    <div class="alert-title"><i class="fas fa-exclamation-triangle alert"></i> 注意</div>
+      <p>※解析の精度を高めるため一度の実行で出力されたエラーメッセージを全てコピーして貼り付けてください。(14029字まで対応)</p>
+    </div>
+
     <div class="example">
-      <p>1 , Copy error message.</p>
+      <p>1 , エラーメッセージをコピー。</p>
       <%= image_tag 'example_copy.png',{class:"ex_copy"}%><br>
       <i class="fas fa-angle-double-down down"></i>
 
-      <p>2 , Paste into search box.</p>
+      <p>2 , コピーしたメッセージを検索ボックスに貼り付け。</p>
       <%= image_tag 'example_input.png',{class:"ex_input"}%><br>
       <i class="fas fa-angle-double-down down"></i>
 
-      <p>3 , Click to view results.</p>
+      <p>3 , Enterキー or 検索ボタンクリックで解析開始。</p>
       <%= image_tag 'example_result.png',{class:"ex_result"}%>
     </div>
   </div>
@@ -42,13 +48,13 @@
     <% if params[:err_mess].include?("#{err_mess}")%>
       <div class="resultbox">
 
-        <h4><i class="fas fa-clone"></i>　key</h4>
+        <h4><i class="fas fa-check-circle"></i>　解析キーワード</h4>
           <p>"<%= errorList.err_mess %>"</p>
         
-        <h4><i class="fas fa-clone"></i>　Cause</h4>
+        <h4><i class="fas fa-check-circle"></i>　主な原因</h4>
           <p><%= errorList.cause %></p>
 
-        <h4><i class="fas fa-clone"></i>　advice</h4>
+        <h4><i class="fas fa-check-circle"></i>　ヒント</h4>
           <p><%= errorList.advice %></p>
                  
       </div>

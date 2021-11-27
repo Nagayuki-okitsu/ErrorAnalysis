@@ -117,11 +117,38 @@ h1{
     display        : none;               /* ×を消す              */
 }
 
+.alertbox{
+    width: 80%;
+    max-width: 580px;
+    margin: 0 auto;
+    background-color: #ffebee;
+    border: solid 1px red;
+    padding: 20px 5px 5px 30px;
+    margin-bottom: 50px;
+  }
+  
+  .alert-title{
+    color: #ef5350;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .alert{
+    font-size: 17px;
+  }
+  
+  .alertsbox p{
+    margin: 0;
+    padding: 0;
+  }
+
 .example{
     position: relative;
     text-align: center;
     font-size: large;
-    text-decoration:underline;
+    font-weight: bold;
+    color: rgb(68, 65, 65);
+    //text-decoration:underline;
 }
 
 .ex_copy{
@@ -174,9 +201,9 @@ h1{
 
 h4 {
     position: relative;
-    background: #f4f4f4;
-    padding: 2px 5px 2px 20px;
-    font-size: 20px;
-    color: #474747;
+    background: #dad7d4;
+    padding: 5px 5px 5px 20px;
+    font-size: 18px;
+    color: #5c5a56;
     border-radius: 0 10px 10px 0;
 }
