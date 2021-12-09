@@ -1,0 +1,77 @@
+<nav>
+  
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+
+  <% if logged_in? %>
+    <div class="log">
+      <%= link_to  user_path(@current_user) do %>
+        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="log">
+      <%= link_to  login_path do%>
+        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user?(User.find_by(id: @question.user_id)) %>
+    <div class="edit_link">
+      <%= link_to  edit_question_path(@question) do%>
+        <button class="edit_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+      <% end %>
+    </div>
+    <div class="delete_link">
+      <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答が全て削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
+        <button class="delete_btn"><i class="fas fa-pen q_icon"></i> 削除</button>
+      <% end %>
+    </div>
+  <% else %>
+    <%= button_to new_answer_path, :class => 'button06', :method => :get , params: {q_id: @question.id} do %>
+      <i class="fas fa-pen q_icon"></i>回答する
+    <% end %>
+  <% end %>
+
+</nav>
+
+<div class="resultbox">
+
+  <h2 style="border-bottom: 1px solid;">タイトル    ” <%= @question.title %> ”</h2>
+    
+  <h5 style="color:red;">キーワード　:　<% if @question.key.present? %>" <%= @question.key %> "<% else %>" 無し "<% end %></h5>
+
+  <h5>質問ユーザー:　<%= User.find_by(id: @question.user_id).name %></h5>
+  
+  <% if @question.image.present? %> 
+    <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
+  <% end %>
+
+  <div class="con_box">
+    <div class="box-title">質問内容</div>
+    <p><%= @question.content %></p>
+  </div>
+
+  <% if @answer.present? %>
+    <% index = 1 %>
+    
+    <% @answer.each do |answer| %>
+
+      <div class="ans_box">
+        <div class="box-title">回答<%= index %></div>
+        <h5>回答ユーザー: <%= User.find_by(id: answer.user_id).name %></h5>
+        <p><%= answer.answer %></p>
+      </div>
+
+      <% index += 1 %>
+
+    <% end %>
+  <% end %>
+
+</div>

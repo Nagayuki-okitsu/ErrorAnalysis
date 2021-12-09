@@ -1,0 +1,53 @@
+<nav>
+  
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+
+  <% if logged_in? %>
+    <div class="log">
+      <%= link_to  user_path(@current_user) do %>
+        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="log">
+      <%= link_to  login_path do%>
+        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= button_to new_question_path, :class => 'button06', :method => :get do %>
+    <i class="fas fa-pen q_icon"></i>質問する
+  <% end %>
+
+</nav>
+
+<div class="resultbox">
+  <table>
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>タイトル</th>
+        <th>質問内容</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @questions.each do |question| %>
+        <tr>
+          <td class="user_td"><i class="fas fa-user user"></i> <%= User.find_by(id: question.user_id).name.truncate(6) %></td>
+          <td class="title_td"><%= question.title.truncate(30) %></td>
+          <td class="conte_td"><%= question.content.truncate(20) %></td>
+          <td><%= link_to question, class:"btn-circle-flat" do %><i class="fas fa-check"></i> 詳細<% end %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

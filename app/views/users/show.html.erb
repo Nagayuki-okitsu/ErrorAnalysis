@@ -1,0 +1,59 @@
+<nav>
+
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+  
+  <div class="log">
+    <%= link_to  logout_path, method: :delete do %>
+      <button class="btn"><i class="fas fa-user-check"></i> ログアウト</button>
+    <% end %>
+  </div>
+
+</nav>
+
+<div class="resultbox">
+
+  <div style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
+
+  <p>  ニックネーム:　<%= @user.name %></p>
+
+  <p>メールアドレス:　<%= @user.email %></p>
+
+  <div class="q">
+    <ul>
+      <% if @question.empty? %>
+        <li>投稿した質問の一覧がここに表示されます</li>
+      <% else %>
+        <% @question.each do |question| %>
+          <li>
+            <i class="fas fa-circle icon"></i><%= question.title.truncate(50) %>
+            <%= link_to question, class:"show_btn" do %>詳細<% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="a">
+    <ul>
+      <% if @answer.empty? %>
+        <li>投稿した回答の一覧がここに表示されます</li>
+      <% else %>
+        <% @answer.each do |answer| %>
+          <li>
+          <i class="fas fa-circle icon"></i><%= answer.answer.truncate(50) %>
+          <%= link_to answer, class:"show_btn" do %>詳細<% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  
+</div>
+
+

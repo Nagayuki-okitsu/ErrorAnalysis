@@ -20,7 +20,7 @@ ErrorList.create({ err_mess: "NoMethodError", cause: "存在しないメソッ�
 #---rails---
 ErrorList.create({ err_mess: "ActionView::MissingTemplate", cause: "指定のビューファイルがありません。", advice: " ビューファイルの名前を間違えていないか確認してみましょう。\n また部分テンプレートのビューファイル名の先頭には「 _ 」を付ける必要があります。"})
 ErrorList.create({ err_mess: "ActiveRecord::PendingMigrationError", cause: "実行していないマイグレーションファイルがあります。", advice: " ターミナルで「rails db:migrate」を実行しましょう。"})
-ErrorList.create({ err_mess: "RoutingError", cause: "ルーティングが不適切です。", advice: "　config/routes.rbでルーティングを確認・設定しましょう。\n 「rails routes」というコマンドをターミナルで実行するとルーティングを確認できます。"})
+ErrorList.create({ err_mess: "Routing Error", cause: "ルーティングが不適切です。", advice: "　config/routes.rbでルーティングを確認・設定しましょう。\n 「rails routes」というコマンドをターミナルで実行するとルーティングを確認できます。"})
 #---その他---
 ErrorList.create({ err_mess: "String too long", cause: "文字列が255文字を超えています。", advice: "string型に格納できる最大文字数は255文字です。"})
 ErrorList.create({ err_mess: "undeclared", cause: "宣言されていない変数が使用されています。", advice: "該当の変数を宣言しましょう。"})
@@ -32,3 +32,18 @@ ErrorList.create({ err_mess: "redeclaration of", cause: "同じ変数を2回以�
 ErrorList.create({ err_mess: "exception", cause: "例外エラーです。", advice: "構文に問題はありませんが実行中の値によってはエラーになってしまうものです。\n　どの値でエラーになるのかを調べて例外が発生しないように処理を工夫しましょう。"})
 ErrorList.create({ err_mess: "ZeroDivisionError", cause: "0で割り算を行っています。", advice: "コンピュータの世界では「0」で割り算を行うことができません。"})
 #ErrorList.create({ err_mess: "", cause: "", advice: "　"})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+<%= form_with(model: answer) do |form| %>
+
+  <% if answer.errors.any? %>
+      <div class="error_ms", style="font-size: 17px;">
+        <h5>・回答内容を入力してください</h5>
+      </div>
+    <% end %>
+
+  <% if answer.question_id.nil? %>
+    <%= form.hidden_field :question_id, :value => @question.id %>
+  <% else %>
+    <%= form.hidden_field :question_id, :value => answer.question_id %>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :回答, class: "ans_label" %>
+    <%= form.text_area :answer, class: "ans_form" %>
+  </div>
+
+  <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+
+
+<% end %>

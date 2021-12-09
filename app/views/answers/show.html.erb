@@ -1,0 +1,64 @@
+<nav>
+  
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+
+  <% if logged_in? %>
+    <div class="log">
+      <%= link_to  user_path(@current_user) do %>
+        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="log">
+      <%= link_to  login_path do%>
+        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
+      <% end %>
+    </div>
+  <% end %>
+
+  
+  <div class="edit_link">
+    <%= link_to  edit_answer_path(@answer) do%>
+      <button class="edit_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+    <% end %>
+  </div>
+  
+  <div class="delete_link">
+    <%= link_to  answer_path(@answer), method: :delete,data: {confirm: "あなたの回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
+      <button class="delete_btn"><i class="fas fa-pen q_icon"></i> 削除</button>
+    <% end %>
+  </div>
+
+</nav>
+
+<div class="resultbox">
+
+  <h2 style="border-bottom: 1px solid;">タイトル    ” <%= @question.title %> ”</h2>
+    
+  <h5 style="color:red;">キーワード　:　<% if @question.key.present? %>" <%= @question.key %> "<% else %>" 無し "<% end %></h5>
+
+  <h5>質問ユーザー:　<%= User.find_by(id: @question.user_id).name %></h5>
+  
+  <% if @question.image.present? %> 
+    <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
+  <% end %>
+
+  
+  <div class="con_box">
+    <div class="box-title">質問内容</div>
+    <p><%= @question.content %></p>
+  </div>
+
+  <div class="ans_box">
+    <div class="box-title">回答内容</div>
+    <p><%= @answer.answer %></p>
+  </div>
+
+</div>
+

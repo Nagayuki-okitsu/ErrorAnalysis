@@ -1,0 +1,28 @@
+<nav>
+
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+
+</nav>
+
+<div class="resultbox", style="text-align:center">
+
+  <div style="color:red;">
+    <%= flash[:log_message] %>
+    <%= flash[:not_log] %>
+  </div>
+
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :メールアドレス , class: "log_label" %>
+    <%= f.email_field :email , class: "log_field" %><br>
+    <%= f.label :パスワード, class: "log_label" %>
+    <%= f.password_field :password, class: "log_field" %><br>
+    <%= button_tag type: :submit, :class => 'log_button' do %><i class="fas fa-user"></i> ログイン<% end %>
+  <% end %>
+  
+</div>

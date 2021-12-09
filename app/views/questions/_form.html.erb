@@ -1,0 +1,31 @@
+<%= form_with(model: question) do |form| %>
+  
+    <% if question.errors.any? %>
+      <div class="error_ms", style="font-size: 17px;">
+        <h5>・必須項目に入力してください</h5>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.label :タイトル（必須） , class: "q_label"%>
+      <%= form.text_field :title , class: "title_form" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :キーワード（任意）, class: "q_label" %>
+      <%= form.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: "選択して下さい（キーワードがわからない場合は選択する必要はありません)",class:"key_form" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :画像（任意：プログラムのスクリーンショットなど）, class: "q_label" %>
+      <%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :質問内容（必須）, class: "q_label" %>
+      <%= form.text_area :content, class: "con_form" %>
+    </div>
+
+    <%= button_tag type: :submit, :class => 'q_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+  
+<% end %>
