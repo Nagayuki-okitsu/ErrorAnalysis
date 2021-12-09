@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       flash[:log_mes] = "ログインしました"
       redirect_to root_url
     else
-      render 'new'
       flash[:not_log] = "メールアドレスまたはパスワードが間違っています"
+      render 'new'
     end
   end
 
