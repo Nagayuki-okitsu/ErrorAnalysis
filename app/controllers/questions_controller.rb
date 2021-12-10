@@ -43,6 +43,10 @@ class QuestionsController < ApplicationController
 
   # PATCH/PUT /questions/1 or /questions/1.json
   def update
+      if params[:question][:image].present?
+        @question.image = params[:question][:image].read
+        @question.image_content_type = params[:question][:image].content_type
+      end
       respond_to do |format|
         if @question.update(question_params)
           format.html { redirect_to @question, notice: "Question was successfully updated." }
