@@ -17,13 +17,17 @@
     </div>
 
     <div class="field">
-      <%= form.label :画像（任意：プログラムのスクリーンショットなど）, class: "q_label" %>
-      <%= form.file_field :image %>
+      <%= form.label :質問内容（必須）, class: "q_label" %>
+      <%= form.text_area :content, class: "con_form" %>
     </div>
 
     <div class="field">
-      <%= form.label :質問内容（必須）, class: "q_label" %>
-      <%= form.text_area :content, class: "con_form" %>
+      <%= form.label :画像（任意で最大３つまで：プログラムのスクリーンショットなど）, class: "q_label" %>
+      <table class="image_table">
+        <tr><td>・１つ目　<%= form.file_field :image, class: "image_field" %></td></tr>
+        <tr><td>・２つ目　<%= form.file_field :image_2, class: "image_field" %></td></tr>
+        <tr><td>・３つ目　<%= form.file_field :image_3, class: "image_field" %></td></tr>
+      </table>
     </div>
 
     <%= button_tag type: :submit, :class => 'q_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
