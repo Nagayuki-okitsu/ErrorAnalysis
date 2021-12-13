@@ -74,7 +74,10 @@
 
       <div class="ans_box">
         <div class="box-title">回答<%= index %></div>
-        <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: answer.user_id).name %></h5>
+        <h5>
+          <i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: answer.user_id).name %>
+          <i class="fas fa-pen r_icon"></i>  <%= answer.updated_at.strftime("%Y-%m-%d") %>
+        </h5>
         <div class="ans_con">
           <p><%= answer.answer %></p>
         </div>
@@ -97,7 +100,7 @@
                     <% end %>
                   </div>
                 <% end %>
-
+                <i class="fas fa-pen r_icon"></i>  <%= rep.updated_at.strftime("%Y-%m-%d") %>
               </h5>
 
               <p><%= rep.reply %></p>
