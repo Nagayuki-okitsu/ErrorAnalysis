@@ -32,7 +32,8 @@
   <table>
     <thead>
       <tr>
-        <th>ユーザー名</th>
+        <th></th>
+        <th></th>
         <th>タイトル</th>
         <th>質問内容</th>
       </tr>
@@ -41,7 +42,8 @@
     <tbody>
       <% @questions.each do |question| %>
         <tr>
-          <td class="user_td"><i class="fas fa-user user"></i> <%= User.find_by(id: question.user_id).name.truncate(6) %></td>
+          <td><i class="fas fa-user-circle user_icon"></i></td>
+          <td class="user_td"> <%= User.find_by(id: question.user_id).name.truncate(6) %></td>
           <td class="title_td"><%= question.title.truncate(30) %></td>
           <td class="conte_td"><%= question.content.truncate(20) %></td>
           <td><%= link_to question, class:"btn-circle-flat" do %><i class="fas fa-check"></i> 詳細<% end %></td>

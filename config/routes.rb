@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :answers
 
+  resources :replies, only: [:new, :create,:edit, :update, :destroy] 
+
   resources :users 
+
   resources :questions do
     member { get :show_image }
   end

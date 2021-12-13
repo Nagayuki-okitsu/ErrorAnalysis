@@ -30,8 +30,8 @@
   </div>
   
   <div class="delete_link">
-    <%= link_to  answer_path(@answer), method: :delete,data: {confirm: "あなたの回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
-      <button class="delete_btn"><i class="fas fa-pen q_icon"></i> 削除</button>
+    <%= link_to  answer_path(@answer), method: :delete,data: {confirm: "参照中のあなたの回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
+      <button class="delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
     <% end %>
   </div>
 
@@ -39,25 +39,70 @@
 
 <div class="resultbox">
 
-  <h2 style="border-bottom: 1px solid;">タイトル    ” <%= @question.title %> ”</h2>
-    
+  <h5><i class="fas fa-pen q_icon"></i>  <%= @question.created_at.strftime("%Y年 %m月 %d日") %></h5>
+  <h5><i class="fas fa-history"></i>  <%= @question.updated_at.strftime("%Y年 %m月 %d日") %></h5>
+
+  <h2 style="margin-top: 100px;border-bottom: 1px solid;">タイトル    ” <%= @question.title %> ”</h2>
+
   <h5 style="color:red;">キーワード　:　<% if @question.key.present? %>" <%= @question.key %> "<% else %>" 無し "<% end %></h5>
 
   <h5>質問ユーザー:　<%= User.find_by(id: @question.user_id).name %></h5>
-  
-  <% if @question.image.present? %> 
-    <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
-  <% end %>
 
-  
   <div class="con_box">
     <div class="box-title">質問内容</div>
     <p><%= @question.content %></p>
+
+    <% if @question.image.present? %> 
+      <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
+    <% end %>
+    <% if @question.image_2.present? %> 
+      <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>    
+    <% end %>
+    <% if @question.image_3.present? %> 
+      <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
+    <% end %>
   </div>
 
   <div class="ans_box">
     <div class="box-title">回答内容</div>
-    <p><%= @answer.answer %></p>
+    <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: @current_user.id).name %></h5>
+    <div class="ans_con">
+      <p><%= @answer.answer %></p>
+    </div>
+
+    <% reply = Reply.where(answer_id: @answer.id) %>
+      <% if reply.present? %>
+        <% reply.each do |rep| %>
+          <div class="rep">
+            <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: rep.user_id).name %>
+              <% if current_user?(User.find_by(id: rep.user_id)) %>
+                <div class="rep_edit_delete_link">
+                  <%= link_to  edit_reply_path(rep) do%>
+                    <button class="rep_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+                  <% end %>
+                </div>
+
+                <div class="rep_edit_delete_link">
+                  <%= link_to  reply_path(rep), method: :delete,data: {confirm: "削除した返信を復元することはできません。\n本当に削除しますか？"} do%>
+                    <button class="rep_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+                  <% end %>
+                </div>
+              <% end %>
+
+            </h5>
+
+            <p><%= rep.reply %></p>
+
+          </div>
+        <% end %>
+      <% end %>
+
+      <div align="right">
+        <%= button_to new_reply_path, :class => 'rep_btn', :method => :get , params: {ans_id: @answer.id} do %>
+          <i class="fas fa-reply"></i>返信する
+        <% end %>
+      </div>
+
   </div>
 
 </div>

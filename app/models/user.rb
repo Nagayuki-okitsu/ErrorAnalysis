@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :question
     has_many :answer
+    has_many :reply
 
     has_secure_password validations: false
     validates :name, :email, :password, :password_confirmation, presence: true
