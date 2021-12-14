@@ -22,7 +22,7 @@
     </div>
   <% end %>
 
-  <%= form_with url:analysis_homes_path, method: :get, lonal: true do |f| %>
+  <%= form_with url:analysis_homes_path, method: :get do |f| %>
   <div class="searchArea">
     <%= text_field_tag "err_mess","", {class: "searchText"} %>
     <div class="searchButton" onclick="goSearch()">
