@@ -6,9 +6,18 @@ class QuestionsController < ApplicationController
   # GET /questions or /questions.json
   def index
     if params[:key].present?
-      @question = Question.where(key: params[:key])
+      @question = q_sort(params[:sort_key], Question.where(key: params[:key]))
     else
-      @question = Question.all
+      @question = q_sort(params[:sort_key], Question.all)
+    end
+  end
+
+  def q_sort(sort_key,question)
+    case sort_key
+    when 'old'
+      question.order(:id)
+    else 
+      question.order(id: :DESC)
     end
   end
 

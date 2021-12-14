@@ -30,14 +30,27 @@
 
 <div class="resultbox">
 
-  <%= form_with url:questions_path, method: :get do |f| %>
-    <div class="searchArea">
-      <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: "キーワードで絞る",class:"key_form" %>
-      <div class="searchButton" onclick="goSearch()">
-        <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+  <div align="center">
+    <div style="display: flex; width: 400px;">
+      <%= form_with url:questions_path, method: :get do |f| %>
+        <div class="searchArea">
+          <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: "キーワードで絞る",class:"key_form" %>
+          <div class="searchButton_2" onclick="goSearch()">
+            <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="sortArea">
+        <%= form_with url: questions_path, method: :get do |f| %>
+          <%= f.select :sort_key, [['新しい順 （ デフォルト ）', 'new'],['古い順', 'old']],{ include_blank: '並び替え' } %>
+          <div class="sortButton" onclick="goSearch()">
+            <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 
   <table>
     <thead>
