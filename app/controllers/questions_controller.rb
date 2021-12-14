@@ -5,8 +5,15 @@ class QuestionsController < ApplicationController
 
   # GET /questions or /questions.json
   def index
+
     if params[:key].present?
-      @question = q_sort(params[:sort_key], Question.where(key: params[:key]))
+      session[:key] = params[:key]
+    elsif params[:sort_key].nil?
+      session[:key] = ""
+    end
+
+    if session[:key].present?
+      @question = q_sort(params[:sort_key], Question.where(key: session[:key]))
     else
       @question = q_sort(params[:sort_key], Question.all)
     end
