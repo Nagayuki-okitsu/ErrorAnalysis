@@ -1,0 +1,58 @@
+<nav>
+  
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+
+  <% if logged_in? %>
+    <div class="log">
+      <%= link_to  user_path(@current_user) do %>
+        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="log">
+      <%= link_to  login_path do%>
+        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
+      <% end %>
+    </div>
+  <% end %>
+
+</nav>
+
+<div class="resultbox" align="center" style="padding: 50px;">
+    <% if @group_user.nil? %>
+
+        <% if flash[:group_mes] %>
+          <div class="flash"><%= flash[:group_mes] %></div>
+        <% end %>
+        
+        <h3 class="serach_mes">- グループを検索 -</h3>
+        <%= form_with url:new_group_user_path, method: :get do |f| %>
+            <div class="searchArea">
+            <%= text_field_tag "name","", {class: "searchText"} %>
+            <div class="searchButton" onclick="goSearch()">
+                <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+            </div>
+            </div>
+        <% end %>
+
+    <% else %>
+
+        <%= form_with(model: @group_user) do |form| %>
+
+            <h2><i class="fas fa-users user_icon"></i> <%= @group.name %></h2>
+            
+            <%= form.hidden_field :user_id, :value => @current_user.id %>
+            <%= form.hidden_field :group_id, :value => @group.id %>
+
+            <%= button_tag type: :submit, :class => 'join_button' do %><i class="fas fa-sign-in-alt"></i>このグループに参加<% end %>
+        
+        <% end %>
+
+    <% end %>
+</div>

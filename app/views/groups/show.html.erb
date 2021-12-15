@@ -1,0 +1,53 @@
+<nav>
+
+  <%= render 'layouts/nav' %> 
+
+  <div class="signup_link">
+    <%= link_to new_user_path do %>
+      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+    <% end %>
+  </div>
+  
+  <div class="log">
+    <%= link_to  logout_path, method: :delete do %>
+      <button class="btn"><i class="fas fa-user-check"></i> ログアウト</button>
+    <% end %>
+  </div><% if logged_in? %>
+    <div class="log">
+      <%= link_to  user_path(@current_user) do %>
+        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="log">
+      <%= link_to  login_path do%>
+        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="wit_link">
+    <%= link_to  group_user_path(group_id: @group.id), method: :delete,data: {confirm: "本当に退会しますか？"} do%>
+      <button class="wit_btn"><i class="fas fa-sign-out-alt"></i> このグループから退会する</button>
+    <% end %>
+  </div>
+  
+</nav>
+
+<div class="resultbox">
+
+  <div style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
+
+  <h2 class="g_name"><i class="fas fa-users user_icon"></i> <%= @group.name %></h2>
+
+  <div class="g_user">
+    <ul>
+        <% @group.group_users.each do |group_user| %>
+            <li>
+              <i class="fas fa-user-circle user_icon"></i><%= User.find(group_user.user_id).name %>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+  
+</div>

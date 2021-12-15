@@ -23,12 +23,12 @@
   <% end %>
 
   <%= form_with url:analysis_homes_path, method: :get do |f| %>
-  <div class="searchArea">
-    <%= text_field_tag "err_mess","", {class: "searchText"} %>
-    <div class="searchButton" onclick="goSearch()">
-      <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+    <div class="searchArea">
+      <%= text_field_tag "err_mess","", {class: "searchText"} %>
+      <div class="searchButton" onclick="goSearch()">
+        <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+      </div>
     </div>
-  </div>
   <% end %>
 
 </nav>

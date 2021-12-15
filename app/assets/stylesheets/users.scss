@@ -2,6 +2,69 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.g_create_link{
+    z-index: 11;
+    position: absolute;
+    left: 25px;
+    top: 80px;
+}
+
+.g_create_btn{
+    width: 160px;
+    height: 40px;
+    z-index: 2;
+    position: relative;
+    padding: 0.5em 1em;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 550;
+    color: rgb(59, 54, 43);
+    background: rgb(241, 237, 169);
+    font-weight: bold;
+    border: 1px solid;
+    box-shadow: 0 0 10px rgb(78, 76, 76);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.g_create_btn:hover{
+    color: rgb(48, 41, 28);
+    background: #cebe2e;
+    box-shadow: 0 0 10px rgb(51, 51, 51);
+}
+
+.g_join_link{
+    z-index: 11;
+    position: absolute;
+    left: 200px;
+    top: 80px;
+}
+
+.g_join_btn{
+    width: 160px;
+    height: 40px;
+    z-index: 2;
+    position: relative;
+    padding: 0.5em 1em;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 550;
+    color: rgb(59, 54, 43);
+    background: rgb(241, 237, 169);
+    font-weight: bold;
+    border: 1px solid;
+    box-shadow: 0 0 10px rgb(78, 76, 76);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.g_join_btn:hover{
+    color: rgb(48, 41, 28);
+    background: #cebe2e;
+    box-shadow: 0 0 10px rgb(51, 51, 51);
+}
+
+
 .expl{
     background-color: rgb(187, 181, 174);
     color: rgb(77, 76, 74);
@@ -65,25 +128,83 @@
     color: rgb(78, 78, 78);
 }
 
+.u_info{
+    border-bottom: 1px solid;
+    padding-left: 50px;
+}
+
+.g {
+    padding-top: 60px;
+}
+
+
+.g ul:before{
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: -15px;/*線の上下位置*/
+    display: inline-block;
+    width: 60px;/*線の長さ*/
+    height: 2px;/*線の太さ*/
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);/*位置調整*/
+    background-color: rgb(139, 168, 139);/*線の色*/
+}
+
+.g ul {
+    border-left: solid 2px rgb(139, 168, 139);
+    padding: 0.5em;
+    position: relative;
+}
+
+.g ul li {
+    line-height: 1.5;
+    padding: 0.5em 0 0.5em 1.4em;
+    border-bottom: dashed 1px silver;
+    list-style-type: none!important;
+}
+.g ul li:last-of-type {
+    border-bottom: none;
+}
+.g ul li .icon {
+    padding-right: 7px;
+    color: rgb(139, 168, 139); /*アイコン色*/
+}
+
+.g ul li:after {
+/*タイトルタブ*/
+    background: rgb(139, 168, 139);
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    left: -2px;
+    bottom: 100%;
+    padding: 1px 7px;
+    content: "グループ一覧";/*タブの文字*/
+    letter-spacing: 0.05em;/*字間*/
+}
+
+.q{
+    padding-top: 60px;
+}
+
 .q ul:before{
-  content: '';
-  position: absolute;
-  left: 100px;
-  top: -15px;/*線の上下位置*/
-  display: inline-block;
-  width: 60px;/*線の長さ*/
-  height: 2px;/*線の太さ*/
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);/*位置調整*/
-  background-color: #c9a267;/*線の色*/
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: -15px;/*線の上下位置*/
+    display: inline-block;
+    width: 60px;/*線の長さ*/
+    height: 2px;/*線の太さ*/
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);/*位置調整*/
+    background-color: #c9a267;/*線の色*/
 }
 
 .q ul {
     border-left: solid 2px #c9a267;
     padding: 0.5em;
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 70px;
 }
 
 .q ul li {
@@ -92,15 +213,18 @@
     border-bottom: dashed 1px silver;
     list-style-type: none!important;
 }
+    
 .q ul li:last-of-type {
-        border-bottom: none;
+    border-bottom: none;
 }
+
 .q ul li .icon {
     padding-right: 7px;
     color: #c9a267; /*アイコン色*/
 }
+    
 .q ul li:after {
-/*タイトルタブ*/
+    /*タイトルタブ*/
     background: #c9a267;
     color: #fff;
     font-weight: bold;
@@ -110,6 +234,10 @@
     padding: 1px 7px;
     content: "質問一覧";/*タブの文字*/
     letter-spacing: 0.05em;/*字間*/
+}
+
+.a{
+    padding-top: 60px;
 }
 
 .a ul:before{
@@ -123,27 +251,30 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);/*位置調整*/
     background-color: #679ac9;/*線の色*/
-  }
+}
 
 .a ul {
     border-left: solid 2px #679ac9;
     padding: 0.5em;
     position: relative;
-    margin-top: 2em;
 }
+
 .a ul li {
     line-height: 1.5;
     padding: 0.5em 0 0.5em 1.4em;
     border-bottom: dashed 1px silver;
     list-style-type: none!important;
 }
+
 .a ul li:last-of-type {
-        border-bottom: none;
+    border-bottom: none;
 }
+
 .a ul li .icon {
     padding-right: 7px;
     color: #679ac9; /*アイコン色*/
 }
+
 .a ul li:after {
 /*タイトルタブ*/
     background: #679ac9;

@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :replies, only: [:new, :create,:edit, :update, :destroy] 
 
+  resources :groups, only: [:new, :show, :create, :destroy] 
+
+  resources :group_users, only: [:new, :create, :destroy]
+
   resources :users 
 
   resources :questions do

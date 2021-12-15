@@ -14,15 +14,48 @@
     <% end %>
   </div>
 
+ 
+  <div class="g_create_link">
+    <%= link_to  new_group_path do%>
+      <button class="g_create_btn"><i class="fas fa-plus-circle"></i> グループを作成</button>
+    <% end %>
+  </div>
+  <div class="g_join_link">
+    <%= link_to  new_group_user_path do%>
+      <button class="g_join_btn"><i class="fas fa-sign-in-alt"></i> グループに参加</button>
+    <% end %>
+  </div>
+  
+
 </nav>
 
 <div class="resultbox">
 
   <div style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
+  <% if flash[:group_mes] %>
+    <div class="flash"><%= flash[:group_mes] %></div>
+  <% end %>
+  
 
-  <p>  ニックネーム:　<%= @user.name %></p>
+  <div class="u_info">
+    <h3><i class="fas fa-user-circle user_icon"></i> <%= @user.name %></h3>
+    <h3><i class="fas fa-envelope user_icon"></i> <%= @user.email %></h3>
+  </div>
 
-  <p>メールアドレス:　<%= @user.email %></p>
+  <div class="g">
+    <ul>
+      <% if @group.empty? %>
+        <li>参加しているグループの一覧がここに表示されます</li>
+      <% else %>
+        <% @group.each do |group| %>
+          <li>
+            <i class="fas fa-circle icon"></i><%= group.name%>
+            <%= link_to group, class:"show_btn" do %>詳細<% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
 
   <div class="q">
     <ul>

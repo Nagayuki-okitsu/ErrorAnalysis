@@ -1,0 +1,33 @@
+// Place all the styles related to the group_users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.serach_mes{
+    color:rgb(107, 106, 102);
+}
+
+.join_button{
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0.5em 1.5em 0.5em 1em;
+    width: 215px;
+    color: rgb(53, 51, 48);
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(233, 224, 213);
+    border: 2px solid rgb(119, 117, 113); /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    border-radius: 30px;
+    transition: 0.3s;
+}
+    
+.join_button:hover {
+    background-color: #ccae77;
+    color: rgb(230, 227, 220);
+}

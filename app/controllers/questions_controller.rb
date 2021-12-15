@@ -99,11 +99,11 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1 or /questions/1.json
   def destroy
-    this_q_ans = Answer.where(question_id: @question.id)
-    this_q_ans.each do |ans|
-      Reply.where(answer_id: ans.id).destroy_all
-    end
-    this_q_ans.destroy_all
+    #this_q_ans = Answer.where(question_id: @question.id)
+    #this_q_ans.each do |ans|
+    #  Reply.where(answer_id: ans.id).destroy_all
+    #end
+    #this_q_ans.destroy_all
 
     @question.destroy
 

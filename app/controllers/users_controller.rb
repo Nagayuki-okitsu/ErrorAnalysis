@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     def show  
       @question = Question.where(user_id: @current_user.id)
       @answer = Answer.where(user_id: @current_user.id) 
+      @group = @current_user.groups
     end
 
     def create
