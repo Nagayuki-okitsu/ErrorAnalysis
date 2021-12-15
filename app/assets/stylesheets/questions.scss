@@ -8,6 +8,30 @@
     color: rgb(103, 138, 202);
 }
 
+.searchArea_around_1{
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+}
+
+.searchArea_around_2{
+    display: flex;
+    width: 100%;
+    max-width: 350px;
+}
+
+.searchArea_2{
+    margin-left: 10px;
+    position       : relative; 
+    width          : 200px;              /* BOXの幅               */
+    height         : 40px;               /* BOXの高さ             */
+    letter-spacing : 0.1em;              /* 文字間隔              */
+    font-weight    : bold;               /* 太字                  */
+    line-height    : 0;                  /* 標準の行高さ          */
+    box-shadow: 0 0 3px gray;
+    z-index: 2;
+}
+
 .searchButton_2 {
     position       : absolute;
     box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
@@ -21,6 +45,18 @@
     background     : #666;               /* ボタンの色            */
     color          : #fff;               /* 文字色                */
     cursor         : pointer;            /* カーソル設定          */
+}
+
+.groupArea{
+    margin-left: 10px;
+    position       : relative; 
+    width          : 180px;              /* BOXの幅               */
+    height         : 40px;               /* BOXの高さ             */
+    letter-spacing : 0.1em;              /* 文字間隔              */
+    font-weight    : bold;               /* 太字                  */
+    line-height    : 0;                  /* 標準の行高さ          */
+    box-shadow: 0 0 3px gray;
+    z-index: 2;
 }
 
 .sortArea{

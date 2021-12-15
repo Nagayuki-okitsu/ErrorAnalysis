@@ -31,25 +31,44 @@
 <div class="resultbox">
 
   <div align="center">
-    <div style="display: flex; width: 400px;">
+
+    <% if logged_in? %>
+      <div class="searchArea_around_1">
+    <% else %>
+      <div class="searchArea_around_2">
+    <% end %>
+    
       <%= form_with url:questions_path, method: :get do |f| %>
-        <div class="searchArea">
-          <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: "キーワードで絞る",class:"key_form" %>
+        <div class="searchArea_2">
+          <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: (session[:key].present?)?  session[:key] : "キーワードで絞る" %>
           <div class="searchButton_2" onclick="goSearch()">
             <%= image_submit_tag 'search.png', {class:"searchImg"} %>
           </div>
         </div>
       <% end %>
 
+      <% if logged_in? %>
+        <div class="groupArea">
+            <%= form_with url: questions_path, method: :get do |f| %>
+              <%= f.collection_select :group_name, @current_user.groups, :name, :name, include_blank: (session[:group_name].present?)?  session[:group_name] : "グループで絞る" %>
+              <div class="searchButton_2" onclick="goSearch()">
+                <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
+
       <div class="sortArea">
         <%= form_with url: questions_path, method: :get do |f| %>
-          <%= f.select :sort_key, [['新しい順 （ デフォルト ）', 'new'],['古い順', 'old']],{ include_blank: '並び替え' } %>
+          <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
           <div class="sortButton" onclick="goSearch()">
             <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
           </div>
         <% end %>
       </div>
+
     </div>
+
   </div>
 
   <table>
@@ -63,6 +82,7 @@
     </thead>
 
     <tbody>
+              
       <% @question.each do |question| %>
         <tr>
           <td><i class="fas fa-user-circle user_icon"></i></td>
@@ -72,6 +92,7 @@
           <td><%= link_to question, class:"btn-circle-flat" do %><i class="fas fa-check"></i> 詳細<% end %></td>
         </tr>
       <% end %>
+
     </tbody>
   </table>
 

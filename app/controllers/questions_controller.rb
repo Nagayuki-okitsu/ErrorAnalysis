@@ -6,22 +6,47 @@ class QuestionsController < ApplicationController
   # GET /questions or /questions.json
   def index
 
-    if params[:key].present?
+    if  params[:key].present?
       session[:key] = params[:key]
-    elsif params[:sort_key].nil?
-      session[:key] = ""
+    elsif params[:group_name].present?
+      session[:group_name] = params[:group_name]
+    elsif params[:sort_key].present?
+      session[:sort_key] = params[:sort_key]
+    else
+      session[:key] = session[:group_name] = session[:sort_key] = ""
     end
 
-    if session[:key].present?
-      @question = q_sort(params[:sort_key], Question.where(key: session[:key]))
+
+    if session[:key].present? || session[:group_name].present?
+
+      if session[:group_name].present?
+
+        group_user = GroupUser.where(group_id: Group.find_by(name: session[:group_name]).id)
+        
+        group_user_id = []
+        group_user.each do |g_u|
+          group_user_id.push(g_u.user_id)
+        end
+
+        @question = q_sort(params[:sort_key], Question.where(user_id: group_user_id))
+
+        if session[:key].present?
+          @question = q_sort(params[:sort_key], @question.where(key: session[:key]))
+        end
+       
+      else
+        @question = q_sort(params[:sort_key], Question.where(key: session[:key]))
+      end
+
     else
       @question = q_sort(params[:sort_key], Question.all)
     end
+
   end
 
   def q_sort(sort_key,question)
     case sort_key
-    when 'old'
+    when '古い順'
       question.order(:id)
     else 
       question.order(id: :DESC)
