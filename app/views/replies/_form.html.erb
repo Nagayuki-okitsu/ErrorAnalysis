@@ -22,9 +22,8 @@
       </div>
     <% end %>
   <% end %>
-</div>
 
-<%= form_with(model: reply) do |form| %>
+  <%= form_with(model: reply) do |form| %>
 
   <% if reply.errors.any? %>
     <div class="error_ms", style="font-size: 17px;">
@@ -48,3 +47,5 @@
 
 
 <% end %>
+
+</div>
