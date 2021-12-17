@@ -31,9 +31,9 @@
           <div class="flash"><%= flash[:group_mes] %></div>
         <% end %>
         
-        <h3 class="serach_mes">- グループを検索 -</h3>
+        <h3 class="search_mes">- グループを検索 -</h3>
         <%= form_with url:new_group_user_path, method: :get do |f| %>
-            <div class="searchArea">
+            <div class="searchArea_3">
             <%= text_field_tag "name","", {class: "searchText"} %>
             <div class="searchButton" onclick="goSearch()">
                 <%= image_submit_tag 'search.png', {class:"searchImg"} %>

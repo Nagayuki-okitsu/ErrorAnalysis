@@ -2,8 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.serach_mes{
+.search_mes{
     color:rgb(107, 106, 102);
+}
+
+.searchArea_3{
+    position       : relative; 
+    width          : 250px;              /* BOXの幅               */
+    height         : 40px;               /* BOXの高さ             */
+    margin         : auto;               /* サンプルを中心に寄せ  */
+    letter-spacing : 0.1em;              /* 文字間隔              */
+    font-weight    : bold;               /* 太字                  */
+    line-height    : 0;                  /* 標準の行高さ          */
+    box-shadow: 0 0 3px rgb(206, 206, 206);
+    z-index: 2;
 }
 
 .join_button{
