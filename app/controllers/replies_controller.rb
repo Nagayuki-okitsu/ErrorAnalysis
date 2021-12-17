@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
     before_action :set_rep, only: %i[ edit update destroy ]
-    before_action :logged_in_user, only:[:new]
+    before_action :logged_in_user, only: %i[ new edit ]
 
     def new 
         @reply = Reply.new

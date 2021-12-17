@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-    before_action :logged_in_user, only:[:new,:create, :edit, :update, :destroy]
+    before_action :logged_in_user, only: %i[ new create edit update destroy]
 
     def new
         @group = Group.new

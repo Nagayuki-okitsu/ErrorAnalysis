@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3]
-  before_action :logged_in_user, only:[:new,:create, :edit, :update, :destroy]
-  before_action :current_user, only:[:new,:create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: %i[ new create edit update destroy]
+  before_action :current_user, only: %i[ new create edit update destroy]
 
   # GET /questions or /questions.json
   def index
@@ -21,13 +21,16 @@ class QuestionsController < ApplicationController
 
       if session[:group_name].present?
 
+        #選択されたグループと一致する中間テーブルを抽出
         group_user = GroupUser.where(group_id: Group.find_by(name: session[:group_name]).id)
-        
+
+        #抽出された中間テーブルに存在するuser_idを全て配列に格納する
         group_user_id = []
         group_user.each do |g_u|
           group_user_id.push(g_u.user_id)
         end
 
+        #配列に存在するuser_idと一致する質問を全て抽出し、ソートしてインスタンス変数に格納
         @question = q_sort(params[:sort_key], Question.where(user_id: group_user_id))
 
         if session[:key].present?
@@ -84,15 +87,13 @@ class QuestionsController < ApplicationController
       @question.image_content_type_3 = params[:question][:image_3].content_type
     end
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: "Question was successfully created." }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+  
+    if @question.save
+      redirect_to @question
+    else
+      render :new
     end
+    
   end
 
   # PATCH/PUT /questions/1 or /questions/1.json
@@ -111,42 +112,31 @@ class QuestionsController < ApplicationController
         @question.image_content_type_3 = params[:question][:image_3].content_type
       end
       
-      respond_to do |format|
-        if @question.update(question_params)
-          format.html { redirect_to @question, notice: "Question was successfully updated." }
-          format.json { render :show, status: :ok, location: @question }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @question.errors, status: :unprocessable_entity }
-        end
+    
+      if @question.update(question_params)
+        redirect_to @question
+      else
+        render :edit
       end
+      
   end
 
   # DELETE /questions/1 or /questions/1.json
   def destroy
-    #this_q_ans = Answer.where(question_id: @question.id)
-    #this_q_ans.each do |ans|
-    #  Reply.where(answer_id: ans.id).destroy_all
-    #end
-    #this_q_ans.destroy_all
-
     @question.destroy
 
     redirect_to user_path(@current_user)
   end
 
   def show_image
-    @question = Question.find(params[:id])
     send_data(@question.image, type: @question.image_content_type, disposition: :inline)
   end
 
   def show_image_2
-    @question = Question.find(params[:id])
     send_data(@question.image_2, type: @question.image_content_type_2, disposition: :inline)
   end
 
   def show_image_3
-    @question = Question.find(params[:id])
     send_data(@question.image_3, type: @question.image_content_type_3, disposition: :inline)
   end
 
