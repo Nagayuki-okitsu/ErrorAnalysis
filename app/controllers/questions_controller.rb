@@ -67,6 +67,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
+    @image = @question.image
+    @image_2 = @question.image_2
+    @image_3 = @question.image_3
   end
 
   # POST /questions or /questions.json

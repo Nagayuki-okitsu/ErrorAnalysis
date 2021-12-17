@@ -86,7 +86,7 @@
         <% if reply.present? %>
           <% reply.each do |rep| %>
             <div class="rep">
-              <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: rep.user_id).name %>
+              <h5><i class="fas fa-user-circle user_icon_2"></i> <%= User.find_by(id: rep.user_id).name %>
                 <% if current_user?(User.find_by(id: rep.user_id)) %>
                   <div class="rep_edit_delete_link">
                     <%= link_to  edit_reply_path(rep) do%>

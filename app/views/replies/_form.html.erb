@@ -17,7 +17,7 @@
   <% if rep.present? %>
     <% rep.each do |rep| %>
       <div class="rep">
-        <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: rep.user_id).name %></h5>
+        <h5><i class="fas fa-user-circle user_icon_2"></i> <%= User.find_by(id: rep.user_id).name %></h5>
         <p><%= rep.reply %></p>
       </div>
     <% end %>

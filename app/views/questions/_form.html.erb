@@ -24,6 +24,9 @@
     <div class="field">
       <%= form.label :画像（任意で最大３つまで：プログラムのスクリーンショットなど）, class: "q_label" %>
       <table class="image_table">
+      <% if @image.present? || @image_2.present? || @image_3.present?%>
+        <p style="color: red;">※ 前回投稿した画像は保存されています。変更する場合のみ新たに選択してください。</p>
+      <% end %>
         <tr><td>・１つ目　<%= form.file_field :image, class: "image_field" %></td></tr>
         <tr><td>・２つ目　<%= form.file_field :image_2, class: "image_field" %></td></tr>
         <tr><td>・３つ目　<%= form.file_field :image_3, class: "image_field" %></td></tr>
