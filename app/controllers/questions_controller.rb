@@ -82,7 +82,7 @@ class QuestionsController < ApplicationController
       @question.image_2 = params[:question][:image_2].read
       @question.image_content_type_2 = params[:question][:image_2].content_type
     end
-    if params[:question][:image].present?
+    if params[:question][:image_3].present?
       @question.image_3 = params[:question][:image_3].read
       @question.image_content_type_3 = params[:question][:image_3].content_type
     end
@@ -107,7 +107,7 @@ class QuestionsController < ApplicationController
         @question.image_2 = params[:question][:image_2].read
         @question.image_content_type_2 = params[:question][:image_2].content_type
       end
-      if params[:question][:image].present?
+      if params[:question][:image_3].present?
         @question.image_3 = params[:question][:image_3].read
         @question.image_content_type_3 = params[:question][:image_3].content_type
       end
