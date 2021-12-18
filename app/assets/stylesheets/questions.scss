@@ -197,6 +197,36 @@
     top: 80px;
 }
 
+.ans_edit_delete_btn{
+    width: 63.5px;
+    z-index: 2;
+    position: relative;
+    margin-left: 20px;
+    padding: 3;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 550;
+    color: rgb(97, 135, 179);
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    border: 1px solid rgb(233, 230, 226);
+    box-shadow: 0 0 7px rgb(120, 120, 121);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ans_edit_delete_btn:hover{
+    color: rgb(255, 255, 255);
+    background: #39587c;
+    border: 1px solid #39587c;
+    box-shadow: 0 0 5px rgb(51, 51, 51);
+}
+
+.ans_edit_delete_link{
+    z-index: 11;
+    position: relative;
+}
+
 .rep_edit_delete_btn{
     cursor: pointer;
     position: relative;
@@ -210,14 +240,13 @@
     color: rgb(255, 255, 255);
     font-size: 13px;
     font-weight: bold;
-    background-color: #679ac9;
+    background-color: rgb(136, 172, 122);
     box-shadow: 0 0 1px rgb(44, 43, 43);
-    border-radius: 2px;
-    transition: 0.3s;
+    border-radius: 5px;
 }
 
 .rep_edit_delete_btn:hover{
-    background-color: #1a3e53;
+    background-color: rgb(66, 94, 54);
     color: rgb(255, 255, 255);
     box-shadow: 0 0 2px rgb(0, 0, 0);
 }
@@ -236,12 +265,7 @@ table{
   
 table tr{
     border-bottom: solid 1px #eee;
-    //cursor: pointer;
 }
-/*
-table tr:hover{
-    background-color: #f5e9c2;
-}*/
 
 table td{
     padding: 15px 0;
@@ -359,11 +383,15 @@ label {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
 }
 .ans_box .box-title {
+    display: flex;
+    justify-content: center;
     font-size: 1.2em;
     background: #679ac9;
     padding: 4px;
+    padding-left: 50px;
     margin-bottom: 50px;
     text-align: center;
+    align-items: center;
     color: #FFF;
     font-weight: bold;
     letter-spacing: 0.05em;
@@ -377,10 +405,57 @@ label {
     color: #679ac9;
 }
 
+.rep h5{
+    color: rgb(136, 172, 122);
+}
+
+
 .ans_con{
     padding-bottom: 50px;
     border-bottom: 3px solid rgb(223, 223, 223);
 }
+
+.befor_nice_btn{
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+    position: relative;
+    padding: 3px;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(233, 233, 233);
+    background: rgb(70, 70, 70);
+    font-weight: bold;
+    border: 1px solid rgb(68, 68, 68);
+    box-shadow: 0 0 2px rgb(78, 76, 76);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+.after_nice_btn{
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+    position: relative;
+    padding: 3px;
+    align-items: center;
+    font-size: 18px;
+    color: rgb(255, 225, 57);
+    background: rgb(70, 70, 70);
+    font-weight: bold;
+    border: 1px solid rgb(68, 68, 68);
+    box-shadow: 0 0 2px rgb(238, 233, 186);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.nice_link{
+    z-index: 11;
+    position: relative;
+    margin-left: 50px;
+}
+
 
 .rep{
     padding-bottom: 30px;

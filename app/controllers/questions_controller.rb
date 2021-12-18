@@ -92,6 +92,7 @@ class QuestionsController < ApplicationController
 
   
     if @question.save
+      flash[:q_mes] = "質問を送信しました"
       redirect_to @question
     else
       render :new
@@ -117,6 +118,7 @@ class QuestionsController < ApplicationController
       
     
       if @question.update(question_params)
+        flash[:q_mes] = "質問を編集しました"
         redirect_to @question
       else
         render :edit
@@ -127,7 +129,7 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1 or /questions/1.json
   def destroy
     @question.destroy
-
+    flash[:q_mes] = "質問を削除しました"
     redirect_to user_path(@current_user)
   end
 

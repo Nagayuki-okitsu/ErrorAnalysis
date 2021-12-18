@@ -1,0 +1,5 @@
+<div class="nice_link">
+    <%= link_to nice_path(current_user.nices.find_by(answer: answer)), method: :delete, remote: true do %>
+        <button class="after_nice_btn"><i class="fas fa-thumbs-up"></i></button> 
+    <% end %>
+</div>

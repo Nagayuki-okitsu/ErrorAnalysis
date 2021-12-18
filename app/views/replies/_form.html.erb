@@ -25,27 +25,27 @@
 
   <%= form_with(model: reply) do |form| %>
 
-  <% if reply.errors.any? %>
-    <div class="error_ms", style="font-size: 17px;">
-      <h5>・返信内容を入力してください</h5>
+    <% if reply.errors.any? %>
+      <div class="error_ms", style="font-size: 17px;">
+        <h5 style="color: red;">・返信内容を入力してください</h5>
+      </div>
+    <% end %>
+
+    <% if reply.answer_id.nil? %>
+      <%= form.hidden_field :answer_id, :value => @answer.id %>
+    <% else %>
+      <%= form.hidden_field :answer_id, :value => reply.answer_id %>
+    <% end %>
+
+
+    <div class="field">
+      <%= form.label :返信内容, class: "ans_label" %>
+      <%= form.text_area :reply, class: "ans_form" %>
     </div>
+
+    <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+
+
   <% end %>
-
-  <% if reply.answer_id.nil? %>
-    <%= form.hidden_field :answer_id, :value => @answer.id %>
-  <% else %>
-    <%= form.hidden_field :answer_id, :value => reply.answer_id %>
-  <% end %>
-
-
-  <div class="field">
-    <%= form.label :返信内容, class: "ans_label" %>
-    <%= form.text_area :reply, class: "ans_form" %>
-  </div>
-
-  <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
-
-
-<% end %>
 
 </div>

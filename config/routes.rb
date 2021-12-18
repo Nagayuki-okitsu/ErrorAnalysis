@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :group_users, only: [:new, :create, :destroy]
 
+  resources :nices, only: [:create, :destroy] 
+
   resources :users 
 
   resources :questions do

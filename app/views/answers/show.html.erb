@@ -22,22 +22,13 @@
     </div>
   <% end %>
 
-  
-  <div class="edit_link">
-    <%= link_to  edit_answer_path(@answer) do%>
-      <button class="edit_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
-    <% end %>
-  </div>
-  
-  <div class="delete_link">
-    <%= link_to  answer_path(@answer), method: :delete,data: {confirm: "参照中のあなたの回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
-      <button class="delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
-    <% end %>
-  </div>
-
 </nav>
 
 <div class="resultbox">
+
+    <% if flash[:ans_mes] %>
+      <div class="flash"><%= flash[:ans_mes] %></div>
+    <% end %>
 
   <h5><i class="fas fa-pen q_icon"></i>  <%= @question.created_at.strftime("%Y年 %m月 %d日") %></h5>
   <h5><i class="fas fa-history"></i>  <%= @question.updated_at.strftime("%Y年 %m月 %d日") %></h5>

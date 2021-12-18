@@ -9,7 +9,7 @@
   </div>
   
   <div class="log">
-    <%= link_to  logout_path, method: :delete do %>
+    <%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
       <button class="btn"><i class="fas fa-user-check"></i> ログアウト</button>
     <% end %>
   </div>
@@ -29,64 +29,84 @@
 
 </nav>
 
-<div class="resultbox">
-
-  <div style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
-  <% if flash[:group_mes] %>
-    <div class="flash"><%= flash[:group_mes] %></div>
+<div class="resultbox" align="center">
+  <% if flash[:signup_mess] %>
+   <div class="flash_signup", style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
+  <% end %>
+  <% if flash[:user_mes] %>
+    <div class="flash"><%= flash[:user_mes] %></div>
   <% end %>
   
 
   <div class="u_info">
-    <h3><i class="fas fa-user-circle user_icon"></i> <%= @user.name %></h3>
-    <h3><i class="fas fa-envelope user_icon"></i> <%= @user.email %></h3>
-  </div>
+    <table>
+      <tr>
+        <th><i class="fas fa-user-circle show_user_icon"></i>ニックネーム</th> 
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th><i class="fas fa-envelope show_user_icon"></i>メールアドレス</th> 
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th><i class="fas fa-thumbs-up show_user_icon"></i>総いいね数</th>
+        <td><%= @nice %></td>
+      </tr>
 
-  <div class="g">
-    <ul>
+      <tr>
+        <th><i class="fas fa-users show_user_icon"></i>参加グループ</th>
+        <td><b>グループ名</b></td>
+      </tr>
       <% if @group.empty? %>
-        <li>参加しているグループの一覧がここに表示されます</li>
+        <tr>
+          <th></th>
+          <td>なし</td>
+        </tr>
       <% else %>
         <% @group.each do |group| %>
-          <li>
-            <i class="fas fa-circle icon"></i><%= group.name%>
-            <%= link_to group, class:"show_btn" do %>詳細<% end %>
-          </li>
+          <tr>
+            <th><%= link_to group, class:"show_btn" do %>詳細<% end %></th>
+            <td><%= group.name %></td>
+          </tr>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
+      <% end %> 
 
-  <div class="q">
-    <ul>
+      <tr>
+        <th><i class="fas fa-question-circle show_user_icon"></i>投稿した質問</th>
+        <td><b>質問タイトル</b></td>
+      </tr>
       <% if @question.empty? %>
-        <li>投稿した質問の一覧がここに表示されます</li>
+        <tr>
+          <th></th>
+          <td>なし</td>
+        </tr>
       <% else %>
         <% @question.each do |question| %>
-          <li>
-            <i class="fas fa-circle icon"></i><%= question.title.truncate(50) %>
-            <%= link_to question, class:"show_btn" do %>詳細<% end %>
-          </li>
+          <tr>
+            <th><%= link_to question, class:"show_btn" do %>詳細<% end %></th>
+            <td><%= question.title.truncate(50) %></td>
+          </tr>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
+      <% end %> 
 
-  <div class="a">
-    <ul>
+      <tr>
+        <th><i class="fas fa-graduation-cap show_user_icon"></i>投稿した回答</th>
+        <td><b>回答内容</b></td>
+      </tr>
       <% if @answer.empty? %>
-        <li>投稿した回答の一覧がここに表示されます</li>
+        <tr>
+          <th></th>
+          <td>なし</td>
+        </tr>
       <% else %>
         <% @answer.each do |answer| %>
-          <li>
-          <i class="fas fa-circle icon"></i><%= answer.answer.truncate(50) %>
-          <%= link_to answer, class:"show_btn" do %>詳細<% end %>
-          </li>
+          <tr>
+            <th><%= link_to question_path(Question.find(answer.question_id)), class:"show_btn" do %>詳細<% end %></th>
+            <td><%= answer.answer.truncate(50) %></td>
+          </tr>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
-  
-</div>
+      <% end %> 
 
+    </table>
+  </div>
 

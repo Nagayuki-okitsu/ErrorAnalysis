@@ -10,6 +10,14 @@ class UsersController < ApplicationController
       @question = Question.where(user_id: @current_user.id)
       @answer = Answer.where(user_id: @current_user.id) 
       @group = @current_user.groups
+      answer_array = []
+      @answer.each do |answer|
+        answer_array.push(answer.id)
+      end
+      @nice = Nice.where(answer_id: answer_array).length
+      if @nice.nil?
+        @nice = 0
+      end
     end
 
     def create
@@ -22,6 +30,7 @@ class UsersController < ApplicationController
             render :new
           end
     end
+
 
     private
    
