@@ -29,7 +29,7 @@
       <% end %>
     </div>
     <div class="delete_link">
-      <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答、返信が全て削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
+      <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答、返信が全て削除されます。\n削除した内容を復元することはできません。\n※この質問への回答に押された「いいね」は保存されます。\n本当に削除しますか？"} do%>
         <button class="delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
       <% end %>
     </div>
@@ -76,35 +76,38 @@
     <% @answer.each do |answer| %>
 
       <div class="ans_box">
-          <div class="box-title"><%= User.find_by(id: answer.user_id).name %> さんの回答
+          <div class="box-title">
           
-          <% if logged_in? %>
-              <% if current_user.own?(answer) %>
+            <div style="font-size: 15px; padding-right: 5px;">
+              <%= User.find_by(id: answer.user_id).name %>さんの</div>回答
+            
+            <% if logged_in? %>
+                <% if current_user.own?(answer) %>
 
-                <div class="ans_edit_delete_link">
-                  <%= link_to  edit_answer_path(answer) do%>
-                    <button class="ans_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
-                  <% end %>
-                </div>
-                
-                <div class="ans_edit_delete_link">
-                  <%= link_to  answer_path(answer), method: :delete,data: {confirm: "この回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
-                    <button class="ans_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
-                  <% end %>
-                </div>
+                  <div class="ans_edit_delete_link">
+                    <%= link_to  edit_answer_path(answer) do%>
+                      <button class="ans_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+                    <% end %>
+                  </div>
+                  
+                  <div class="ans_edit_delete_link">
+                    <%= link_to  answer_path(answer), method: :delete,data: {confirm: "この回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
+                      <button class="ans_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+                    <% end %>
+                  </div>
 
-              <% else %>
+                <% else %>
 
-                <div id="nice-btn-<%=answer.id%>" >
-                  <% if current_user&.nice?(answer) %>
-                    <%= render 'nices/not_nice_btn', answer: answer %>
-                  <% else %>
-                    <%= render 'nices/nice_btn', answer: answer %>
-                  <% end %>
-                </div>
+                  <div id="nice-btn-<%=answer.id%>" >
+                    <% if current_user&.nice?(answer) %>
+                      <%= render 'nices/not_nice_btn', answer: answer %>
+                    <% else %>
+                      <%= render 'nices/nice_btn', answer: answer %>
+                    <% end %>
+                  </div>
 
+                <% end %>
               <% end %>
-            <% end %>
 
           </div>
 

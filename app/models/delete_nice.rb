@@ -1,0 +1,2 @@
+class DeleteNice < ApplicationRecord
+end

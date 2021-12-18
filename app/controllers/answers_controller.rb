@@ -48,6 +48,13 @@ class AnswersController < ApplicationController
 
   # DELETE /answers/1 or /answers/1.json
   def destroy
+    #削除されたいいねを表示するための処理
+    Nice.where(answer_id: @answer.id).length.times do 
+      @delete_nice = DeleteNice.new
+      @delete_nice.delete_answer_include_nice = @answer.user_id
+      @delete_nice.save
+    end
+
     @answer.destroy
     flash[:q_mes] = "回答を削除しました"
     redirect_to question_path(Question.find(@answer.question_id))

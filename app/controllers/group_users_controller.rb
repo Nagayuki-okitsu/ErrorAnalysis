@@ -19,14 +19,14 @@ class GroupUsersController < ApplicationController
         @group_user = GroupUser.new(group_user_params)
 
         if @group_user.save
-            flash[:group_mes] = "#{Group.find(@group_user.group_id).name}に参加しました"
+            flash[:user_mes] = "#{Group.find(@group_user.group_id).name}に参加しました"
             redirect_to user_path(@current_user)
         end
     end
 
     def destroy
         GroupUser.where(user_id: @current_user.id).find_by(group_id: params[:group_id]).destroy
-        flash[:group_mes] = "#{Group.find(params[:group_id]).name}から退会しました"
+        flash[:user_mes] = "#{Group.find(params[:group_id]).name}から退会しました"
 
         redirect_to user_path(@current_user)
     end

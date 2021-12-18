@@ -128,6 +128,16 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1 or /questions/1.json
   def destroy
+    #削除されたいいねを表示するための処理（dependent: :destroyではなくここで直接削除する）
+    Answer.where(question_id: @question.id).each do |answer|
+      Nice.where(answer_id: answer.id).length.times do 
+        @delete_nice = DeleteNice.new
+        @delete_nice.delete_answer_include_nice = answer.user_id
+        @delete_nice.save
+      end
+      answer.destroy
+    end
+
     @question.destroy
     flash[:q_mes] = "質問を削除しました"
     redirect_to user_path(@current_user)

@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
         @group = Group.new(group_params)
 
         if @group.save
-            flash[:group_mes] = "「#{@group.name}」というグループを作成・参加しました"
+            flash[:user_mes] = "「#{@group.name}」というグループを作成・参加しました"
             redirect_to user_path(@current_user)
         else
             render :new

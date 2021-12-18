@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 
     def new
-        @user = User.new
+      @user = User.new
     end
 
     def show  
@@ -14,10 +14,17 @@ class UsersController < ApplicationController
       @answer.each do |answer|
         answer_array.push(answer.id)
       end
-      @nice = Nice.where(answer_id: answer_array).length
-      if @nice.nil?
-        @nice = 0
+
+      @nice = 0
+
+      if DeleteNice.where(delete_answer_include_nice: current_user.id).present?
+        @nice += DeleteNice.where(delete_answer_include_nice: current_user.id).length
       end
+
+      if Nice.where(answer_id: answer_array).present?
+        @nice += Nice.where(answer_id: answer_array).length
+      end
+
     end
 
     def create
