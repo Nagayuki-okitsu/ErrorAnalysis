@@ -6,7 +6,7 @@
     <% answer = Answer.find(@reply.answer_id) %>
   <% end %>
 
-  <div class="box-title">返信対象の回答（ページ下部に返信フォームがあります）</div>
+  <div class="box-title">返信対象の回答</div>
   <h5><i class="fas fa-user-circle user_icon"></i> <%= User.find_by(id: answer.user_id).name %></h5>
   <div class="ans_con">
     <p><%= answer.answer %></p>
@@ -37,14 +37,14 @@
       <%= form.hidden_field :answer_id, :value => reply.answer_id %>
     <% end %>
 
+    <div class="ans_form_box">
+      <div class="field">
+        <%= form.label :返信フォーム, class: "ans_label" %>
+        <%= form.text_area :reply, class: "ans_form" %>
+      </div>
 
-    <div class="field">
-      <%= form.label :返信内容, class: "ans_label" %>
-      <%= form.text_area :reply, class: "ans_form" %>
+      <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
     </div>
-
-    <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
-
 
   <% end %>
 

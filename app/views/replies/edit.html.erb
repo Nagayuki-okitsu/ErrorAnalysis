@@ -1,29 +1,10 @@
-<nav>
+<%= render 'layouts/nav' %> 
+<%= render 'layouts/back' %> 
 
-  <%= render 'layouts/nav' %> 
-
-  <div class="signup_link">
-    <%= link_to new_user_path do %>
-      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
-    <% end %>
+<div class="content_box">
+  <div class="around_box">
+    <div class="q_a_box">
+      <%= render 'form', reply: @reply %>
+    </div>
   </div>
-
-  <% if logged_in? %>
-    <div class="log">
-      <%= link_to  user_path(@current_user) do %>
-        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="log">
-      <%= link_to  login_path do%>
-        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
-      <% end %>
-    </div>
-  <% end %>
-
-</nav>
-
-<div class="resultbox">
-  <%= render 'form', reply: @reply %>
 </div>

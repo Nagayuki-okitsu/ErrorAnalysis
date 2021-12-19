@@ -13,7 +13,8 @@
     letter-spacing : 0.1em;              /* 文字間隔              */
     font-weight    : bold;               /* 太字                  */
     line-height    : 0;                  /* 標準の行高さ          */
-    box-shadow: 0 0 3px gray;
+    background-color: rgb(73, 72, 72);
+    box-shadow: 0 0 10px rgb(26, 25, 25);
     z-index: 2;
 }
    
@@ -73,68 +74,64 @@
     display        : none;               /* ×を消す              */
 }
 
-.alertbox{
-    width: 80%;
-    max-width: 580px;
-    margin: 0 auto;
-    background-color: #edebff;
-    border: solid 1px rgb(37, 40, 161);
-    padding: 20px 5px 5px 30px;
-    margin-bottom: 50px;
+//フェード文章
+
+.content {      
+    margin-top: 50px;
+    width:auto;
+    height: auto;
 }
-  
-.alert-title{
-    color: #5068ef;
+
+.content p {
     font-size: 18px;
-    font-weight: bold;
-}
-  
-.alert{
-    font-size: 17px;
-}
-  
-.alertsbox p{
-    margin: 0;
-    padding: 0;
+    color: #fff;
+    line-height: 5em;
 }
 
-.example{
-    position: relative;
+/*以下フェードイン表示の指定*/
+.fadein {
+    opacity: 0;
+    animation: fadein 3s ease forwards;
+}
+@keyframes fadein {
+    100% {  opacity: 1;}
+}
+ 
+/*以下遅延の指定*/
+.txt01 {animation-delay: 1s;}
+.txt02 {animation-delay: 4s;}
+.txt03 {animation-delay: 7s;}
+.txt04 {animation-delay: 10s;}
+.txt05 {animation-delay: 13s;}
+.txt06 {animation-delay: 16s;}
+
+//解析結果
+.resultbox{
+    margin: auto;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    width: 60%;
+    background-color: rgb(233, 244, 250);
+    box-shadow: 0 0 10px rgb(26, 25, 25);
+}
+
+.resultbox p{
+    padding: 20px 0 20px 30px;
+    white-space:pre-wrap;
+}
+
+.mess{
     text-align: center;
-    font-size: large;
-    font-weight: bold;
-    color: rgb(68, 65, 65);
-    //text-decoration:underline;
 }
 
-.ex_copy{
-    width: 100%;
-    max-width: 450px;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
+//解析結果内のh4
+.resultbox h4 {
+    position: relative;
+    background: #dad7d4;
+    padding: 5px 5px 5px 20px;
+    font-size: 18px;
+    color: #5c5a56;
+    border-radius: 0 10px 10px 0;
 }
-
-.ex_input{
-    width: 100%;
-    max-width: 300px;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.ex_result{
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.ex_question{
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.down{
-    font-size: 40px;
-    margin: 40px 0 40px 0;
-    color: rgb(121, 121, 121);
-}
-
-

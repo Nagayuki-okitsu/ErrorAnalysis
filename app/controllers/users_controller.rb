@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     end
 
     def show  
+      @now_user_show = "true"
       @question = Question.where(user_id: @current_user.id)
       @answer = Answer.where(user_id: @current_user.id) 
       @group = @current_user.groups

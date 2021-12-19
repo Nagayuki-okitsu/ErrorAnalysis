@@ -1,99 +1,81 @@
-<nav>
-  
-  <%= render 'layouts/nav' %> 
+<%= render 'layouts/nav' %> 
+<%= render 'layouts/back' %> 
 
-  <div class="signup_link">
-    <%= link_to new_user_path do %>
-      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+<div class="content_box">
+  <div class="around_box">
+
+    <%= button_to new_question_path, :class => 'q_btn', :method => :get do %>
+      <i class="fas fa-pen q_icon"></i>質問する
     <% end %>
-  </div>
 
-  <% if logged_in? %>
-    <div class="log">
-      <%= link_to  user_path(@current_user) do %>
-        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="log">
-      <%= link_to  login_path do%>
-        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
-      <% end %>
-    </div>
-  <% end %>
+    <div class="q_a_box">
 
-  <%= button_to new_question_path, :class => 'button06', :method => :get do %>
-    <i class="fas fa-pen q_icon"></i>質問する
-  <% end %>
+      <div align="center">
 
-</nav>
-
-<div class="resultbox">
-
-  <div align="center">
-
-    <% if logged_in? %>
-      <div class="searchArea_around_1">
-    <% else %>
-      <div class="searchArea_around_2">
-    <% end %>
-    
-      <%= form_with url:questions_path, method: :get do |f| %>
-        <div class="searchArea_2">
-          <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: (session[:key].present?)?  session[:key] : "キーワードで絞る" %>
-          <div class="searchButton_2" onclick="goSearch()">
-            <%= image_submit_tag 'search.png', {class:"searchImg"} %>
-          </div>
-        </div>
-      <% end %>
-
-      <% if logged_in? %>
-        <div class="groupArea">
-            <%= form_with url: questions_path, method: :get do |f| %>
-              <%= f.collection_select :group_name, @current_user.groups, :name, :name, include_blank: (session[:group_name].present?)?  session[:group_name] : "グループで絞る" %>
+        <% if logged_in? %>
+          <div class="searchArea_around_1">
+        <% else %>
+          <div class="searchArea_around_2">
+        <% end %>
+        
+          <%= form_with url:questions_path, method: :get do |f| %>
+            <div class="searchArea_2">
+              <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: (session[:key].present?)?  session[:key] : "キーワードで絞る" %>
               <div class="searchButton_2" onclick="goSearch()">
                 <%= image_submit_tag 'search.png', {class:"searchImg"} %>
               </div>
-            <% end %>
-        </div>
-      <% end %>
+            </div>
+          <% end %>
 
-      <div class="sortArea">
-        <%= form_with url: questions_path, method: :get do |f| %>
-          <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
-          <div class="sortButton" onclick="goSearch()">
-            <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
+          <% if logged_in? %>
+            <div class="groupArea">
+                <%= form_with url: questions_path, method: :get do |f| %>
+                  <%= f.collection_select :group_name, @current_user.groups, :name, :name, include_blank: (session[:group_name].present?)?  session[:group_name] : "グループで絞る" %>
+                  <div class="searchButton_2" onclick="goSearch()">
+                    <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+                  </div>
+                <% end %>
+            </div>
+          <% end %>
+
+          <div class="sortArea">
+            <%= form_with url: questions_path, method: :get do |f| %>
+              <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
+              <div class="sortButton" onclick="goSearch()">
+                <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+
+        </div>
+
       </div>
 
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>タイトル</th>
+            <th>質問内容</th>
+          </tr>
+        </thead>
+
+        <tbody>
+                  
+          <% @question.each do |question| %>
+            <tr>
+              <td><i class="fas fa-user-circle user_icon"></i></td>
+              <td class="user_td"> <%= User.find_by(id: question.user_id).name.truncate(6) %></td>
+              <td class="title_td"><%= question.title.truncate(30) %></td>
+              <td class="conte_td"><%= question.content.truncate(20) %></td>
+              <td><%= link_to question, class:"btn-circle-flat" do %><i class="fas fa-check"></i> 詳細<% end %></td>
+            </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+
     </div>
-
   </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th>タイトル</th>
-        <th>質問内容</th>
-      </tr>
-    </thead>
-
-    <tbody>
-              
-      <% @question.each do |question| %>
-        <tr>
-          <td><i class="fas fa-user-circle user_icon"></i></td>
-          <td class="user_td"> <%= User.find_by(id: question.user_id).name.truncate(6) %></td>
-          <td class="title_td"><%= question.title.truncate(30) %></td>
-          <td class="conte_td"><%= question.content.truncate(20) %></td>
-          <td><%= link_to question, class:"btn-circle-flat" do %><i class="fas fa-check"></i> 詳細<% end %></td>
-        </tr>
-      <% end %>
-
-    </tbody>
-  </table>
-
 </div>

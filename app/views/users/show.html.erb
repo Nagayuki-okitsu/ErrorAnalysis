@@ -1,112 +1,100 @@
-<nav>
+<%= render 'layouts/nav' %> 
+<%= render 'layouts/back' %> 
 
-  <%= render 'layouts/nav' %> 
+<div class="content_box" align="center">
+  <div class="around_box">
 
-  <div class="signup_link">
-    <%= link_to new_user_path do %>
-      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
-    <% end %>
-  </div>
-  
-  <div class="log">
-    <%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
-      <button class="btn"><i class="fas fa-user-check"></i> ログアウト</button>
-    <% end %>
-  </div>
+      <div class="g_c_j">
+        <div class="g_create_link">
+          <%= link_to  new_group_path do%>
+            <button class="g_create_btn"><i class="fas fa-plus-circle"></i> グループを作成</button>
+          <% end %>
+        </div>
+        <div class="g_join_link">
+          <%= link_to  new_group_user_path do%>
+            <button class="g_join_btn"><i class="fas fa-sign-in-alt"></i> グループに参加</button>
+          <% end %>
+        </div>
+      </div>
 
- 
-  <div class="g_create_link">
-    <%= link_to  new_group_path do%>
-      <button class="g_create_btn"><i class="fas fa-plus-circle"></i> グループを作成</button>
-    <% end %>
-  </div>
-  <div class="g_join_link">
-    <%= link_to  new_group_user_path do%>
-      <button class="g_join_btn"><i class="fas fa-sign-in-alt"></i> グループに参加</button>
-    <% end %>
-  </div>
-  
+      <% if flash[:signup_mess] %>
+        <div class="flash_signup", style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
+      <% end %>
+      <% if flash[:user_mes] %>
+        <div class="flash"><%= flash[:user_mes] %></div>
+      <% end %>
+      
 
-</nav>
-
-<div class="resultbox" align="center">
-  <% if flash[:signup_mess] %>
-   <div class="flash_signup", style="color: blue; text-align: center;"><%= flash[:signup_mess] %></div>
-  <% end %>
-  <% if flash[:user_mes] %>
-    <div class="flash"><%= flash[:user_mes] %></div>
-  <% end %>
-  
-
-  <div class="u_info">
-    <table>
-      <tr>
-        <th><i class="fas fa-user-circle show_user_icon"></i>ニックネーム</th> 
-        <td><%= @user.name %></td>
-      </tr>
-      <tr>
-        <th><i class="fas fa-envelope show_user_icon"></i>メールアドレス</th> 
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th><i class="fas fa-thumbs-up show_user_icon"></i>総いいね数</th>
-        <td><%= @nice %></td>
-      </tr>
-
-      <tr>
-        <th><i class="fas fa-users show_user_icon"></i>参加グループ</th>
-        <td><b>- グループ名 -</b></td>
-      </tr>
-      <% if @group.empty? %>
-        <tr>
-          <th></th>
-          <td>なし</td>
-        </tr>
-      <% else %>
-        <% @group.each do |group| %>
+      <div class="u_info">
+        <table>
           <tr>
-            <th><%= link_to group, class:"show_btn" do %>詳細<% end %></th>
-            <td><%= group.name %></td>
+            <th><i class="fas fa-user-circle show_user_icon"></i>ニックネーム</th> 
+            <td><%= @user.name %></td>
           </tr>
-        <% end %>
-      <% end %> 
-
-      <tr>
-        <th><i class="fas fa-question-circle show_user_icon"></i>投稿した質問</th>
-        <td><b>- 質問タイトル -</b></td>
-      </tr>
-      <% if @question.empty? %>
-        <tr>
-          <th></th>
-          <td>なし</td>
-        </tr>
-      <% else %>
-        <% @question.each do |question| %>
           <tr>
-            <th><%= link_to question, class:"show_btn" do %>詳細<% end %></th>
-            <td><%= question.title.truncate(50) %></td>
+            <th><i class="fas fa-envelope show_user_icon"></i>メールアドレス</th> 
+            <td><%= @user.email %></td>
           </tr>
-        <% end %>
-      <% end %> 
-
-      <tr>
-        <th><i class="fas fa-graduation-cap show_user_icon"></i>投稿した回答</th>
-        <td><b>- 回答内容 -</b></td>
-      </tr>
-      <% if @answer.empty? %>
-        <tr>
-          <th></th>
-          <td>なし</td>
-        </tr>
-      <% else %>
-        <% @answer.each do |answer| %>
           <tr>
-            <th><%= link_to question_path(Question.find(answer.question_id)), class:"show_btn" do %>詳細<% end %></th>
-            <td><%= answer.answer.truncate(50) %></td>
+            <th><i class="fas fa-thumbs-up show_user_icon"></i>総いいね数</th>
+            <td><%= @nice %></td>
           </tr>
-        <% end %>
-      <% end %> 
 
-    </table>
+          <tr>
+            <th><i class="fas fa-users show_user_icon"></i>参加グループ</th>
+            <td><b>- グループ名 -</b></td>
+          </tr>
+          <% if @group.empty? %>
+            <tr>
+              <th></th>
+              <td>なし</td>
+            </tr>
+          <% else %>
+            <% @group.each do |group| %>
+              <tr>
+                <th><%= link_to group, class:"show_btn" do %>詳細<% end %></th>
+                <td><%= group.name %></td>
+              </tr>
+            <% end %>
+          <% end %> 
+
+          <tr>
+            <th><i class="fas fa-question-circle show_user_icon"></i>投稿した質問</th>
+            <td><b>- 質問タイトル -</b></td>
+          </tr>
+          <% if @question.empty? %>
+            <tr>
+              <th></th>
+              <td>なし</td>
+            </tr>
+          <% else %>
+            <% @question.each do |question| %>
+              <tr>
+                <th><%= link_to question, class:"show_btn" do %>詳細<% end %></th>
+                <td><%= question.title.truncate(50) %></td>
+              </tr>
+            <% end %>
+          <% end %> 
+
+          <tr>
+            <th><i class="fas fa-graduation-cap show_user_icon"></i>投稿した回答</th>
+            <td><b>- 回答内容 -</b></td>
+          </tr>
+          <% if @answer.empty? %>
+            <tr>
+              <th></th>
+              <td>なし</td>
+            </tr>
+          <% else %>
+            <% @answer.each do |answer| %>
+              <tr>
+                <th><%= link_to question_path(Question.find(answer.question_id)), class:"show_btn" do %>詳細<% end %></th>
+                <td><%= answer.answer.truncate(50) %></td>
+              </tr>
+            <% end %>
+          <% end %> 
+
+        </table>
+      
   </div>
-
+</div>

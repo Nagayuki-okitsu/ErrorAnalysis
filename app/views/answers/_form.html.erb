@@ -23,12 +23,13 @@
 
   <%= form.hidden_field :question_id, :value => @question.id %>
 
-  <div class="field">
-    <%= form.label :回答, class: "ans_label" %>
-    <%= form.text_area :answer, class: "ans_form" %>
+  <div class="ans_form_box">
+    <div class="field">
+      <%= form.label :回答フォーム, class: "ans_label" %>
+      <%= form.text_area :answer, class: "ans_form" %>
+    </div>
+
+    <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
   </div>
-
-  <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
-
 
 <% end %>

@@ -2,10 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.ans_form_box{
+    background-color: rgb(243, 232, 200);
+    padding-top: 20px;
+    padding-bottom: 0;
+    z-index: 50;
+    position: fixed;
+    text-align: center;
+    width: 60%;
+    height: 265px;
+    top: 60vh;
+    left: 20%;
+    box-shadow: 0 0 10px rgb(48, 47, 47);
+}
+
 
 .ans_form{
-    width: 100%; /*親要素いっぱい広げる*/
-    height: 300px;
+    width: 90%; /*親要素いっぱい広げる*/
+    height: 180px;
     padding: 10px 15px; /*ボックスを大きくする*/
     font-size: 16px;
     border-radius: 3px; /*ボックス角の丸み*/
@@ -17,7 +31,6 @@
     font-size: large;
     color: rgb(85, 83, 83);
     font-weight: bold;
-    margin-top: 50px;
 }
 
 .ans_button  {
@@ -28,7 +41,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    margin-top: 50px;
     padding: 0.5em 1.5em 0.5em 1em;
     width: 100px;
     color: rgb(53, 51, 48);
@@ -38,7 +50,6 @@
     border: 2px solid rgb(119, 117, 113); /*枠線*/
     box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     border-radius: 10px;
-    transition: 0.3s;
 }
     
 .ans_button:hover {

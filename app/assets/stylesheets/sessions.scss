@@ -7,16 +7,15 @@
 .log_label{
     color: rgb(90, 77, 77);
     font-weight: bold;
-    margin-top: 50px;
-    right: 100px;
 }
 
 .log_field{
-    width: 30%; /*親要素いっぱい広げる*/
+    width: 40%; /*親要素いっぱい広げる*/
+    min-width: 200px;
     padding: 10px 15px; /*ボックスを大きくする*/
     font-size: 16px;
     border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid #ddd; /*枠線*/
+    border: 2px solid rgb(160, 160, 160); /*枠線*/
     box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     margin-bottom: 50px;
 }
@@ -39,11 +38,11 @@
     border: 2px solid rgb(119, 117, 113); /*枠線*/
     box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     border-radius: 8px;
-    transition: 0.3s;
+    box-shadow: 0 0 3px rgb(54, 53, 53);
 }
     
 .log_button:hover {
     text-decoration: none;
-    background-color: #f0f0f0;
-    color: rgb(78, 78, 78);
+    background-color: #292929;
+    color: rgb(255, 255, 255);
 }

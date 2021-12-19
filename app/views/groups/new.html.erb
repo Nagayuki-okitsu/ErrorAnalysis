@@ -1,67 +1,44 @@
-<nav>
-  
-  <%= render 'layouts/nav' %> 
+<%= render 'layouts/nav' %> 
+<%= render 'layouts/back' %> 
 
-  <div class="signup_link">
-    <%= link_to new_user_path do %>
-      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+<div class="content_box" align="center">
+
+  <div class="resultbox" style="text-align:center; padding: 100px 20px 50px 20px;">
+
+    <% if @group.errors.any? %>
+      <div class="error_ms">
+        <ul>
+        <% @group.errors.full_messages.each do |error| %>
+          
+          <% msg = "" %>
+          <% if error.include?("can't be blank") %>
+            <% msg = "グループ名を入力してください" %>
+          <% elsif error == ("Name is too long (maximum is 8 characters)") %>
+            <% msg = "グループ名は8文字以下に設定してください" %>
+          <% elsif error == ("Name has already been taken") %>
+            <% msg = "そのグループは既に存在します" %>
+          <% end %>
+
+          <li><%= msg %></li>
+
+        <% end %>
+        </ul>
+      </div>
     <% end %>
-  </div>
 
-  <% if logged_in? %>
-    <div class="log">
-      <%= link_to  user_path(@current_user) do %>
-        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="log">
-      <%= link_to  login_path do%>
-        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
-      <% end %>
-    </div>
-  <% end %>
+    <%= form_with(model: @group) do |form| %>
 
-  <div class="expl">
-    <p>グループ名は8文字以内で設定してください。※一度作成されたグループ名を変更することはできません。</p>
-  </div>
+        <%= form.label "グループ名 (８文字以内)", class: "name_label"%><br>
+        <%= form.text_field :name , class: "name_form" %>
 
-</nav>
-
-<div class="resultbox" align="center">
-
-  <% if @group.errors.any? %>
-    <div class="error_ms">
-      <ul>
-      <% @group.errors.full_messages.each do |error| %>
-        
-        <% msg = "" %>
-        <% if error.include?("can't be blank") %>
-          <% msg = "グループ名を入力してください" %>
-        <% elsif error == ("Name is too long (maximum is 8 characters)") %>
-          <% msg = "グループ名は8文字以下に設定してください" %>
-        <% elsif error == ("Name has already been taken") %>
-          <% msg = "そのグループは既に存在します" %>
+        <%= form.fields_for :group_users do |gu| %>
+            <%= gu.hidden_field :user_id, :value => @current_user.id %>
+            <%= gu.hidden_field :group_id, :value => @group.id %>
         <% end %>
 
-        <li><%= msg %></li>
+        <%= button_tag type: :submit, :class => 'c_btn' do %><i class="fas fa-plus-circle"></i>作成<% end %>
+    
+    <% end %>
 
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form_with(model: @group) do |form| %>
-
-      <%= form.label :グループ名, class: "name_label"%>
-      <%= form.text_field :name , class: "name_form" %>
-
-      <%= form.fields_for :group_users do |gu| %>
-          <%= gu.hidden_field :user_id, :value => @current_user.id %>
-          <%= gu.hidden_field :group_id, :value => @group.id %>
-      <% end %>
-
-      <%= button_tag type: :submit, :class => 'q_button' do %><i class="fas fa-plus-circle"></i>作成<% end %>
-  
-  <% end %>
+  </div>
 </div>

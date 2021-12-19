@@ -7,17 +7,16 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      flash[:log_mes] = "ログインしました"
-      redirect_to root_url
+      flash[:user_mes] = "ログインしました"
+      redirect_to user_path(user)
     else
-      flash[:not_log] = "メールアドレスまたはパスワードが間違っています"
+      flash[:log_mes] = "メールアドレスまたはパスワードが間違っています"
       render 'new'
     end
   end
 
   def destroy
     log_out if logged_in?
-    flash[:log_mes] = "ログアウトしました"
     redirect_to root_url
   end
 

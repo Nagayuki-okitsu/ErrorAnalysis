@@ -1,30 +1,10 @@
-<nav>
-  
-  <%= render 'layouts/nav' %> 
+<%= render 'layouts/nav' %> 
+<%= render 'layouts/back' %> 
 
-  <div class="signup_link">
-    <%= link_to new_user_path do %>
-      <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
-    <% end %>
-  </div>
+<div class="content_box" align="center">
 
-  <% if logged_in? %>
-    <div class="log">
-      <%= link_to  user_path(@current_user) do %>
-        <button class="btn"><i class="fas fa-user-check"></i> マイページ</button>
-      <% end %>
-    </div>
-  <% else %>
-    <div class="log">
-      <%= link_to  login_path do%>
-        <button class="btn"><i class="fas fa-user"></i> ログイン</button>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="resultbox" style="text-align:center; padding: 100px 20px 100px 20px;">
 
-</nav>
-
-<div class="resultbox" align="center" style="padding: 50px;">
     <% if @group_user.nil? %>
 
         <% if flash[:group_mes] %>
@@ -55,4 +35,5 @@
         <% end %>
 
     <% end %>
+  </div>
 </div>
