@@ -35,7 +35,7 @@
       <h5><i class="fas fa-history"></i>  <%= @question.updated_at.strftime("%Y年 %m月 %d日") %></h5>
 
       <h5 class="user_info"><%= User.find_by(id: @question.user_id).name %></h5>
-      <h5 class="key_info" style="color:red;"><% if @question.key.present? %><%= @question.key %><% else %>無し<% end %></h5>
+      <h5 class="key_info" style="color:red;"><% if @question.key.present? %><%= @question.key %><% else %>キーワードなし<% end %></h5>
 
       <div class="con_box">
         <div class="box-title">質問内容</div>

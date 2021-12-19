@@ -94,6 +94,8 @@
 }
 
 .q_a_box{
+
+    border-radius : 5px; 
     
     //質問タイトル
     h2 {
@@ -104,6 +106,7 @@
         padding: 0.25em 0.5em;
         border-left: solid 2em #41576e;
         box-shadow: 0 0 5px rgb(99, 99, 99);
+        border-radius : 7px; 
     }
 
     h2:before {
@@ -128,8 +131,9 @@
         padding: 0.25em 0.5em;
         margin-top: 50px;
         margin-bottom: 5px;
-        border-left: solid 2em #2d3033;
+        border-left: solid 2em #474e53;
         box-shadow: 0 0 3px rgb(99, 99, 99);
+        border-radius : 7px;  
     }
 
     .user_info:before {
@@ -152,8 +156,9 @@
         position: relative;
         background: #f1f8ff;
         padding: 0.25em 0.5em;
-        border-left: solid 2em #533b0f;
+        border-left: solid 2em #a1a17b;
         box-shadow: 0 0 3px rgb(99, 99, 99);
+        border-radius : 7px;  
     }
 
     .key_info:before {
@@ -449,13 +454,14 @@
 
     .con_box .box-title {
         font-size: 1.2em;
-        background: #272e46;
+        background: #6e8f9c;
         padding: 4px;
         margin-bottom: 50px;
         text-align: center;
         color: #FFF;
         font-weight: bold;
         letter-spacing: 0.05em;
+        border-radius: 30px; 
     }
     .con_box p {
         padding: 15px 20px;
@@ -482,6 +488,7 @@
         color: #FFF;
         font-weight: bold;
         letter-spacing: 0.05em;
+        border-radius : 30px;  
     }
     .ans_box p {
         padding: 15px 20px;
