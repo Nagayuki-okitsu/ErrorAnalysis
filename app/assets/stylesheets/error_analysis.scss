@@ -75,7 +75,6 @@
 }
 
 //フェード文章
-
 .content {      
     margin-top: 50px;
     width:auto;
@@ -88,22 +87,93 @@
     line-height: 5em;
 }
 
+.al p{
+    line-height: 2em;
+}
+
 /*以下フェードイン表示の指定*/
 .fadein {
     opacity: 0;
     animation: fadein 3s ease forwards;
 }
+
 @keyframes fadein {
     100% {  opacity: 1;}
 }
  
 /*以下遅延の指定*/
-.txt01 {animation-delay: 1s;}
-.txt02 {animation-delay: 4s;}
-.txt03 {animation-delay: 7s;}
-.txt04 {animation-delay: 10s;}
-.txt05 {animation-delay: 13s;}
-.txt06 {animation-delay: 16s;}
+.txt01 {animation-delay: 0s;}
+.txt02 {animation-delay: 1s;}
+.txt03 {animation-delay: 2s;}
+.txt04 {animation-delay: 3s;}
+.txt05 {animation-delay: 4s;}
+.al {animation-delay: 4s;}
+.txt06 {animation-delay: 5s;}
+
+//フェード文章ブロック
+.txt02{
+    display: inline-block;
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.txt03{
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+.txt04{
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+.txt05{
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+.al{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.txt06{
+    width: 55%;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+//フェード文章内画像
+.copy_ex{
+    border-radius: 3px;
+    width: 60%;
+}
+
+.input_ex{
+    border-radius: 3px;
+    width: 40%;
+}
+
+.result_ex{
+    border-radius: 3px;
+    width: 80%;
+}
+
+.question_ex{
+    border-radius: 3px;
+    width: 80%;
+}
 
 //解析結果
 .resultbox{
@@ -113,6 +183,7 @@
     margin-bottom: 50px;
     padding: 30px;
     width: 60%;
+    min-width: 700px;
     background-color: rgb(233, 244, 250);
     box-shadow: 0 0 10px rgb(26, 25, 25);
     border-radius: 5px;

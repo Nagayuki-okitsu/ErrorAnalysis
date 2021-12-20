@@ -61,7 +61,7 @@ a{
   position: fixed;
   right: -50px;
   bottom: 50px;
-  background: #8f9dd6;
+  background: #3e4977;
   opacity: 0.6;
   border-radius: 50%;
 }
@@ -282,6 +282,7 @@ nav h1{
   margin-bottom: 30px;
   padding: 30px;
   width: 80%;
+  min-width: 900px;
   background-color: rgb(220, 226, 230);
   box-shadow: 0 0 10px rgb(26, 25, 25);
 }
