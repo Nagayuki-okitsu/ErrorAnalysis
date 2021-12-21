@@ -87,7 +87,11 @@
     line-height: 5em;
 }
 
-.al p{
+.al_1 p{
+    line-height: 2em;
+}
+
+.al_2 p{
     line-height: 2em;
 }
 
@@ -105,10 +109,12 @@
 .txt01 {animation-delay: 0s;}
 .txt02 {animation-delay: 1s;}
 .txt03 {animation-delay: 2s;}
-.txt04 {animation-delay: 3s;}
-.txt05 {animation-delay: 4s;}
-.al {animation-delay: 4s;}
-.txt06 {animation-delay: 5s;}
+.al_1 {animation-delay: 2s;}
+.txt04 {animation-delay: 2s;}
+.txt05 {animation-delay: 3s;}
+.txt06 {animation-delay: 4s;}
+.al_2 {animation-delay: 4s;}
+.txt07 {animation-delay: 4s;}
 
 //フェード文章ブロック
 .txt02{
@@ -126,8 +132,18 @@
     background-color: rgb(125, 159, 231);
 }
 
-.txt04{
+.al_1{
+    padding-top: 30px;
+    padding-bottom: 30px;
     width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.txt04{
+    width: 61%;
     height: auto;
     background-color: rgb(125, 159, 231);
 }
@@ -138,7 +154,13 @@
     background-color: rgb(125, 159, 231);
 }
 
-.al{
+.txt06{
+    width: 820px;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+.al_2{
     padding-top: 30px;
     padding-bottom: 30px;
     width: 820px;
@@ -148,8 +170,8 @@
     border-bottom-right-radius: 5px;
 }
 
-.txt06{
-    width: 55%;
+.txt07{
+    width: 60%;
     height: auto;
     background-color: rgb(125, 159, 231);
 }

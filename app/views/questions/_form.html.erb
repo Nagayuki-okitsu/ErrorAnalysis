@@ -22,7 +22,7 @@
     </div>
 
     <div class="field">
-      <%= form.label :画像（任意で最大３つまで：プログラムのスクリーンショットなど）, class: "q_label" %>
+      <%= form.label "画像（任意で最大３つまで：プログラムやエラーメッセージのスクリーンショット）※ファイル形式はpngやjpgなど", class: "q_label" %>
       <table class="image_table">
       <% if @image.present? || @image_2.present? || @image_3.present?%>
 

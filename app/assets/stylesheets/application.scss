@@ -346,7 +346,7 @@ nav h1{
 .area{
   position: fixed;
   background: #577fca;  
-  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+  background: -webkit-linear-gradient(to left, #577fca, #5e8ecc);  
   width: 100%;
   height: 100vh;
 }
@@ -453,7 +453,7 @@ nav h1{
   0%{
     transform: translateY(0) rotate(0deg);
     opacity: 1;
-    border-radius: 0;
+    border-radius: 0%;
   }
 
   100%{
