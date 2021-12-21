@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_18_124316) do
+ActiveRecord::Schema.define(version: 2021_12_21_141444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2021_12_18_124316) do
     t.bigint "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "delete_answers", force: :cascade do |t|
+    t.string "delete_answer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_delete_answers_on_user_id"
   end
 
   create_table "delete_nices", force: :cascade do |t|
@@ -84,6 +92,9 @@ ActiveRecord::Schema.define(version: 2021_12_18_124316) do
     t.string "image_content_type_2"
     t.binary "image_3"
     t.string "image_content_type_3"
+    t.string "file_name"
+    t.string "file_name_2"
+    t.string "file_name_3"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 

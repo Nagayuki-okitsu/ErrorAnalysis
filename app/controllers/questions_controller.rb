@@ -67,9 +67,9 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1/edit
   def edit
-    @image = @question.image
-    @image_2 = @question.image_2
-    @image_3 = @question.image_3
+    @image = @question.file_name
+    @image_2 = @question.file_name_2
+    @image_3 = @question.file_name_3
   end
 
   # POST /questions or /questions.json
@@ -79,14 +79,17 @@ class QuestionsController < ApplicationController
 
     if params[:question][:image].present?
       @question.image = params[:question][:image].read
+      @question.file_name = params[:question][:image].original_filename
       @question.image_content_type = params[:question][:image].content_type
     end
     if params[:question][:image_2].present?
       @question.image_2 = params[:question][:image_2].read
+      @question.file_name_2 = params[:question][:image_2].original_filename
       @question.image_content_type_2 = params[:question][:image_2].content_type
     end
     if params[:question][:image_3].present?
       @question.image_3 = params[:question][:image_3].read
+      @question.file_name_3 = params[:question][:image_3].original_filename
       @question.image_content_type_3 = params[:question][:image_3].content_type
     end
 
@@ -103,18 +106,21 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1 or /questions/1.json
   def update
 
-      if params[:question][:image].present?
+    if params[:question][:image].present?
       @question.image = params[:question][:image].read
+      @question.file_name = params[:question][:image].original_filename
       @question.image_content_type = params[:question][:image].content_type
-      end
-      if params[:question][:image_2].present?
-        @question.image_2 = params[:question][:image_2].read
-        @question.image_content_type_2 = params[:question][:image_2].content_type
-      end
-      if params[:question][:image_3].present?
-        @question.image_3 = params[:question][:image_3].read
-        @question.image_content_type_3 = params[:question][:image_3].content_type
-      end
+    end
+    if params[:question][:image_2].present?
+      @question.image_2 = params[:question][:image_2].read
+      @question.file_name_2 = params[:question][:image_2].original_filename
+      @question.image_content_type_2 = params[:question][:image_2].content_type
+    end
+    if params[:question][:image_3].present?
+      @question.image_3 = params[:question][:image_3].read
+      @question.file_name_3 = params[:question][:image_3].original_filename
+      @question.image_content_type_3 = params[:question][:image_3].content_type
+    end
       
     
       if @question.update(question_params)

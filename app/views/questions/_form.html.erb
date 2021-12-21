@@ -28,17 +28,19 @@
 
         <% save_img = "" %>
         <% if @image.present? %>
-          <% save_img += "１つ目  " %>
+          <% save_img += "１つ目「#{@image}」 " %>
         <% end %>
         <% if @image_2.present? %>
-          <% save_img += "２つ目  " %>
+          <% save_img += "２つ目「#{@image_2}」 " %>
         <% end %>
         <% if @image_3.present? %>
-          <% save_img += "３つ目  " %>
+          <% save_img += "３つ目「#{@image_3}」 " %>
         <% end %>
         
-        <p style="color: red;">※ 前回投稿した画像は保存されています。変更する場合のみ新たに選択してください。( 保存済み: <%= save_img %>) </p>
+        <p style="color: red;">※ 前回投稿した画像は保存されています。新たに画像を追加する場合は未保存の箇所にファイルをアップしてください。<br>　画像を置き換えたい場合はその画像が保存されてる箇所にファイルをアップしてください。<br>　( 保存済み: <%= save_img%>)<br> </p>
       <% end %>
+
+        <tr><td style="padding-bottom: 0;"><p style="color: blue; padding: 0 0 0 30px;">( ファイル名も公開されます。何についての画像なのかをファイル名に付けてください。)</p></td></tr>
         <tr><td>・１つ目　<%= form.file_field :image, class: "image_field" %></td></tr>
         <tr><td>・２つ目　<%= form.file_field :image_2, class: "image_field" %></td></tr>
         <tr><td>・３つ目　<%= form.file_field :image_3, class: "image_field" %></td></tr>

@@ -42,12 +42,15 @@
         <p><%= @question.content %></p>
 
         <% if @question.image.present? %> 
+          <div style="text-align:center;">(<%= @question.file_name.gsub(".","/") %>)</div>
           <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
         <% end %>
         <% if @question.image_2.present? %> 
+          <div style="text-align:center;">(<%= @question.file_name_2.gsub(".","/") %>)</div>
           <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>    
         <% end %>
         <% if @question.image_3.present? %> 
+          <div style="text-align:center;">(<%= @question.file_name_3.gsub(".","/") %>)</div>
           <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
         <% end %>
       </div>
