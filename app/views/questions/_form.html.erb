@@ -1,13 +1,32 @@
 <%= form_with(model: question) do |form| %>
   
     <% if question.errors.any? %>
-      <div class="error_ms", style="font-size: 17px; text-align: center;">
-        <h5>・必須項目に入力してください</h5>
-      </div>
+      <% blank_flg = 0 %>
+        <div class="error_ms">
+          <ul>
+          <% question.errors.full_messages.each do |error| %>
+            
+            <% msg = "" %>
+            <% if error.include?("can't be blank") %>
+              <% if blank_flg == 1 %>
+                <% next %>
+              <% else %>
+                <% blank_flg = 1 %>
+                <% msg = "必須項目に記入してください" %>
+              <% end %>
+            <% elsif error == ("Title is too long (maximum is 20 characters)") %>
+              <% msg = "タイトルは30文字以内にしてください" %>
+            <% end %>
+
+            <li><%= msg %></li>
+
+          <% end %>
+          </ul>
+        </div>
     <% end %>
   
     <div class="field">
-      <%= form.label "タイトル（必須：質問内容を要約したもの -「例1 ○○エラーの発生位置について」「例2 課題の3番について」)" , class: "q_label"%>
+      <%= form.label "タイトル（必須 : 30文字以内) - 例1:○○エラーの原因を教えてください。例2:○○プログラムの組み方を教えてください。" , class: "q_label"%>
       <%= form.text_field :title , class: "title_form" %>
     </div>
 

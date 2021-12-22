@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3]
+  before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3 check_solved]
   before_action :logged_in_user, only: %i[ new create edit update destroy]
   before_action :current_user, only: %i[ new create edit update destroy]
 
@@ -12,10 +12,18 @@ class QuestionsController < ApplicationController
       session[:group_name] = params[:group_name]
     elsif params[:sort_key].present?
       session[:sort_key] = params[:sort_key]
+    elsif params[:solve_key].present?
+      session[:solve_key] = params[:solve_key]
     else
-      session[:key] = session[:group_name] = session[:sort_key] = ""
+      session[:key] = session[:group_name] = session[:solve_key] = session[:sort_key] = ""
     end
 
+    #まず未解決・解決済みのどちらかで絞る
+    if session[:solve_key] == "解決済み"
+      quesiton = Question.where(solved: true)
+    else
+      quesiton = Question.where(solved: false)
+    end
 
     if session[:key].present? || session[:group_name].present?
 
@@ -31,18 +39,18 @@ class QuestionsController < ApplicationController
         end
 
         #配列に存在するuser_idと一致する質問を全て抽出し、ソートしてインスタンス変数に格納
-        @question = q_sort(params[:sort_key], Question.where(user_id: group_user_id))
+        @question = q_sort(session[:sort_key], quesiton.where(user_id: group_user_id))
 
         if session[:key].present?
-          @question = q_sort(params[:sort_key], @question.where(key: session[:key]))
+          @question = q_sort(session[:sort_key], quesiton.where(key: session[:key]))
         end
        
       else
-        @question = q_sort(params[:sort_key], Question.where(key: session[:key]))
+        @question = q_sort(session[:sort_key], quesiton.where(key: session[:key]))
       end
 
     else
-      @question = q_sort(params[:sort_key], Question.all)
+      @question = q_sort(session[:sort_key], quesiton.all)
     end
 
   end
@@ -95,7 +103,7 @@ class QuestionsController < ApplicationController
 
   
     if @question.save
-      flash[:q_mes] = "質問を送信しました"
+      flash[:q_mes] = "質問を投稿しました。マイページの質問一覧からこのページを閲覧できます。"
       redirect_to @question
     else
       render :new
@@ -106,6 +114,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1 or /questions/1.json
   def update
 
+    
     if params[:question][:image].present?
       @question.image = params[:question][:image].read
       @question.file_name = params[:question][:image].original_filename
@@ -120,15 +129,13 @@ class QuestionsController < ApplicationController
       @question.image_3 = params[:question][:image_3].read
       @question.file_name_3 = params[:question][:image_3].original_filename
       @question.image_content_type_3 = params[:question][:image_3].content_type
-    end
-      
+    end    
     
-      if @question.update(question_params)
-        flash[:q_mes] = "質問を編集しました"
-        redirect_to @question
-      else
-        render :edit
-      end
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
       
   end
 
@@ -160,8 +167,6 @@ class QuestionsController < ApplicationController
   def show_image_3
     send_data(@question.image_3, type: @question.image_content_type_3, disposition: :inline)
   end
-
-
   
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -172,7 +177,7 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:title, :key, :content, :user_id)
+      params.require(:question).permit(:title, :key, :content, :user_id, :solved)
     end
 
 end

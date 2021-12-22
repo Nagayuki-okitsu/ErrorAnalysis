@@ -6,7 +6,11 @@
           <ul>
               <li><%= link_to "/" do %><i class="fas fa-home"></i> HOME<% end %></li>
               <li><%= link_to questions_path do %><i class="fas fa-box-open"></i> 質問箱<% end %></li>
-              <li><%= link_to  login_path do%><i class="fas fa-user"></i> ログイン<% end %></li>
+              <% if logged_in? %>
+                <li><%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do%><i class="fas fa-user"></i> ログアウト<% end %></li>
+              <% else %>
+                <li><%= link_to  login_path do%><i class="fas fa-user"></i> ログイン<% end %></li>
+              <% end %>
               <li><%= link_to new_user_path do %><i class="fas fa-user-plus"></i> 新規登録<% end %></li>
           </ul>
         </li>

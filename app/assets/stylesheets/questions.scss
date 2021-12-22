@@ -99,7 +99,9 @@
     
     //質問タイトル
     h2 {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-bottom: 30px;
         position: relative;
         background: #f1f8ff;
@@ -175,16 +177,10 @@
     }
 
 
-    .searchArea_around_1{
+    .searchArea_around{
         display: flex;
-        width: 100%;
-        max-width: 600px;
-    }
-
-    .searchArea_around_2{
-        display: flex;
-        width: 100%;
-        max-width: 350px;
+        justify-content: center;
+        align-items: center;
     }
 
     .searchArea_2{
@@ -226,6 +222,18 @@
         z-index: 2;
     }
 
+    .solveArea{
+        margin-left: 10px;
+        position       : relative; 
+        width          : 140px;              /* BOXの幅               */
+        height         : 40px;               /* BOXの高さ             */
+        letter-spacing : 0.1em;              /* 文字間隔              */
+        font-weight    : bold;               /* 太字                  */
+        line-height    : 0;                  /* 標準の行高さ          */
+        box-shadow: 0 0 3px gray;
+        z-index: 2;
+    }
+
     .sortArea{
         margin-left: 10px;
         position       : relative; 
@@ -256,6 +264,41 @@
         display        : inline-block;       /* インラインブロック化  */
         width          : auto;               /* 幅は高さに合わせる    */
         height         : 19px;               /* 画像の高さ            */
+        margin         : 0;                  /* 余白                  */
+        vertical-align : middle;             /* 横の文字位置          */
+    }
+
+    .liftArea{
+        top: -18px;
+        margin-left: 50px;
+        position       : relative;
+        letter-spacing : 0.1em;              /* 文字間隔              */
+        font-weight    : bold;               /* 太字                  */
+        line-height    : 0;                  /* 標準の行高さ          */
+        box-shadow: 0 0 3px gray;
+        z-index: 2;
+    }
+
+    .liftButton {
+        position       : absolute;
+        box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+        height         : 25px;               /* 入力の高さ            */
+        width          : 25px;
+        margin         : 0;                  /* 外余白                */
+        padding        : 5px;           /* 内余白                */
+        top            : 7.5px;                /* ボタン表示位置(上)    */
+        right          : 6px;                /* ボタン表示位置(右)    */
+        border         : none;               /* 枠線　幅,実践,色      */
+        border-radius  : 6px;                /* 右上下の角丸          */
+        background     : #666;               /* ボタンの色            */
+        box-shadow: 0 0 3px gray;
+        cursor         : pointer;            /* カーソル設定          */
+    }
+
+    .cancelImg {
+        display        : inline-block;       /* インラインブロック化  */
+        width          : auto;               /* 幅は高さに合わせる    */
+        height         : 15px;               /* 画像の高さ            */
         margin         : 0;                  /* 余白                  */
         vertical-align : middle;             /* 横の文字位置          */
     }
@@ -502,6 +545,25 @@
     .ans_con{
         padding-bottom: 50px;
         border-bottom: 3px solid rgb(223, 223, 223);
+    }
+
+    .solved_btn{
+        width: 100px;
+        z-index: 2;
+        position: relative;
+        align-items: center;
+        font-size: 17px;
+        color: rgb(49, 47, 47);
+        background-color: #f1f8ff;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+    }
+
+    .solved_link{
+        z-index: 11;
+        position: relative;
+        margin-left: 50px;
     }
 
     .befor_nice_btn{

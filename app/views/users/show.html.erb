@@ -71,7 +71,7 @@
             <% @question.each do |question| %>
               <tr>
                 <th><%= link_to question, class:"show_btn" do %>詳細<% end %></th>
-                <td><%= question.title.truncate(50) %></td>
+                <td><% if question.solved == true %><span class="solved">解決済み</span><% end %><%= question.title %></td>
               </tr>
             <% end %>
           <% end %> 
@@ -89,7 +89,7 @@
             <% @answer.each do |answer| %>
               <tr>
                 <th><%= link_to question_path(Question.find(answer.question_id)), class:"show_btn" do %>詳細<% end %></th>
-                <td><%= answer.answer.truncate(50) %></td>
+                <td><%= answer.answer.truncate(30) %></td>
               </tr>
             <% end %>
           <% end %> 

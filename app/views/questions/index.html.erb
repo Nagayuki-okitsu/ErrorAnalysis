@@ -10,46 +10,64 @@
 
     <div class="q_a_box">
 
-      <div align="center">
-
-        <% if logged_in? %>
-          <div class="searchArea_around_1">
-        <% else %>
-          <div class="searchArea_around_2">
-        <% end %>
-        
+      <div class="searchArea_around">
+      
+        <div class="searchArea_2">
           <%= form_with url:questions_path, method: :get do |f| %>
-            <div class="searchArea_2">
-              <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: (session[:key].present?)?  session[:key] : "キーワードで絞る" %>
+            <%= f.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: (session[:key].present?)?  session[:key] : "キーワードで絞る" %>
               <div class="searchButton_2" onclick="goSearch()">
                 <%= image_submit_tag 'search.png', {class:"searchImg"} %>
               </div>
-            </div>
           <% end %>
+        </div>
 
-          <% if logged_in? %>
-            <div class="groupArea">
-                <%= form_with url: questions_path, method: :get do |f| %>
-                  <%= f.collection_select :group_name, @current_user.groups, :name, :name, include_blank: (session[:group_name].present?)?  session[:group_name] : "グループで絞る" %>
-                  <div class="searchButton_2" onclick="goSearch()">
-                    <%= image_submit_tag 'search.png', {class:"searchImg"} %>
-                  </div>
-                <% end %>
-            </div>
-          <% end %>
-
-          <div class="sortArea">
+        <% if logged_in? %>
+          <div class="groupArea">
             <%= form_with url: questions_path, method: :get do |f| %>
-              <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
-              <div class="sortButton" onclick="goSearch()">
-                <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
+              <%= f.collection_select :group_name, @current_user.groups, :name, :name, include_blank: (session[:group_name].present?)?  session[:group_name] : "グループで絞る" %>
+              <div class="searchButton_2" onclick="goSearch()">
+                <%= image_submit_tag 'search.png', {class:"searchImg"} %>
               </div>
             <% end %>
           </div>
+        <% end %>
 
+        <%= form_with url:questions_path, method: :get do |f| %>
+
+          <% s = [] %><%# solveのs %>
+          <% if session[:solve_key].present? %>
+            <% (session[:solve_key] == "解決済み")? s.push("解決済み","未解決") : s.push("未解決","解決済み") %>
+          <% else %>
+            <% s.push("未解決","解決済み") %>
+          <% end %>
+
+          <div class="solveArea">
+            <%= f.select :solve_key, [[ s[1],s[1] ]],{ include_blank: s[0] } %>
+              <div class="searchButton_2" onclick="goSearch()">
+                <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+              </div>
+          </div>
+        <% end %>
+
+        <div class="sortArea">
+          <%= form_with url: questions_path, method: :get do |f| %>
+            <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
+              <div class="sortButton" onclick="goSearch()">
+                <%= image_submit_tag 'sort1.png', {class:"sortImg"} %>
+              </div>
+          <% end %>
+        </div>
+
+        <div class="liftArea">
+          <%= form_with url: questions_path, method: :get do |f| %>
+              <div class="liftButton" onclick="goSearch()">
+                <%= image_submit_tag 'cancel1.png', {class:"cancelImg"} %>
+              </div>
+          <% end %>
         </div>
 
       </div>
+
 
       <table>
         <thead>

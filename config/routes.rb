@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :questions do
     member { get :show_image }
+    member { get :show_image_2 }
+    member { get :show_image_3}
   end
   resources :homes do
     get :analysis, on: :collection 

@@ -201,3 +201,16 @@
     box-shadow: 0 0 3px rgb(51, 51, 51);
     color: #ffffff;
 }
+
+.solved{
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(175, 80, 80);
+    padding-right: 20px;
+}
+
+.solved::before {
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    content: "\f058";
+}

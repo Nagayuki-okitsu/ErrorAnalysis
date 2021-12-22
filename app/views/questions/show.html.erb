@@ -29,7 +29,25 @@
         <div class="flash"><%= flash[:q_mes] %></div>
       <% end %>
 
-      <h2><%= @question.title %></h2>
+      <h2>
+        <%= @question.title %>
+        
+        <% if logged_in? %>
+          <% if @question.solved %>
+            <div class="solved_link">
+              <%= link_to question_path(@question.id, question: {solved: false}), method: :put, data: {confirm: "チェックを外しますか？"} do %>
+                <button class="solved_btn"><i class="fas fa-check-square"></i>  解決済み</button>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="solved_link">
+              <%= link_to question_path(@question.id, question: {solved: true}), method: :put, data: {confirm: "チェックを入れますか？"}  do %>
+                <button class="solved_btn"><i class="far fa-square"></i> 解決済み</button>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </h2>
 
       <h5><i class="fas fa-pen q_icon"></i>  <%= @question.created_at.strftime("%Y年 %m月 %d日") %></h5>
       <h5><i class="fas fa-history"></i>  <%= @question.updated_at.strftime("%Y年 %m月 %d日") %></h5>
@@ -42,16 +60,16 @@
         <p><%= @question.content %></p>
 
         <% if @question.image.present? %> 
-          <div style="text-align:center;">(<%= @question.file_name.gsub(".","/") %>)</div>
+          <div style="text-align:center;">「<%= @question.file_name[0,@question.file_name.index('.')] %>」</div>
           <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
         <% end %>
         <% if @question.image_2.present? %> 
-          <div style="text-align:center;">(<%= @question.file_name_2.gsub(".","/") %>)</div>
-          <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>    
+          <div style="text-align:center;">「<%= @question.file_name_2[0,@question.file_name_2.index('.')] %>」</div>
+          <div style="text-align:center;"><%= image_tag(show_image_2_question_path(@question),{class: "con_img"}) %></div>    
         <% end %>
         <% if @question.image_3.present? %> 
-          <div style="text-align:center;">(<%= @question.file_name_3.gsub(".","/") %>)</div>
-          <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
+          <div style="text-align:center;">「<%= @question.file_name_3[0,@question.file_name_3.index('.')] %>」</div>
+          <div style="text-align:center;"><%= image_tag(show_image_3_question_path(@question),{class: "con_img"}) %></div>
         <% end %>
       </div>
 
