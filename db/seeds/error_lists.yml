@@ -94,7 +94,7 @@ active_record_yaml_version: 2
                                                   value_before_type_cast: "「end」が不足しています。"
                                                 - !ruby/object:ActiveModel::Attribute::FromDatabase
                                                   name: advice
-                                                  value_before_type_cast: |-
+                                                  value_before_type_cast: |- 
                                                     　 if や loop 文などの「end」を必要とするプログラムを一つ一つ確認してみましょう。
                                                     　このエラーを防ぐためにも普段から先に「end」を書いてしまうことやインデントすることを心掛けましょう。
                                                     　※インデント・・・空白を使い内側と外側の処理をわけて見やすくすること。
@@ -204,8 +204,16 @@ active_record_yaml_version: 2
                                         value_before_type_cast: ファイル名もしくはパスを間違えています。
                                       - !ruby/object:ActiveModel::Attribute::FromDatabase
                                         name: advice
-                                        value_before_type_cast: "　実行しようとしているファイルの名前を間違えていないか確認してみましょう。\n また読み込もうとしているファイル・フォルダの名前、パスを間違えていないか確認してみましょう。\n
-                                          \n　パス・・・ファイルやフォルダが存在する場所。\n　パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。\n　例）\n　　image＼apple(imageフォルダのappleというファイル）"
+                                        value_before_type_cast: |-
+                                        　   実行しようとしているファイルの名前を間違えていないか確認してみましょう。
+                                            また読み込もうとしているファイル・フォルダの名前、パスを間違えていないか確認してみましょう。
+                                            
+                                          　パス・・・ファイルやフォルダが存在する場所。
+                                           
+                                            パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。
+                                            
+                                            例）
+                                               image＼apple(imageフォルダのappleというファイル）
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.237491000 Z
