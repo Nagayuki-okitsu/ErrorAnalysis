@@ -547,3 +547,25 @@
     value_before_type_cast: 2021-12-23 10:34:47.115722000 Z
   new_record: false
   active_record_yaml_version: 2
+#- !ruby/object:ErrorList
+#  concise_attributes:
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: id
+#    value_before_type_cast: 21
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: err_mess
+#    value_before_type_cast:                                         ここにエラーのキー
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: cause
+#    value_before_type_cast:                                         ここに原因
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: advice
+#    value_before_type_cast:                                         ここにアドバイス
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: created_at
+#    value_before_type_cast: 2021-12-23 10:34:47.115722000 Z
+#  - !ruby/object:ActiveModel::Attribute::FromDatabase
+#    name: updated_at
+#    value_before_type_cast: 2021-12-23 10:34:47.115722000 Z
+#  new_record: false
+#  active_record_yaml_version: 2
