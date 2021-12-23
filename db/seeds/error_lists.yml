@@ -7,22 +7,22 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: ActionView::MissingTemplate
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 指定のビューファイルがありません。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |2-
-       ビューファイルの名前を間違えていないか確認してみましょう。
-       また部分テンプレートのビューファイル名の先頭には「 _ 」を付ける必要があります。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: created_at
-    value_before_type_cast: 2021-12-23 09:27:23.199744000 Z
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: updated_at
-    value_before_type_cast: 2021-12-23 09:27:23.199744000 Z
-  new_record: false
-  active_record_yaml_version: 2
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: cause
+                                                          value_before_type_cast: 指定のビューファイルがありません。
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: advice
+                                                          value_before_type_cast: |2-
+                                                            ビューファイルの名前を間違えていないか確認してみましょう。
+                                                            また部分テンプレートのビューファイル名の先頭には「 _ 」を付ける必要があります。
+- !ruby/object:ActiveModel::Attribute::FromDatabase
+  name: created_at
+  value_before_type_cast: 2021-12-23 09:27:23.199744000 Z
+- !ruby/object:ActiveModel::Attribute::FromDatabase
+  name: updated_at
+  value_before_type_cast: 2021-12-23 09:27:23.199744000 Z
+new_record: false
+active_record_yaml_version: 2
 - !ruby/object:ErrorList
   concise_attributes:
   - !ruby/object:ActiveModel::Attribute::FromDatabase
@@ -31,12 +31,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: ActiveRecord::PendingMigrationError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 実行していないマイグレーションファイルがあります。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: " ターミナルで「rails db:migrate」を実行しましょう。"
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: cause
+                                                          value_before_type_cast: 実行していないマイグレーションファイルがあります。
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: advice
+                                                          value_before_type_cast: " ターミナルで「rails db:migrate」を実行しましょう。"
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.206808000 Z
@@ -53,26 +53,26 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: ArgumentError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: "「引数」が不適切です。"
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　引数とはメソッドに渡す値のことです。
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: cause
+                                                          value_before_type_cast: "「引数」が不適切です。"
+                                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                          name: advice
+                                                          value_before_type_cast: |-
+                                                            　引数とはメソッドに渡す値のことです。
 
-      　　例1）
-      　　 update(a) ←updateというメソッドに変数aを渡す。このとき変数aが引数。
+                                                            　　例1）
+                                                            　　 update(a) ←updateというメソッドに変数aを渡す。このとき変数aが引数。
 
-      　　例2）
-      　　　　　 def sum(a,b)・・・メソッド作成
-      　　　　　　 puts a + b
-      　　　　　 end
-      　　
-      　　　　　 sum(x,y)・・・メソッド呼び出し
+                                                            　　例2）
+                                                            　　　　　 def sum(a,b)・・・メソッド作成
+                                                            　　　　　　 puts a + b
+                                                            　　　　　 end
+                                                            　　
+                                                            　　　　　 sum(x,y)・・・メソッド呼び出し
 
 
-      　　例2のsumメソッドは引数を2つ取るように作成しているため、呼び出し時は「sum(引数１,引数２)」というように2つの引数を与えますが、「sum(x)」や「sum(x,y,z)」のように引数の数が定義に反しているとエラーになります。
+                                                            　　例2のsumメソッドは引数を2つ取るように作成しているため、呼び出し時は「sum(引数１,引数２)」というように2つの引数を与えますが、「sum(x)」や「sum(x,y,z)」のように引数の数が定義に反しているとエラーになります。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.211443000 Z
@@ -89,19 +89,19 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: end-of-input
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: "「end」が不足しています。"
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　 if や loop 文などの「end」を必要とするプログラムを一つ一つ確認してみましょう。
-      　このエラーを防ぐためにも普段から先に「end」を書いてしまうことやインデントすることを心掛けましょう。
-      　※インデント・・・空白を使い内側と外側の処理をわけて見やすくすること。
-      　　例)
-      　　　if a==1
-      　　　　　a = 2 * 3 ← 内側を字下げ
-      　　　end
+                                                - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                  name: cause
+                                                  value_before_type_cast: "「end」が不足しています。"
+                                                - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                  name: advice
+                                                  value_before_type_cast: |-
+                                                    　 if や loop 文などの「end」を必要とするプログラムを一つ一つ確認してみましょう。
+                                                    　このエラーを防ぐためにも普段から先に「end」を書いてしまうことやインデントすることを心掛けましょう。
+                                                    　※インデント・・・空白を使い内側と外側の処理をわけて見やすくすること。
+                                                    　　例)
+                                                    　　　if a==1
+                                                    　　　　　a = 2 * 3 ← 内側を字下げ
+                                                    　　　end
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.216932000 Z
@@ -118,14 +118,14 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: exception
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 例外エラーです。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      構文に問題はありませんが実行中の値によってはエラーになってしまうものです。
-      　どの値でエラーになるのかを調べて例外が発生しないように処理を工夫しましょう。
+                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                        name: cause
+                                        value_before_type_cast: 例外エラーです。
+                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                        name: advice
+                                        value_before_type_cast: |-
+                                          構文に問題はありませんが実行中の値によってはエラーになってしまうものです。
+                                          　どの値でエラーになるのかを調べて例外が発生しないように処理を工夫しましょう。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.222423000 Z
@@ -142,25 +142,25 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: IndexError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 添え字が配列の要素のないところを指定しています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　添え字(Index)・・・配列の要素を特定するための部屋番号
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: cause
+                                            value_before_type_cast: 添え字が配列の要素のないところを指定しています。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: advice
+                                            value_before_type_cast: |-
+                                              　添え字(Index)・・・配列の要素を特定するための部屋番号
 
-      　次の例で添え字が不適切な場合を見てみましょう。
-      　例）
-      　　arr = [5,-3,10]
+                                              　次の例で添え字が不適切な場合を見てみましょう。
+                                              　例）
+                                              　　arr = [5,-3,10]
 
-      　　arr[0] → 5
-      　　arr[1] → -3
-      　　arr[2] → 10
-      　　arr[3] → 存在しないためエラー
+                                              　　arr[0] → 5
+                                              　　arr[1] → -3
+                                              　　arr[2] → 10
+                                              　　arr[3] → 存在しないためエラー
 
-      　添え字が0から始まることに注意しましょう。
-      　配列の最後の要素の添え字は「要素数 - 1」です。
+                                              　添え字が0から始まることに注意しましょう。
+                                              　配列の最後の要素の添え字は「要素数 - 1」です。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.228275000 Z
@@ -177,12 +177,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: invalid preprocessing directive
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 無効な命令が存在します。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: エラー文に記載されている該当箇所を確認しましょう。
+                                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                            name: cause
+                                                            value_before_type_cast: 無効な命令が存在します。
+                                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                            name: advice
+                                                            value_before_type_cast: エラー文に記載されている該当箇所を確認しましょう。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.232779000 Z
@@ -199,13 +199,13 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: LoadError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: ファイル名もしくはパスを間違えています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: "　実行しようとしているファイルの名前を間違えていないか確認してみましょう。\n また読み込もうとしているファイル・フォルダの名前、パスを間違えていないか確認してみましょう。\n
-      \n　パス・・・ファイルやフォルダが存在する場所。\n　パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。\n　例）\n　　image＼apple(imageフォルダのappleというファイル）"
+                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                        name: cause
+                                        value_before_type_cast: ファイル名もしくはパスを間違えています。
+                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                        name: advice
+                                        value_before_type_cast: "　実行しようとしているファイルの名前を間違えていないか確認してみましょう。\n また読み込もうとしているファイル・フォルダの名前、パスを間違えていないか確認してみましょう。\n
+                                          \n　パス・・・ファイルやフォルダが存在する場所。\n　パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。\n　例）\n　　image＼apple(imageフォルダのappleというファイル）"
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.237491000 Z
@@ -222,17 +222,17 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: NameError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 変数や配列の名前が間違っています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |2-
-       エラー文の中にどのように間違っているか、どこで間違えているかが記載されています。
-       該当する箇所を確認してみましょう。
-      　　例）
-      　　　エラー文に「 Did you mean?  applo 」のような記載がある確率が高いため探してみましょう。
-      　（この例ではappleをapploにしてしまっているということがわかります）
+                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                          name: cause
+                                          value_before_type_cast: 変数や配列の名前が間違っています。
+                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                          name: advice
+                                          value_before_type_cast: |2-
+                                            エラー文の中にどのように間違っているか、どこで間違えているかが記載されています。
+                                            該当する箇所を確認してみましょう。
+                                            　　例）
+                                            　　　エラー文に「 Did you mean?  applo 」のような記載がある確率が高いため探してみましょう。
+                                            　（この例ではappleをapploにしてしまっているということがわかります）
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.241484000 Z
@@ -249,17 +249,17 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: No such file or directory
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: ファイル名・フォルダ名を間違えています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　ファイル・フォルダの名前、パスを間違えていないか確認してみましょう。
-      　パス・・・ファイルやフォルダが存在する場所。
-      　パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。
-      　例)
-      　　image＼apple(imageフォルダのappleというファイル）
+                                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                        name: cause
+                                                        value_before_type_cast: ファイル名・フォルダ名を間違えています。
+                                                      - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                        name: advice
+                                                        value_before_type_cast: |-
+                                                          　ファイル・フォルダの名前、パスを間違えていないか確認してみましょう。
+                                                          　パス・・・ファイルやフォルダが存在する場所。
+                                                          　パスを指定する際、ファイルがフォルダーの中にある場合は「バックスラッシュ（キーボードの”ろ”）」を使って階層を下げましょう。
+                                                          　例)
+                                                          　　image＼apple(imageフォルダのappleというファイル）
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.244965000 Z
@@ -276,18 +276,18 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: NoMethodError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 存在しないメソッドを呼び出そうとしています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　メソッドの名前を間違えている場合があります。
-      　例）
-      　　put a・・・putではなくputs
-      　　※自作した関数についても関数名を間違えていないか確認しましょう。
+                                                  - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                    name: cause
+                                                    value_before_type_cast: 存在しないメソッドを呼び出そうとしています。
+                                                  - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                    name: advice
+                                                    value_before_type_cast: |-
+                                                      　メソッドの名前を間違えている場合があります。
+                                                      　例）
+                                                      　　put a・・・putではなくputs
+                                                      　　※自作した関数についても関数名を間違えていないか確認しましょう。
 
-      　Ruby on Railsの場合インスタンス変数に値が格納されていない場合があります。controllerを確認して正しく値を格納できているかチェックしましょう。
+                                                      　Ruby on Railsの場合インスタンス変数に値が格納されていない場合があります。controllerを確認して正しく値を格納できているかチェックしましょう。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.248259000 Z
@@ -304,12 +304,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: redeclaration of
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 同じ変数を2回以上宣言しています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: 同じスコープ内に同じ名前の変数を宣言することはできません。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: cause
+                                              value_before_type_cast: 同じ変数を2回以上宣言しています。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: advice
+                                              value_before_type_cast: 同じスコープ内に同じ名前の変数を宣言することはできません。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.251721000 Z
@@ -326,14 +326,14 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: Routing Error
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: ルーティングが不適切です。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　config/routes.rbでルーティングを確認・設定しましょう。
-       「rails routes」というコマンドをターミナルで実行するとルーティングを確認できます。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: cause
+                                            value_before_type_cast: ルーティングが不適切です。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: advice
+                                            value_before_type_cast: |-
+                                              　config/routes.rbでルーティングを確認・設定しましょう。
+                                              「rails routes」というコマンドをターミナルで実行するとルーティングを確認できます。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.254989000 Z
@@ -350,12 +350,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: String too long
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 文字列が255文字を超えています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: string型に格納できる最大文字数は255文字です。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: cause
+                                              value_before_type_cast: 文字列が255文字を超えています。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: advice
+                                              value_before_type_cast: string型に格納できる最大文字数は255文字です。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.258161000 Z
@@ -372,16 +372,16 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: syntax error
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 構文が正しくありません。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　エラー文の中に不適切な構文となっている箇所や原因が記載されていることが多いため確認してみましょう。
-      またこのエラーと合わせてNameErrorなど他のエラーが出ている場合はそちらを参考にしましょう。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: cause
+                                            value_before_type_cast: 構文が正しくありません。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: advice
+                                            value_before_type_cast: |-
+                                              　エラー文の中に不適切な構文となっている箇所や原因が記載されていることが多いため確認してみましょう。
+                                              またこのエラーと合わせてNameErrorなど他のエラーが出ている場合はそちらを参考にしましょう。
 
-      ※プログラム中に全角の空白が入っている可能性があります。コードエディタ（プログラムを打ち込んでいる場所）でキーボードの「Ctrl」と「F」を同時に押すと検索ボックスが出てきます。検索ボックスに全角の空白を入力して探してみましょう。（この検索ボックスコマンドはWindowsPCであればほぼ全ての場面で使用できます。(Googleで文を探したり...etc)
+                                              ※プログラム中に全角の空白が入っている可能性があります。コードエディタ（プログラムを打ち込んでいる場所）でキーボードの「Ctrl」と「F」を同時に押すと検索ボックスが出てきます。検索ボックスに全角の空白を入力して探してみましょう。（この検索ボックスコマンドはWindowsPCであればほぼ全ての場面で使用できます。(Googleで文を探したり...etc)
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.261307000 Z
@@ -398,12 +398,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: too few arguments to function
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 関数に与えている引数が多すぎます。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: 関数を呼び出している箇所を見て定義通りに引数が渡されているか確認しましょう。
+                                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                            name: cause
+                                                            value_before_type_cast: 関数に与えている引数が多すぎます。
+                                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                            name: advice
+                                                            value_before_type_cast: 関数を呼び出している箇所を見て定義通りに引数が渡されているか確認しましょう。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.264579000 Z
@@ -420,28 +420,28 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: TypeError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 型が不適切です。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　違う型の比較や計算はできません。
-      　例1.1）
-      　　if 1 >= ”あ”・・・「1」が「あ」より大きい?
-      　例1.2)
-      　　a = 1 + ”あ”・・・数字と文字は計算できない。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: cause
+                                              value_before_type_cast: 型が不適切です。
+                                            - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                              name: advice
+                                              value_before_type_cast: |-
+                                                　違う型の比較や計算はできません。
+                                                　例1.1）
+                                                　　if 1 >= ”あ”・・・「1」が「あ」より大きい?
+                                                　例1.2)
+                                                　　a = 1 + ”あ”・・・数字と文字は計算できない。
 
 
-      　また引数に本来期待する型とは違う型の値が渡されている可能性もあります。
-      　　（引数・・・update(a) ←updateというメソッドに変数aを渡す。このとき変数aが引数。）
-      　例）
-      　　a = 5
-      　　b = ”あ”
+                                                　また引数に本来期待する型とは違う型の値が渡されている可能性もあります。
+                                                　　（引数・・・update(a) ←updateというメソッドに変数aを渡す。このとき変数aが引数。）
+                                                　例）
+                                                　　a = 5
+                                                　　b = ”あ”
 
-      　　sum(a,b)・・・sumというメソッドを呼び出す。(引数1 + 引数2という処理を行うと定義)
+                                                　　sum(a,b)・・・sumというメソッドを呼び出す。(引数1 + 引数2という処理を行うと定義)
 
-      メソッドsumに型の違う変数が渡されてしまった。5 + ”あ” はできないためエラー。
+                                                メソッドsumに型の違う変数が渡されてしまった。5 + ”あ” はできないためエラー。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.267619000 Z
@@ -458,12 +458,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: undeclared
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 宣言されていない変数が使用されています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: 該当の変数を宣言しましょう。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: cause
+                                            value_before_type_cast: 宣言されていない変数が使用されています。
+                                          - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                            name: advice
+                                            value_before_type_cast: 該当の変数を宣言しましょう。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.270985000 Z
@@ -480,12 +480,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: undefined reference to
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 定義されていない関数が使用されています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: ヘッダファイルをincludeしていない、または関数名を間違えている場合があります。
+                                                    - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                      name: cause
+                                                      value_before_type_cast: 定義されていない関数が使用されています。
+                                                    - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                      name: advice
+                                                      value_before_type_cast: ヘッダファイルをincludeしていない、または関数名を間違えている場合があります。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.274957000 Z
@@ -502,14 +502,14 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: warning
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 条件式部分で「 = 」が使用されています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: |-
-      　条件式で「等しい」を表す場合は「 == 」と書きます。
-      　「 = 」は代入を表します。
+                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                          name: cause
+                                          value_before_type_cast: 条件式部分で「 = 」が使用されています。
+                                        - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                          name: advice
+                                          value_before_type_cast: |-
+                                            　条件式で「等しい」を表す場合は「 == 」と書きます。
+                                            　「 = 」は代入を表します。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.278365000 Z
@@ -526,12 +526,12 @@
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: err_mess
     value_before_type_cast: ZeroDivisionError
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: cause
-    value_before_type_cast: 0で割り算を行っています。
-  - !ruby/object:ActiveModel::Attribute::FromDatabase
-    name: advice
-    value_before_type_cast: コンピュータの世界では「0」で割り算を行うことができません。
+                                              - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                name: cause
+                                                value_before_type_cast: 0で割り算を行っています。
+                                              - !ruby/object:ActiveModel::Attribute::FromDatabase
+                                                name: advice
+                                                value_before_type_cast: コンピュータの世界では「0」で割り算を行うことができません。
   - !ruby/object:ActiveModel::Attribute::FromDatabase
     name: created_at
     value_before_type_cast: 2021-12-23 09:27:23.281536000 Z
