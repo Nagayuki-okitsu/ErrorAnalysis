@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_23_093755) do
+ActiveRecord::Schema.define(version: 2022_01_27_143856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(version: 2021_12_23_093755) do
     t.string "file_name_2"
     t.string "file_name_3"
     t.boolean "solved", default: false, null: false
+    t.binary "image_4"
+    t.string "image_content_type_4"
+    t.string "file_name_4"
+    t.binary "image_5"
+    t.string "image_content_type_5"
+    t.string "file_name_5"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 

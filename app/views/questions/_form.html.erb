@@ -14,7 +14,7 @@
                 <% blank_flg = 1 %>
                 <% msg = "必須項目に記入してください" %>
               <% end %>
-            <% elsif error == ("Title is too long (maximum is 20 characters)") %>
+            <% elsif error == ("Title is too long (maximum is 30 characters)") %>
               <% msg = "タイトルは30文字以内にしてください" %>
             <% end %>
 
@@ -41,9 +41,9 @@
     </div>
 
     <div class="field">
-      <%= form.label "画像（任意で最大３つまで：プログラムやエラーメッセージのスクリーンショット）※ファイル形式はpngやjpgなど", class: "q_label" %>
+      <%= form.label "画像（任意で最大５つまで：プログラムやエラーメッセージのスクリーンショット）※ファイル形式はpngやjpgなど", class: "q_label" %>
       <table class="image_table">
-      <% if @image.present? || @image_2.present? || @image_3.present?%>
+      <% if @image.present? || @image_2.present? || @image_3.present? || @image_5.present? || @image_5.present?%>
 
         <% save_img = "" %>
         <% if @image.present? %>
@@ -55,6 +55,12 @@
         <% if @image_3.present? %>
           <% save_img += "３つ目「#{@image_3}」 " %>
         <% end %>
+        <% if @image_4.present? %>
+          <% save_img += "4つ目「#{@image_4}」 " %>
+        <% end %>
+        <% if @image_3.present? %>
+          <% save_img += "5つ目「#{@image_5}」 " %>
+        <% end %>
         
         <p style="color: red;">※ 前回投稿した画像は保存されています。新たに画像を追加する場合は未保存の箇所にファイルをアップしてください。<br>　画像を置き換えたい場合はその画像が保存されてる箇所にファイルをアップしてください。<br>　( 保存済み: <%= save_img%>)<br> </p>
       <% end %>
@@ -63,6 +69,8 @@
         <tr><td>・１つ目　<%= form.file_field :image, class: "image_field" %></td></tr>
         <tr><td>・２つ目　<%= form.file_field :image_2, class: "image_field" %></td></tr>
         <tr><td>・３つ目　<%= form.file_field :image_3, class: "image_field" %></td></tr>
+        <tr><td>・４つ目　<%= form.file_field :image_4, class: "image_field" %></td></tr>
+        <tr><td>・５つ目　<%= form.file_field :image_5, class: "image_field" %></td></tr>
       </table>
     </div>
 

@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3 check_solved]
+  before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3 show_image_4 show_image_5 check_solved]
   before_action :logged_in_user, only: %i[ new create edit update destroy]
   before_action :current_user, only: %i[ new create edit update destroy]
 
@@ -78,6 +78,8 @@ class QuestionsController < ApplicationController
     @image = @question.file_name
     @image_2 = @question.file_name_2
     @image_3 = @question.file_name_3
+    @image_4 = @question.file_name_4
+    @image_5 = @question.file_name_5
   end
 
   # POST /questions or /questions.json
@@ -99,6 +101,16 @@ class QuestionsController < ApplicationController
       @question.image_3 = params[:question][:image_3].read
       @question.file_name_3 = params[:question][:image_3].original_filename
       @question.image_content_type_3 = params[:question][:image_3].content_type
+    end
+    if params[:question][:image_4].present?
+      @question.image_4 = params[:question][:image_4].read
+      @question.file_name_4 = params[:question][:image_4].original_filename
+      @question.image_content_type_4 = params[:question][:image_4].content_type
+    end    
+    if params[:question][:image_5].present?
+      @question.image_5 = params[:question][:image_5].read
+      @question.file_name_5 = params[:question][:image_5].original_filename
+      @question.image_content_type_5 = params[:question][:image_5].content_type
     end
 
   
@@ -129,6 +141,16 @@ class QuestionsController < ApplicationController
       @question.image_3 = params[:question][:image_3].read
       @question.file_name_3 = params[:question][:image_3].original_filename
       @question.image_content_type_3 = params[:question][:image_3].content_type
+    end    
+    if params[:question][:image_4].present?
+      @question.image_4 = params[:question][:image_4].read
+      @question.file_name_4 = params[:question][:image_4].original_filename
+      @question.image_content_type_4 = params[:question][:image_4].content_type
+    end    
+    if params[:question][:image_5].present?
+      @question.image_5 = params[:question][:image_5].read
+      @question.file_name_5 = params[:question][:image_5].original_filename
+      @question.image_content_type_5 = params[:question][:image_5].content_type
     end    
     
     if @question.update(question_params)
@@ -166,6 +188,14 @@ class QuestionsController < ApplicationController
 
   def show_image_3
     send_data(@question.image_3, type: @question.image_content_type_3, disposition: :inline)
+  end
+
+  def show_image_4
+    send_data(@question.image_4, type: @question.image_content_type_4, disposition: :inline)
+  end
+
+  def show_image_5
+    send_data(@question.image_5, type: @question.image_content_type_5, disposition: :inline)
   end
   
   private
