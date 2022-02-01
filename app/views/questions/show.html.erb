@@ -1,27 +1,24 @@
-<%= render 'layouts/nav' %>  
-<%= render 'layouts/back' %>
-
 <div class="content_box">
   <div class="around_box">
 
-      <% if current_user?(User.find_by(id: @question.user_id)) %>
-        <div class="q_edit_delete">
-          <div class="edit_link">
-            <%= link_to  edit_question_path(@question) do%>
-              <button class="edit_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
-            <% end %>
-          </div>
-          <div class="delete_link">
-            <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答、返信が全て削除されます。\n削除した内容を復元することはできません。\n※この質問への回答に押された「いいね」は保存されます。\n本当に削除しますか？"} do%>
-              <button class="delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
-            <% end %>
-          </div>
+    <% if current_user?(User.find_by(id: @question.user_id)) %>
+      <div class="q_edit_delete">
+        <div class="edit_link">
+          <%= link_to  edit_question_path(@question) do%>
+            <button class="edit_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+          <% end %>
         </div>
-      <% else %>
-        <%= button_to new_answer_path, :class => 'q_btn', :method => :get , params: {q_id: @question.id} do %>
-          <i class="fas fa-pen q_icon"></i>回答する
-        <% end %>
+        <div class="delete_link">
+          <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答、返信が全て削除されます。\n削除した内容を復元することはできません。\n※この質問への回答に押された「いいね」は保存されます。\n本当に削除しますか？"} do%>
+            <button class="delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+          <% end %>
+        </div>
+      </div>
+    <% else %>
+      <%= button_to new_answer_path, :class => 'q_btn', :method => :get , params: {q_id: @question.id} do %>
+        <i class="fas fa-pen q_icon"></i>回答する
       <% end %>
+    <% end %>
 
     <div class="q_a_box">
 
@@ -49,6 +46,7 @@
             <% end %>
           <% end %>
         <% end %>
+        
       </h2>
 
       <h5><i class="fas fa-pen q_icon"></i>  <%= @question.created_at.strftime("%Y年 %m月 %d日") %></h5>

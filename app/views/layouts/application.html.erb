@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
 <html>
   <head>
+
     <title>ErrorAnalysis</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Corben:700" rel="stylesheet">
@@ -10,9 +13,10 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
 
+    <%# いいね機能に対するajax用 %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script> 
 
       $(function(){
@@ -52,11 +56,84 @@
           return false;
         });
       });
+
     </script>
+
   </head>
 
   <body>
-    <div class="back"></div>
+
+    <%# 背景 %>
+    <div class="area" >
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div >
+
+    <nav>
+
+      <div class="list">
+        <ul class="gnav">
+          <li><a href=""><i class="fas fa-list-ul"></i></a>
+            <ul>
+              <li><%= link_to "/" do %><i class="fas fa-home"></i> HOME<% end %></li>
+              <li><%= link_to questions_path do %><i class="fas fa-box-open"></i> 質問箱<% end %></li>
+              <% if logged_in? %>
+                <li><%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do%><i class="fas fa-user"></i> ログアウト<% end %></li>
+              <% else %>
+                <li><%= link_to  login_path do%><i class="fas fa-user"></i> ログイン<% end %></li>
+              <% end %>
+              <li><%= link_to new_user_path do %><i class="fas fa-user-plus"></i> 新規登録<% end %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <%= button_to questions_path, :class => 'q_nav_btn', :method => :get do %>
+        <i class="fas fa-box-open"></i> 質問箱
+      <% end %>
+
+      <h1>-ErrorAnalysis-</h1>
+      
+      <% if logged_in? %>
+        <% if @now_user_show.nil? %>
+          <div class="log">
+            <%= link_to  user_path(@current_user) do %>
+              <button class="log_btn_2"><i class="fas fa-user-check"></i> マイページ</button>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="log">
+            <%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
+              <button class="log_btn_2"><i class="fas fa-user-check"></i> ログアウト</button>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="log">
+          <%= link_to  login_path do%>
+            <button class="log_btn"><i class="fas fa-user"></i> ログイン</button>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="signup_link">
+        <%= link_to new_user_path do %>
+          <button class="signup_btn"><i class="fas fa-user-plus"></i> 新規登録</button>
+        <% end %>
+      </div>
+
+    </nav>
+
     
     <%= yield %>
 

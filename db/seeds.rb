@@ -33,7 +33,7 @@ ErrorList.create({ id: 21,err_mess: "ZeroDivisionError", cause: "0で割り算�
 =end
 
 
-#(参考にしたサイトURL：https://qiita.com/yukimura1227/items/ff04eb6a771ffe1ab0b8)
+#(yaml移行時に参考にしたサイトURL：https://qiita.com/yukimura1227/items/ff04eb6a771ffe1ab0b8)
 
 #---yamlにDBの内容を書き込む処理
 =begin
@@ -47,13 +47,13 @@ open(write_filepath,"w") do |write_file|
 end
 =end
 
-#---ymlのデータをDBに反映させる処理
+#---yamlのデータをDBに反映させる処理
 #=begin
 Dir.glob("#{Rails.root}/db/seeds/*.yml").each do |yaml_filename|
     # yamlのファイル名から、対応するモデルクラスを特定し、クラスをロードする
     # 下記行が無いと、「ArgumentError: undefined class/module」が発生する。
     target_model = File.basename(yaml_filename,".yml").classify.constantize
-    # すでに登録されているデータを全県削除
+    # すでに登録されているデータを全件削除
     target_model.delete_all
 
     # yamlに記述されたレコードをDBに登録する。
