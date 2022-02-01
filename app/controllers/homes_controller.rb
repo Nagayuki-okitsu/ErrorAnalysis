@@ -1,11 +1,10 @@
 class HomesController < ApplicationController
   
   def analysis
-
     if params[:err_mess].present?
-      @errorList = ErrorList.all
+      @flg = true
     else
-      @errorList = ErrorList.none
+      @flg = false
     end
   end
 

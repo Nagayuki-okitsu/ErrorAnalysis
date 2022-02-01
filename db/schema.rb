@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_143856) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  #yamlで管理しているため使用していない
   create_table "error_lists", force: :cascade do |t|
     t.string "err_mess"
     t.string "cause"

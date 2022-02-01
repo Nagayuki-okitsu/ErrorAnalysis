@@ -31,8 +31,16 @@
     </div>
 
     <div class="field">
-      <%= form.label :キーワード（任意）, class: "q_label" %>
-      <%= form.collection_select :key, ErrorList.all, :err_mess, :err_mess, include_blank: "選択して下さい（キーワードがわからない場合は選択する必要はありません)",class:"key_form" %>
+      <%= form.label :キーワード（エラーに対する質問の場合）, class: "q_label" %>
+        <%# セレクトボックスに表示するキーワードを抽出する処理 %>
+          <% err_list = open("#{Rails.root}/app/views/homes/errorList.yml","r") { |f| YAML.load(f) } %>
+          <% err_mess = ""  %>
+          <% err_list.each do |e_m| %>
+            <% err_mess += "#{e_m["err_mess"]}," %>
+          <% end %>
+          <% err_mess = err_mess.split(",") %>
+        <%# ここまで%>
+      <%= form.select :key, err_mess, include_blank: "選択して下さい（キーワードがわからない場合は選択する必要はありません)",class:"key_form" %>
     </div>
 
     <div class="field">

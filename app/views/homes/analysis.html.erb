@@ -10,7 +10,7 @@
       </div>
     <% end %>
 
-    <% if @errorList.empty? %>
+    <% if @flg == false %>
     
       <% if flash[:log_mes] %>
         <div class="flash"><%= flash[:log_mes] %></div>
@@ -32,28 +32,29 @@
       
         <% resultFlag = 0 %>
 
-        <% @errorList.each do |errorList| %>
+        <% err_list = open("#{Rails.root}/app/views/homes/errorList.yml","r") { |f| YAML.load(f) } %>
+        <% err_list.each do |err| %>
 
-          <% err_mess = errorList.err_mess %>
+          <% err_mess = err["err_mess"] %>
 
-          <% if params[:err_mess].include?("#{err_mess}")%>
+          <% if params[:err_mess].include?(err_mess)%>
 
             <div class="resultbox">
 
               <h4><i class="fas fa-check-circle"></i>　解析キーワード</h4>
-                <p>"<%= errorList.err_mess %>"</p>
+                <p>"<%= err_mess %>"</p>
               
               <h4><i class="fas fa-check-circle"></i>　主な原因</h4>
-                <p><%= errorList.cause %></p>
+                <p><%= err["cause"] %></p>
 
               <h4><i class="fas fa-check-circle"></i>　ヒント</h4>
-                <p><%= errorList.advice %></p>
+                <p><%= err["hint"] %></p>
                       
             </div>
 
             <% resultFlag = 1%>
 
-          <% elsif err_mess == @errorList[@errorList.length-1].err_mess && resultFlag == 0%>
+          <% elsif err_mess == err_list[err_list.length-1]["err_mess"] && resultFlag == 0%>
 
             <div class="resultbox">
 
