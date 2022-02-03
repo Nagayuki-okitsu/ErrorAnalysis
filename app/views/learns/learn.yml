@@ -1,6 +1,8 @@
 #問題の答えは選択肢の1つ目とする。
 
-- q_pro: |
+- err_key: NameError
+
+  q_pro: |
           hello = ” Hellor World ”
 
           puts helle
@@ -35,7 +37,9 @@
 
 
 
-- q_pro: |
+- err_key:
+
+  q_pro: |
           a
 
           a
@@ -70,7 +74,9 @@
 
 
 
-- q_pro: |
+- err_key:
+
+  q_pro: |
           r
 
           r
@@ -105,7 +111,9 @@
       
 
 
-#- q_pro: |
+#- err_key: 
+#
+#  q_pro: |
 #          
 #  q_err: |
 #          
