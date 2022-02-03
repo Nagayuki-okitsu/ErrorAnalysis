@@ -1,3 +1,96 @@
 // Place all the styles related to the learns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.qes_box{
+    margin: 1em 0;
+    padding: 30px;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border-radius: 10px;
+}
+
+.choices_box {
+    margin: 2em 0;
+    padding: 10px 10px 30px 10px;
+    background: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    border-radius: 10px;
+}
+
+.choices_box .box-title {
+    font-size: 1em;
+    background: #6862b4;
+    padding: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 5px;
+}
+
+.choices_box p {
+    display: inline-block;
+    padding: 15px 0 0 0;
+    margin: 0;
+}
+
+.choices_box input{
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.choices_box label{
+    cursor: pointer;
+}
+
+.choices_box .judge{
+    font-weight: bold;
+    font-size: large;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.choices_box .ans_box{
+    padding: 10px 30px 20px 30px;
+    margin: 30px 30px 0 30px;
+    letter-spacing: 0.05em;
+    border: solid 1px rgb(206, 206, 206);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.choices_box .ans_box .title{
+    font-size: large;
+    text-align: center;
+}
+
+.choices_box .ans_box p{
+    line-height: 150%;
+}
+
+.choices_button  {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0.2em 1.5em 0.2em 1em;
+    width: 100px;
+    color: rgb(252, 252, 252);
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #6862b4;
+    border: 2px solid rgb(119, 117, 113); /*枠線*/
+    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    border-radius: 10px;
+}
+    
+.choices_button:hover {
+    text-decoration: none;
+    background-color: #46427c;
+    color: rgb(255, 255, 255);
+}

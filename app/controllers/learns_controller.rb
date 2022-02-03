@@ -4,58 +4,72 @@ class LearnsController < ApplicationController
 
     def test
         #session[:q_arr_index] = nil
-        #session[:check] = nil
-        #session[:r_ans] = nil
+        #session[:status] = "new"
         
         learn_arr = open("#{Rails.root}/app/views/learns/learn.yml", "r") { |f| YAML.load(f) } 
 
         if params[:status].present?
-            if session[:status] != "stay" || params[:status] == "change"
+            if (session[:status] != "stay_s" && session[:status] != "stay_c") || ( session[:status] == "stay_s" && params[:status] == "change" ) || ( session[:status] == "stay_c" && params[:status] == "next" ) 
                 session[:status] = params[:status]
             end
         end
 
-        if session[:q_arr_index].nil?
-            session[:status] = "new"
-            session[:number] = 0
-            session[:q_arr_index] = select_q(learn_arr,3)
-            session[:r_ans] = nil
-            session[:q_order] = nil
-            session[:check] = nil
-        end
+        if session[:status] != "finish"
 
-        @key = ""
-        if session[:status] == "next" || session[:status] == "change"
+            if session[:q_arr_index].nil?                                                      #「 session[:status]の追跡 」
+                session[:status] = "new"                                                       #  開始時　・・・ new
+                session[:number] = 0                                                           #　  　↓
+                session[:q_arr_index] = select_q(learn_arr,3)                                  #  原因から解決 ・・・ next ①
+                session[:r_ans] = nil                                                          #　  　↓
+                session[:q_order] = nil                                                        #（解決選択 ・・・ stay_s）②
+                session[:check] = nil                                                          #  　　↓
+            end                                                                                #  次の問題 ・・・ change
+    
+            @key = ""                                                                          #　  　↓
+            if session[:status] == "next" || session[:status] == "change"                      # (原因選択 ・・・ stay_c) ①に戻る
 
-            if session[:status] == "next"
+                if session[:status] == "next"                                                  #  　　↓
+                    @key = "s_a"                                                               #  ②から終了時 ・・・ finish
+                    session[:status] = "stay_s"
+                else 
+                    @key = "c_a"
+                    session[:status] = "stay_c"
+                    session[:number] += 1
+                end
+                
+                session[:r_ans] = nil
+                session[:q_order] = nil
+                session[:check] = nil
+
+            elsif session[:status] == "stay_s"
                 @key = "s_a"
-                session[:status] = "stay"
-            else 
+            else
                 @key = "c_a"
-                session[:status] = "new"
-                session[:number] += 1
             end
-            
-            session[:r_ans] = nil
-            session[:q_order] = nil
-            session[:check] = nil
 
-        elsif session[:status] == "stay"
-            @key = "s_a"
+            if session[:r_ans].nil?
+                session[:r_ans], session[:q_order] = shuffle_q #問題の選択肢をシャッフルする
+            end
+
+            q = learn_arr[session[:q_arr_index][session[:number]]] #問題を抽出する
+
+            @q = order_q(q,session[:q_order],"#{@key}") #抽出した問題を並べ替えてインスタンスとする
+
+            if params[:ans].present?
+                session[:check] = check(session[:r_ans],params[:ans])
+
+                if session[:number] + 1 == 3 && session[:status] == "stay_s"
+                    session[:status] = "finish"
+                    tmp = session[:q_arr_index]
+                    session[:tmp_q_index] = tmp[tmp.length-1]
+                    session[:q_arr_index] = nil
+                end
+            end
+        
         else
-            @key = "c_a"
-        end
-
-        if session[:r_ans].nil?
-            session[:r_ans], session[:q_order] = shuffle_q #問題の選択肢をシャッフルする
-        end
-
-        q = learn_arr[session[:q_arr_index][session[:number]]] #問題を抽出する
-
-        @q = order_q(q,session[:q_order],"#{@key}") #抽出した問題を並べ替えてインスタンスとする
-
-        if params[:ans].present?
-            session[:check] = check(session[:r_ans],params[:ans])
+            q = learn_arr[session[:tmp_q_index][session[:number]]] #問題を抽出する
+            @q = order_q(q,session[:q_order],"s_a") #抽出した問題を並べ替えてインスタンスとする
+            @key = "s_a"
         end
 
     end
