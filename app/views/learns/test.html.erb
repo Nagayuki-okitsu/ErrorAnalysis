@@ -2,14 +2,21 @@
   <div class="around_box">
 
     <div class="resultbox">
-
-        <h3 align="center">ー第<%= session[:number] + 1 %>問ー</h3>
+    
+        <h3 class="q_num"><i class="fas fa-chevron-left"></i> 第<%= session[:number] + 1 %>問 <i class="fas fa-chevron-right"></i></h3>
 
         <div class="qes_box">
+            <% q_arr = @q["q_pro"].split("\n") %>
             <h4><i class="fas fa-edit"></i> エラーが発生しているプログラム</h4>
-            <p><%= @q["q_pro"] %></p>
+            <div style="padding: 20px 20px 30px 20px;">
+                <% for i in 0..(q_arr.length-1) %>
+                    <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                <% end %>
+            </div>
             <h4><i class="fas fa-external-link-alt"></i> 出力されているエラー</h4>
-            <p><%= @q["q_err"] %></p>
+            <div style="padding: 20px 20px 0 20px;">
+                <p><%= @q["q_err"] %></p>
+            </div>
         </div>
 
         <div class="choices_box">
@@ -86,12 +93,10 @@
                     <p><%= f.label :ans, "(4) #{@q["#{@key}"][3]}", {value: :d, style: "display: inline-block;"} %></p><br>
 
                     </div> <%# choices_boxの終了タグ %>
+                   
+                    <button class="fake_btn" id="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
 
-                    <div id="ans_btn_1">
-                        <button class="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
-                    </div>
-
-                    <%= button_tag type: :submit, :id => 'ans_btn_2',  :class => 'choices_button', :style => 'display: none;' do %>
+                    <%= button_tag type: :submit, :id => 'real_btn',  :class => 'choices_button', :style => 'display: none;' do %>
                         <i class="fas fa-check-circle"></i>回答
                     <% end %>
 

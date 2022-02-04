@@ -30,6 +30,7 @@
 //ボタン・aタグのホバー時間
 button{
   transition: 0.3s;
+  user-select: none;
 }
 
 a{

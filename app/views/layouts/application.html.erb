@@ -60,18 +60,22 @@
       });
 
       $(function(){
-        $('input[name="ans"]').change(function() {
-          if ($('input[name="ans"]:checked').val() != undefined ) {
-            $('#ans_btn_1').hide();
-            $('#ans_btn_2').show().animate({
+        $('input').change(function() {
+
+          var $d = $('input[name=difc]:checked').val(),
+              $k = $('input[name=kind]:checked').val(),
+              $t = $('input[name=total]:checked').val(),
+              $ans = $('input[name=ans]:checked').val();
+
+          if ($d != undefined && $k != undefined && $t != undefined || $ans != undefined) {
+            $('#fake_btn').hide();
+            $('#real_btn').show().animate({
               backgroundColor: '#6862b4',
               borderColor: 'rgb(119, 117, 113)'
             }, 100);
-          }else{
-            $('#ans_btn_2').hide();
-            $('#ans_btn_1').show();
           }
-        });
+
+        });       
       });
 
     </script>

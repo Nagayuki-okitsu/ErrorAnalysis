@@ -1,11 +1,13 @@
 #問題の答えは選択肢の1つ目とする。
+#kind=エラーの種類、difc(difficulty)=難易度、q_pro(question program)=問題用のプログラム、q_err(question error)=問題用のエラー、c_a(cause answer)=原因問題の答え、s_a(solve answer)=解決問題の答え、ans(answer)=回答・解説
 
-- err_key: NameError
 
-  difficulty: easy
+- kind: NameError
+
+  difc: easy
 
   q_pro: |
-          hello = ” Hellor World ”
+          hello = " Hellow World "
 
           puts helle
 
@@ -39,9 +41,9 @@
 
 
 
-- err_key:
+- kind:
 
-  difficulty:
+  difc:
 
   q_pro: |
           a
@@ -78,9 +80,9 @@
 
 
 
-- err_key:
+- kind:
 
-  difficulty:
+  difc:
 
   q_pro: |
           r
@@ -117,9 +119,9 @@
       
 
 
-#- err_key: 
+#- kind: 
 #
-#  difficulty:
+#  difc:
 #
 #  q_pro: |
 #          
