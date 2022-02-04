@@ -16,6 +16,8 @@
 
     <%# いいね機能に対するajax用 %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%# animateでbackground-colorの色指定を有効にする用 %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <script> 
 
@@ -54,6 +56,21 @@
         pagetop.click(function () {
           $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
           return false;
+        });
+      });
+
+      $(function(){
+        $('input[name="ans"]').change(function() {
+          if ($('input[name="ans"]:checked').val() != undefined ) {
+            $('#ans_btn_1').hide();
+            $('#ans_btn_2').show().animate({
+              backgroundColor: '#6862b4',
+              borderColor: 'rgb(119, 117, 113)'
+            }, 100);
+          }else{
+            $('#ans_btn_2').hide();
+            $('#ans_btn_1').show();
+          }
         });
       });
 

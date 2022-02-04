@@ -2,6 +2,8 @@
 
 - err_key: NameError
 
+  difficulty: easy
+
   q_pro: |
           hello = ” Hellor World ”
 
@@ -38,6 +40,8 @@
 
 
 - err_key:
+
+  difficulty:
 
   q_pro: |
           a
@@ -76,6 +80,8 @@
 
 - err_key:
 
+  difficulty:
+
   q_pro: |
           r
 
@@ -112,6 +118,8 @@
 
 
 #- err_key: 
+#
+#  difficulty:
 #
 #  q_pro: |
 #          

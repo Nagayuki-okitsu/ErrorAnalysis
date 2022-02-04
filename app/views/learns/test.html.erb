@@ -34,7 +34,7 @@
 
                     </div> <%# choices_boxの終了タグ %>
 
-                    <%= button_to test_path, :class => 'choices_button', :style => 'width:120px;', :method => :get , params: {status: "next"} do %>
+                    <%= button_to test_path, :class => 'choices_button', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113);', :method => :get , params: {status: "next"} do %>
                         <i class="fas fa-arrow-alt-circle-right"></i>続きへ
                     <% end %>
                     
@@ -49,13 +49,13 @@
 
                     <% if session[:status] == "stay_s" %>
 
-                        <%= button_to test_path, :class => 'choices_button', :style => 'width: 150px;' , :method => :get , params: {status: "change"} do %>
+                        <%= button_to test_path, :class => 'choices_button', :style => 'width: 150px; background-color: #6862b4; border-color: rgb(119, 117, 113);' , :method => :get , params: {status: "change"} do %>
                             <i class="fas fa-arrow-alt-circle-right"></i>次の問題へ
                         <% end %>
 
                     <% elsif session[:status] == "finish" %>
 
-                        <%= button_to learn_path, :class => 'choices_button', :style => 'width: 140px;' , :method => :get do %>
+                        <%= button_to learn_path, :class => 'choices_button', :style => 'width: 140px; background-color: #6862b4; border-color: rgb(119, 117, 113);' , :method => :get do %>
                             <i class="fas fa-check-circle"></i>終了する
                         <% end %>
 
@@ -87,7 +87,11 @@
 
                     </div> <%# choices_boxの終了タグ %>
 
-                    <%= button_tag type: :submit, :class => 'choices_button' do %>
+                    <div id="ans_btn_1">
+                        <button class="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
+                    </div>
+
+                    <%= button_tag type: :submit, :id => 'ans_btn_2',  :class => 'choices_button', :style => 'display: none;' do %>
                         <i class="fas fa-check-circle"></i>回答
                     <% end %>
 
