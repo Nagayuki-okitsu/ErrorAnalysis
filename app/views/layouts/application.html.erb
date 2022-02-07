@@ -18,8 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%# animateでbackground-colorの色指定を有効にする用 %>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
 
-    <script> 
+    <script> //フラッシュメッセージを時間経過で削除する処理
 
       $(function(){
         setTimeout("$('.flash').fadeOut('slow')", 5000);
@@ -32,10 +33,16 @@
       $(function(){
         setTimeout("$('.flash_signup').fadeOut('slow')", 15000);
       });
+    
+    </script>
 
-      jQuery(function() {
+    <script> //画面上部に戻るボタンを表示させる処理
+
+      $(function() {
+
         var appear = false;
         var pagetop = $('#page_top');
+
         $(window).scroll(function () {
           if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
             if (appear == false) {
@@ -59,9 +66,13 @@
         });
       });
 
+    </script>
+
+    <script> //ラジオボタンが選択されてからボタンを表示させる処理
+
       $(function(){
         $('input').change(function() {
-
+  
           var $d = $('input[name=difc]:checked').val(),
               $k = $('input[name=kind]:checked').val(),
               $t = $('input[name=total]:checked').val(),
@@ -80,12 +91,57 @@
 
     </script>
 
+    
+    <script> //問題の選択肢のdiv要素を移動させる処理
+
+      $(function() {
+
+        var _isMoving = false; //移動中かどうかのフラグ true:移動中 false:停止中
+        var _clickX,  _clickY; //クリックされた位置
+        var _position;         //クリックされた時の要素の位置
+
+        //mousedownイベント
+        $("#target").on("mousedown", function(e) {
+
+          if (_isMoving) return; //移動中の場合は処理しない
+    
+          _isMoving = true; //移動中にする
+
+          //クリックされた座標を保持します
+          _clickX = e.screenX;
+          _clickY = e.screenY;
+
+          //クリックされた時の要素の座標を保持します
+          _position = $("#target").parent().position();
+        });
+
+        //mousemoveイベント
+        $("#root").on("mousemove", function(e) {
+         
+          if (_isMoving == false) return; //移動中でない場合は処理しない
+
+          //クリックされた時の要素の座標に、移動量を加算したものを、座標として設定します
+          $("#target").parent().css("left", (_position.left + e.screenX - _clickX) + "px");
+          $("#target").parent().css("top" , (_position.top  + e.screenY - _clickY) + "px");
+        });
+
+        //mouseupイベント
+        $("#root").on("mouseup", function(e) {
+          console.log("あ")
+          if (_isMoving == false) return; //移動中でない場合は処理しない
+         
+          _isMoving = false; //停止中にする
+        });
+
+      });
+    </script>
+
   </head>
 
   <body>
 
     <%# 背景 %>
-    <div class="area" >
+    <div class="area"> 
       <ul class="circles">
         <li></li>
         <li></li>
@@ -108,6 +164,7 @@
             <ul>
               <li><%= link_to "/" do %><i class="fas fa-home"></i> HOME<% end %></li>
               <li><%= link_to questions_path do %><i class="fas fa-box-open"></i> 質問箱<% end %></li>
+              <li><%= link_to learn_path do %><i class="fas fa-graduation-cap"></i> エラー学習<% end %></li>
               <% if logged_in? %>
                 <li><%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do%><i class="fas fa-user"></i> ログアウト<% end %></li>
               <% else %>
@@ -121,6 +178,10 @@
 
       <%= button_to questions_path, :class => 'q_nav_btn', :method => :get do %>
         <i class="fas fa-box-open"></i> 質問箱
+      <% end %>
+
+      <%= button_to learn_path, :class => 'st_nav_btn', :method => :get do %>
+        <i class="fas fa-graduation-cap"></i> エラー学習
       <% end %>
 
       <h1>-ErrorAnalysis-</h1>

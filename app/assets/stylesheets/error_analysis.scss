@@ -115,6 +115,7 @@
 .txt06 {animation-delay: 4s;}
 .al_2 {animation-delay: 4s;}
 .txt07 {animation-delay: 4s;}
+.txt08 {animation-delay: 5s;}
 
 //フェード文章ブロック
 .txt02{
@@ -170,6 +171,12 @@
 
 .txt07{
     width: 60%;
+    height: auto;
+    background-color: rgb(125, 159, 231);
+}
+
+.txt08{
+    width: 820px;
     height: auto;
     background-color: rgb(125, 159, 231);
 }

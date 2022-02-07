@@ -1,5 +1,54 @@
 #問題の答えは選択肢の1つ目とする。
 #kind=エラーの種類、difc(difficulty)=難易度、q_pro(question program)=問題用のプログラム、q_err(question error)=問題用のエラー、c_a(cause answer)=原因問題の答え、s_a(solve answer)=解決問題の答え、ans(answer)=回答・解説
+#(NameError-e:5,n:5,h:0)
+
+- kind: NameError
+
+  difc: easy
+
+  q_pro: |
+          hello = "Hello World"
+
+          puts helle
+
+  q_err: |
+          Main.rb:3:in `<main>': undefined local variable or method `helle' for main:Object (NameError)
+          Did you mean?  hello
+
+  c_a: 
+    - | 
+       3行目で変数helloの名前を間違えている。
+    - |
+       変数helloに代入されている型が不適切である。
+    - |
+       putsメソッドの使い方を間違えている。
+    - |
+       変数の名前は大文字から始めなければならない。
+
+  s_a:
+    - |
+       3行目を puts hello にする。
+    - |
+       1行目を hello = Hello World にする。
+    - |
+       3行目を puts = helle にする。
+    - |
+       1行目を Hello = "Hello World" にする。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? hello」という記述があります。\
+        そのため変数helloの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `helle'」という記述があります。\
+        そのためプログラムの中に「helle」という使用できない何かが存在することがわかります。\n\n
+        　以上をもとに推測すると、「helle」という使用できない何かが原因でエラーが起きており、\
+        これは1行目で宣言されている変数helloの名前を間違えたものだという事がわかります。"
 
 
 - kind: NameError
@@ -7,116 +56,520 @@
   difc: easy
 
   q_pro: |
-          hello = " Hellow World "
+          hello = "Hello World"
 
-          puts helle
+          put hello
 
   q_err: |
-          NameError  Did you mean ? helle
+          Main.rb:3:in `<main>': undefined method `put' for main:Object (NoMethodError)
+          Did you mean?  puts
 
   c_a: 
     - | 
-       helloのスペルが間違っている。
+       3行目で出力メソッドの名前を間違えている。
     - |
-       helloに入力されている型が不適切である。
+       3行目で変数helloの名前を間違えている。
     - |
-       putsのスペルが間違っている。
+       1行目で変数helloの宣言方法を間違えている。
     - |
-       putsの使い方が間違っている。
+       3行目の出力メソッドの使い方が不適切である。
+
+  s_a:
+    - |
+       3行目を puts hello にする。
+    - |
+       3行目を put helle にする。
+    - |
+       3行目を put HELLO にする。
+    - |
+       3行目を puts a にする。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? puts」という記述があります。\
+        そのためputsメソッドの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `put'」という記述があります。\
+        そのためプログラムの中に「put」という使用できない何かが存在することがわかります。\n\n
+        　以上をもとに推測すると、「helle」という使用できない何かが原因でエラーが起きており、\
+        これは1行目で宣言されている変数helloの名前を間違えたものだという事がわかります。"
+        
+
+
+- kind: NameError
+
+  difc: easy
+
+  q_pro: |
+          array = ["ruby","C","Java"]
+          
+          puts arroy[0]
+
+  q_err: |
+          Main.rb:3:in `<main>': undefined local variable or method `arroy' for main:Object (NameError)
+          Did you mean?  array
+
+  c_a: 
+    - | 
+       3行目で配列arrayの名前を間違えている。
+    - |
+       1行目で配列の宣言方法を間違えている。
+    - |
+       3行目で配列の要素の取得方法を間違えている。
+    - |
+       endが不足している。
+
+  s_a:
+    - |
+       3行目を puts array[0] にする。
+    - |
+       1行目を arroy = ["※省略"] にする。
+    - |
+       3行目を puts orray[0] にする。
+    - |
+       3行目を put array[0] にする。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? array」という記述があります。\
+        そのため配列arrayの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `arroy'」という記述があります。\
+        そのためプログラムの中に「arroy」という使用できない何かが存在することがわかります。\n\n
+        　以上をもとに推測すると、「arroy」という使用できない何かが原因でエラーが起きており、\
+        これは1行目で宣言されている配列arrayの名前を間違えたものだという事がわかります。"
+
+
+
+- kind: NameError
+
+  difc: easy
+
+  q_pro: |
+          width = 5
+          height = 3
+          
+          a = wibth + height
+
+          puts a
+
+  q_err: |
+          Main.rb:4:in `<main>': undefined local variable or method `wibth' for main:Object (NameError)
+          Did you mean?  width
+
+  c_a: 
+    - | 
+       4行目で変数widthの名前を間違えている。
+    - |
+       4行目で変数heightの名前を間違えている。
+    - |
+       putsメソッドの使い方を間違えている。
+    - |
+       endが不足している。
+
+  s_a:
+    - |
+       4行目を a = width + height にする。
+    - |
+       4行目を a = wibth + haight にする。
+    - |
+       4行目を a = width + haight にする。
+    - |
+       4行目を b = width + height にする。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? width」という記述があります。\
+        そのため変数widthの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `wibth'」という記述があります。\
+        そのためプログラムの中に「wibth」という使用できない何かが存在することがわかります。\n\n
+        　以上をもとに推測すると、「wibth」という使用できない何かが原因でエラーが起きており、\
+        これは1行目で宣言されている変数widthの名前を間違えたものだという事がわかります。\n\n
+        選択肢の「4行目を b = width + height にする。」は変数の名前は正しいですが、代入する変数をbに\
+        してしまっており、6行目の「puts a」でNameErrorとなってしまうため不適切となります。"
+
+
+
+- kind: NameError
+
+  difc: easy
+
+  q_pro: |
+          x = 1
+          y = 2
+
+          puts z
+
+  q_err: |
+          Main.rb:4:in `<main>': undefined local variable or method `z' for main:Object (NameError)
+
+  c_a: 
+    - | 
+       4行目で存在しない変数zを出力しようとしている。
+    - |
+       4行目でputsメソッドの使い方を間違えている。
+    - |
+       1,2行目で変数の宣言方法を間違えている。
+    - |
+       putsメソッドにはendが必要である。
   
   s_a:
     - |
-       3行目のhelleをhelloにする。
+       4行目を puts x もしくは puts y にする、または4行目以前で変数zを宣言する。
     - |
-       hello = Hello Worldとする。
+       4行目を puts x もしくは puts y にする、または4行目以降で変数zを宣言する。
     - |
-       puts = helleとする。
+       4行目を puts xy にする。
     - |
-       put helleとする。
+       4行目を puts x * z
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n
+        　この問題のプログラムでは存在しない変数である「z」を出力しようとしてNameErrorが発生しています。\
+        エラーメッセージを見ると「undefined local variable or method `z'」（zという変数または配列、メソッドを知りません）\
+        という記述があり、変数zを宣言していないことがわかります。よってこのエラーを解決するには4行目以前のどこかで変数zを宣言\
+        する必要があります。\n\nプログラムは上から順番に処理が行われるため、4行目以降で変数zを宣言すると変数zが存在しない状態で puts z \
+        が行われてしまい、NameErrorとなってしまいます。よって選択肢の「（※省略）、または4行目以降で変数zを宣言する。」は不適切となります。"
+
+
+
+
+
+- kind: NameError
+
+  difc: normal
+
+  q_pro: |
+          a = gets.to_i
+
+          x = a + 1
+
+          puts y
+
+  q_err: |
+          Main.rb:5:in `<main>': undefined local variable or method `y' for main:Object (NameError)
+
+  c_a: 
+    - | 
+       5行目で存在しない変数yを出力しようとしている。
+    - |
+       1行目のgetsメソッドの使い方が不適切である。
+    - |
+       5行目のputsメソッドの使い方が不適切である。
+    - |
+       getsメソッドにはendが必要である。
+
+  s_a:
+    - |
+       5行目を puts x または puts a にする、または5行目以前で変数yを宣言する。
+    - |
+       5行目を puts x または puts a にする、または5行目以降で変数yを宣言する。
+    - |
+       5行目を puts xya にする。
+    - |
+       1行目を y = gets.to_i にする。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n
+        　この問題のプログラムでは存在しない変数である「y」を出力しようとしてNameErrorが発生しています。\
+        エラーメッセージを見ると「undefined local variable or method `y'」（yという変数または配列、メソッドを知りません）\
+        という記述があり、変数yを宣言していないことがわかります。よってこのエラーを解決するには5行目以前のどこかで変数yを宣言\
+        する必要があります。\n\n　プログラムは上から順番に処理が行われるため、5行目以降で変数yを宣言すると変数yが存在しない状態で puts y \
+        が行われてしまい、NameErrorとなってしまいます。よって選択肢の「（※省略）、または3行目以降で配列animalを宣言する。」は不適切となります。\
+        また選択肢の「1行目を y = gets.to_i にする。」では5行目の「puts y」に対するNameErrorは解決しますが、3行目の「x = a + 1」\
+        がNameErrorとなってしまう(変数aが宣言されていない）ため不適切となります。"
+
+
+
+
+
+
+- kind: NameError
+
+  difc: normal
+
+  q_pro: |
+          fruit = ["リンゴ","みかん","モモ"]
+
+          puts animal[0]
+
+  q_err: |
+          Main.rb:3:in `<main>': undefined local variable or method `animal' for main:Object (NameError)
+
+  c_a: 
+    - | 
+       3行目で存在しない配列animalの要素を出力しようとしている。
+    - |
+       3行目で配列animalの添え字を間違えている。
+    - |
+       1行目で配列fruitに代入している型が不適切である。
+    - |
+       配列の宣言にはendが必要である。
+
+  s_a:
+    - |
+       3行目を puts fruit[0] にする、または3行目以前で配列animalを宣言する。
+    - |
+       3行目を puts fruit[0] にする、または3行目以降で配列animalを宣言する。
+    - |
+       1行目を apple = ["(※省略)"] にする。
+    - |
+       1行目の処理を3行目以降に行う。
+
+  ans: "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n
+        　この問題のプログラムでは存在しない配列である「animal」を出力しようとしてNameErrorが発生しています。\
+        エラーメッセージを見ると「undefined local variable or method `animal'」（zという変数または配列、メソッドを知りません）\
+        という記述があり、配列animalを宣言していないことがわかります。よってこのエラーを解決するには3行目以前のどこかで配列animalを宣言\
+        する必要があります。\n\n　プログラムは上から順番に処理が行われるため、3行目以降で配列animalを宣言すると配列animalが存在しない状態で puts animal[0] \
+        が行われてしまい、NameErrorとなってしまいます。よって選択肢の「（※省略）、または3行目以降で配列animalを宣言する。」は不適切となります。"
+
+
+
+- kind: NameError
+
+  difc: normal
+
+  q_pro: |
+          hello = ハロー
+
+          puts hello
+
+  q_err: |
+          Main.rb:1:in `<main>': undefined local variable or method ` ハロー' for main:Object (NameError)
+
+  c_a: 
+    - | 
+       1行目の変数helloへの代入処理が不適切である。
+    - |
+       3行目で変数helloの名前を間違えている。
+    - |
+       3行目で存在しない変数helloを出力しようとしている。
+    - |
+       3行目のputsメソッドの使い方が不適切である。
+
+  s_a:
+    - |
+       1行目を hello = "ハロー" にする。
+    - |
+       1行目を hello = [ ハロー ] にする。
+    - |
+       1行目を hello = #{ハロー} にする。
+    - |
+       1行目を hello == "ハロー" にする。
+
+  ans: "この問題のプログラムでは文字列の扱いが不適切でエラーが起きています。\
+        プログラムに文字列であることを認識させるにはダブルクォーテーションでその文字列を囲む必要があります。\n\n
+        　※日本語文字列を変数として利用できるプログラミング言語も多数存在しており、この問題では1行目のハローが変数や配列、\
+        メソッドであると認識されNameErrorとなっています。(NameError:名前を間違えている、または宣言されていない変数や配列\
+        メソッドを使用しようとした場合に発生するエラー）"
+
+
+
+
+- kind: NameError
+
+  difc: normal
+
+  q_pro: |
+          def apple
+            puts "りんご"
+          end
+
+          applo
+
+  q_err: |
+          Main.rb:5:in `<main>': undefined local variable or method `applo' for main:Object (NameError)
+          Did you mean?  apple
+
+  c_a: 
+    - | 
+       5行目でappleメソッドの名前を間違えている。
+    - |
+       メソッドの定義方法が不適切である。
+    - |
+       2行目でputsメソッドの使い方を間違えている。
+    - |
+       endが不足している。
+
+  s_a:
+    - |
+       5行目を apple にする。
+    - |
+       1行目を def = apple にする。
+    - |
+       1行目を def applo にする。
+    - |
+       1行目を def Apple にする。
 
   ans: 
-        NameErrorとは変数や配列などの名前が間違っているときなどに発生します。
-        エラー文を見るとNameErrorという記載があるため、このプログラムのどこかにスペルミスがあることがわかります。
-        このプログラムでは3行目のputs helleの部分でhelloの事をhelleと間違えてしまっていることが原因となっています。
+        "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? apple」という記述があります。\
+        そのためappleメソッドの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `applo'」という記述があります。\
+        そのためプログラムの中に「applo」という使用できないメソッドが存在することがわかります。\n\n
+        　以上をもとに推測すると、「applo」という使用できないメソッドが原因でエラーが起きており、\
+        これは1～3行目で定義されているappleメソッドの名前を間違えたものだという事がわかります。"
 
 
+- kind: NameError
 
-- kind:
-
-  difc:
+  difc: normal
 
   q_pro: |
-          a
+          lion = "ライオン"
+          rabbit = "ウサギ"
 
-          a
+          animal = [lion , robbit]
+
+          puts animal[1]
 
   q_err: |
-          a  a
+          Main.rb:4:in `<main>': undefined local variable or method `robbit' for main:Object (NameError)
+          Did you mean?  rabbit
 
   c_a: 
     - | 
-       a
+       4行目で変数rabbitの名前を間違えている。
     - |
-       b
+       4行目で変数lionの名前を間違えている。
     - |
-       c
+       6行目で配列animalの名前を間違えている。
     - |
-       d
-  
+       6行目の配列animalの添え字が不適切である。
+
   s_a:
     - |
-       r
+       4行目を animal = [lion , rabbit] にする。
     - |
-       g
+       4行目を animal = [laion, robbit] にする。
     - |
-       q
+       4行目を animol = [lion, rabbit] にする。
     - |
-       e
+       4行目を animal = [lion, rabbot] にする。
 
-  ans: |
-        NameErrorとは変数や配列などの名前が間違っているときなどに発生します。
-        エラー文を見るとNameErrorという記載があり、このプログラムのどこかにスペルミスがあることがわかります。
-        このプログラムでは3行目のputs helleの部分でhelloの事をhelleと間違えてしまっていることが原因となっています。
+  ans: 
+        "このプログラムではNameErrorというエラーが起きています。\
+        NameErrorは変数や配列、メソッドの名前を間違えているときに発生します。\n
+        （そもそも存在しない または 使用できない範囲に存在する変数や配列、メソッドを使用\
+        しようとしたときにも発生することがあります。)\n\n　単純に名前を間違えている\
+        場合、エラーメッセージの中に「Did you mean? ○○」という記述があります。\
+        これは「あなたが使用したいのは○○ではないですか？」という意味であり、\
+        問題のエラーメッセージにも「Did you mean? rabbit」という記述があります。\
+        そのため変数rabbitの名前を間違えていることが推測できます。\n
+        　またエラーメッセージの中に「undefined local variable or method `○○'」という\
+        記述もあります。これは「○○という変数または配列、メソッドを知りません」という意味であり、\
+        問題のエラーメッセージにも「undefined local variable or method `robbit'」という記述があります。\
+        そのためプログラムの中に「robbit」という使用できない配列が存在することがわかります。\n\n
+        　以上をもとに推測すると、「robbit」という使用できない配列が原因でエラーが起きており、\
+        これは1行目で宣言されている変数rabbitの名前を間違えたものだという事がわかります。\n\n
+        選択肢の「4行目を animol = [lion, rabbit] にする。」は変数の名前は正しいですが、代入する配列をanimolに\
+        してしまっており、6行目の「puts animal[1]」でNameErrorとなってしまうため不適切となります。"
 
 
 
-- kind:
+- kind: NameError
 
-  difc:
+  difc: hard
 
   q_pro: |
-          r
+          class Hello
 
-          r
+               def initialize
+                  @hello = "Hello World"
+               end
 
+               def say_hello
+                  
+                     if flg == true
+                        puts @hello
+                    end
+                        
+              end
+
+          end
+
+          flg = true
+
+          hello = Hello.new
+
+          hello.say_hello
+          
   q_err: |
-          r r
+          Main.rb:9:in `say_hello': undefined local variable or method `flg' for 
+          #<Hello:0x00000000018438d8 @hello="Hello World"> (NameError) from Main.rb:21:in `<main>'
 
   c_a: 
-    - | 
-       r
     - |
-       g
+       say_helloメソッドが変数flgのスコープ外である。
     - |
-       g
+       initializeメソッドが呼ばれていないため@helloの作成に失敗している。
     - |
-       g
-  
+       Helloクラスでインスタンス変数ではない変数flgが使用されている。
+    - |
+       21行目でsay_helloメソッドの名前を間違えている。
+
   s_a:
     - |
-       v
+       say_helloメソッド内かつif文以前で変数flgを宣言する。
     - |
-       c
+       Helloクラス内のどこかで変数flgを宣言する。
     - |
-       x
+       Helloクラスの定義前に変数flgを宣言する。
     - |
-       q
+       initializeメソッドで変数flgを宣言する。
 
-  ans: |
-        NameErrorとは変数や配列などの名前が間違っているときなどに発生します。
-        エラー文を見るとNameErrorという記載があり、このプログラムのどこかにスペルミスがあることがわかります。
-        このプログラムでは3行目のputs helleの部分でhelloの事をhelleと間違えてしまっていることが原因となっています。
-      
+  ans: 
+       "ある変数を使用できる範囲の事をスコープと呼びます。またこの範囲のことをブロックと呼び、これはif文の中、\
+       メソッドの中、クラスの中など色々あります。\n\n
+       　if flg == true    def say_hello    class Hello\n
+         　（※省略）         （※省略）         （※省略）  ・・・ ブロック\n
+       　end                 end                 end\n\n
+       　あるブロックで宣言された変数がその他の全てのブロックで使用できるわけではありません。例えば普通はif文のブロック内で宣言\
+       された変数はif文のブロック内のみがスコープとなりif文の外側では使用することができません。（※Rubyでは使用できます。）しかしif文のブロックの外側で宣言された変数は\
+       if文のブロック内で使用することができます。これはその変数のスコープ内にif文のブロックが入っているためです。メソッドもif文と同じようにブロックの内側で宣言された変数を外側で使用することはできません。\
+       しかしメソッドはif文とは異なり、ブロックの外側で宣言された変数を内側で使用することもできません。\
+       つまりメソッドのブロックは外側とは繋がっていないようなイメージです。その代わりにメソッドは引数や戻り値によってブロックの外側とやり取りをします。\
+       このように各ブロックによって変数のスコープは異なります。\n\n
+       　問題のプログラムを見てみるとsay_helloメソッドのブロック内で使用されている変数flgはそのブロックの外側で宣言されていることが\
+       わかります。say_helloメソッドは引数を取っているわけでもないため外側で宣言されている変数flgを使用することができません。\
+       よってこのエラーを解決するには変数flgをsay_helloメソッドのブロック内かつif文ブロック以前で宣言する必要があります。\n\n
+       　(その他にも変数flgを引数としてsay_helloメソッドに渡したり、Helloクラス内のメソッドで@flgを宣言したり、Helloクラス内のどこかで@@flgを宣言したりする方法があります。\
+       （インスタンス変数やクラス変数はブロックに関係なくそのクラス内の全てがスコープとなります）)\n\n
+       　また原因の選択肢の「initializeメソッドが呼ばれていないため@helloの作成に失敗している。」について、initializeメソッドはクラス名.new\
+       で呼ばれるメソッドであり、19行目で呼ばれているため不正解。「Helloクラスでインスタンス変数ではない変数flgが使用されている。」について、\
+       クラスの中ではインスタンス変数だけでなく普通の変数やクラス変数なども使用できるため不正解となります。"
+
+
 
 
 #- kind: 
@@ -145,5 +598,5 @@
 #       
 #    - |
 #       
-#  ans: |
-#        
+#  ans: 
+#       "" 

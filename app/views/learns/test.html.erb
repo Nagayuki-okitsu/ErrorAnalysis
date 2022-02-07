@@ -2,26 +2,41 @@
   <div class="around_box">
 
     <div class="resultbox">
+
+        <% if flash[:mess].present? %>
+            <div class="flash_3"><i class="fas fa-map-marker-alt"></i>  <%= flash[:mess] %></div>
+        <% end %>
     
         <h3 class="q_num"><i class="fas fa-chevron-left"></i> 第<%= session[:number] + 1 %>問 <i class="fas fa-chevron-right"></i></h3>
 
         <div class="qes_box">
-            <% q_arr = @q["q_pro"].split("\n") %>
-            <h4><i class="fas fa-edit"></i> エラーが発生しているプログラム</h4>
-            <div style="padding: 20px 20px 30px 20px;">
-                <% for i in 0..(q_arr.length-1) %>
-                    <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
-                <% end %>
-            </div>
+
             <h4><i class="fas fa-external-link-alt"></i> 出力されているエラー</h4>
-            <div style="padding: 20px 20px 0 20px;">
+            <div style="padding: 20px;">
                 <p><%= @q["q_err"] %></p>
             </div>
+
+            <% q_arr = @q["q_pro"].split("\n") %>
+            <h4><i class="fas fa-edit"></i> エラーが発生しているプログラム</h4>
+            <div style="padding: 20px;">
+                <% for i in 0..(q_arr.length-1) %>
+
+                    <% if i + 1 < 10 %>
+                        <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                    <% else %>
+                        <p><span class="paragraph" style="transform: translateX(-8.5px);"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                    <% end %>
+                    
+                <% end %>
+            </div>
+
         </div>
 
-        <div class="choices_box">
+        
 
             <% if session[:check].present? %>
+
+              <div class="choices_box">
 
                 <div class="box-title">結果</div>
 
@@ -37,9 +52,9 @@
                     <p style="margin-left: 30px;"><%= "(#{i+1}) #{@q["#{@key}"][i]}" %></p><br>
                 <% end %>
 
-                <% if session[:status] == "new" || session[:status] == "stay_c" %>
+                <% if session[:status] == "stay_c" %>
 
-                    </div> <%# choices_boxの終了タグ %>
+              </div> <%# choices_boxの終了タグ %>
 
                     <%= button_to test_path, :class => 'choices_button', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113);', :method => :get , params: {status: "next"} do %>
                         <i class="fas fa-arrow-alt-circle-right"></i>続きへ
@@ -52,7 +67,7 @@
                         <p>　<%= @q["ans"] %></p>
                     </div>
 
-                    </div> <%# choices_boxの終了タグ %>
+              </div> <%# choices_boxの終了タグ %>
 
                     <% if session[:status] == "stay_s" %>
 
@@ -71,36 +86,41 @@
                 <% end %>
 
             <% else %>
+                
+                <div id="root">
+                    <div class="choices_box_2">
+                    
+                        <% if @key == "c_a"%>    
+                            <div class="box-title" id="target">エラーの原因を選択してください</div>
+                        <% else %>
+                            <div class="box-title" id="target">エラーの解決法を選択してください</div>
+                        <% end %>
 
-                <% if @key == "c_a"%>    
-                    <div class="box-title">エラーの原因を選択してください</div>
-                <% else %>
-                    <div class="box-title">エラーの解決法を選択してください</div>
-                <% end %>
+                        <%= form_with url: test_path, method: :get do |f| %>
 
-                <%= form_with url: test_path, method: :get do |f| %>
+                            <%= f.radio_button :ans, :a %>
+                            <p><%= f.label :ans, "(1) #{@q["#{@key}"][0]}", {value: :a, style: "display: inline-block;"} %></p><br>
 
-                    <%= f.radio_button :ans, :a %>
-                    <p><%= f.label :ans, "(1) #{@q["#{@key}"][0]}", {value: :a, style: "display: inline-block;"} %></p><br>
+                            <%= f.radio_button :ans, :b %>
+                            <p><%= f.label :ans, "(2) #{@q["#{@key}"][1]}", {value: :b, style: "display: inline-block;"} %></p><br>
 
-                    <%= f.radio_button :ans, :b %>
-                    <p><%= f.label :ans, "(2) #{@q["#{@key}"][1]}", {value: :b, style: "display: inline-block;"} %></p><br>
+                            <%= f.radio_button :ans, :c %>
+                            <p><%= f.label :ans, "(3) #{@q["#{@key}"][2]}", {value: :c, style: "display: inline-block;"} %></p><br>
 
-                    <%= f.radio_button :ans, :c %>
-                    <p><%= f.label :ans, "(3) #{@q["#{@key}"][2]}", {value: :c, style: "display: inline-block;"} %></p><br>
+                            <%= f.radio_button :ans, :d %>
+                            <p><%= f.label :ans, "(4) #{@q["#{@key}"][3]}", {value: :d, style: "display: inline-block;"} %></p><br>
+                    
+                            <button class="fake_btn" id="fake_btn" style="margin-top: 20px;" disabled><i class="fas fa-check-circle"></i>回答</button>
 
-                    <%= f.radio_button :ans, :d %>
-                    <p><%= f.label :ans, "(4) #{@q["#{@key}"][3]}", {value: :d, style: "display: inline-block;"} %></p><br>
+                            <%= button_tag type: :submit, :id => 'real_btn',  :class => 'choices_button', :style => 'display: none; margin-top: 20px;' do %>
+                                <i class="fas fa-check-circle"></i>回答
+                            <% end %>
 
-                    </div> <%# choices_boxの終了タグ %>
-                   
-                    <button class="fake_btn" id="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
+                        <% end %>
 
-                    <%= button_tag type: :submit, :id => 'real_btn',  :class => 'choices_button', :style => 'display: none;' do %>
-                        <i class="fas fa-check-circle"></i>回答
-                    <% end %>
+                    </div> 
+                </div>
 
-                <% end %>
             <% end %>
 
 

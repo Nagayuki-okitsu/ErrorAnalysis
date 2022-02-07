@@ -41,7 +41,7 @@ a{
 //flashの装飾
 .flash{
   text-align: center;
-  color: rgb(6, 22, 43);
+  color: rgb(0, 110, 255);
   white-space:pre-wrap;
   margin-top: 10px;
   margin-bottom: 50px;
@@ -49,10 +49,20 @@ a{
 
 .flash_2{
   text-align: center;
-  color: rgb(6, 22, 43);
+  color: rgb(255, 0, 0);
   white-space:pre-wrap;
   margin-top: 10px;
   margin-bottom: 50px;
+}
+
+.flash_3{
+  text-align: center;
+  font-size: 15px;
+  color: #6862b4;
+  white-space:pre-wrap;
+  padding-top: 5px;
+  padding-left: 5px;
+  margin-bottom: 20px;
 }
 
 //ページの一番上に戻るリンク
@@ -95,7 +105,7 @@ a{
 nav{
   display: flex;
   position: fixed;
-  z-index: 20;
+  z-index: 200;
   width: 100%;
   min-width: 800px;
   height: 60px;
@@ -148,15 +158,35 @@ nav{
   box-shadow: 0 0 3px rgb(22, 20, 18);
 }
 
+//エラー学習ボタン（ナビゲーション）
+.st_nav_btn {
+  width: 100px;
+  height: 25px;
+  margin-left: 15px;
+  background: #041525;
+  color: #ffffff;
+  border-color:#041525;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.st_nav_btn:hover {
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+  border-color:rgb(0, 0, 0);
+  box-shadow: 0 0 3px rgb(22, 20, 18);
+}
+
 //「ErrorAnalysis」
 nav h1{
-  width: 68%;
-  min-width: 500px;
+  width: 51%;
+  min-width: 400px;
   font-family: 'Corben', cursive;
   text-align: center;
   color:rgb(224, 224, 224);
   padding: 0;
   margin: 0;
+  margin-right: 110px;
 }
 
 //ログインボタン
@@ -413,8 +443,8 @@ nav h1{
 
 .circles li:nth-child(6){
   left: 75%;
-  width: 110px;
-  height: 110px;
+  width: 50px;
+  height: 50px;
   animation-delay: 3s;
 }
 
@@ -443,10 +473,10 @@ nav h1{
 
 .circles li:nth-child(10){
   left: 85%;
-  width: 150px;
-  height: 150px;
+  width: 30px;
+  height: 30px;
   animation-delay: 0s;
-  animation-duration: 11s;
+  animation-duration: 15s;
 }
 
 @keyframes animate {
