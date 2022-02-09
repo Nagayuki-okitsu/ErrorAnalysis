@@ -1,7 +1,7 @@
 class LearnsController < ApplicationController
     def index
         session[:status] = "new"
-        flash[:mess] = "選択肢の紫バーをつかむとボックスを移動できます"
+        flash[:mess] = "選択肢の紫バーをつかむとボックスを動かせます"
     end
 
     def test
@@ -43,6 +43,8 @@ class LearnsController < ApplicationController
             @key = ""                                                                                                                   #　  　↓
             if session[:status] == "next" || session[:status] == "change"                                                               # (原因選択 ・・・ stay_c) ①に戻る
 
+                flash[:mess] = "" 
+
                 if session[:status] == "next"                                                                                            
                     @key = "s_a"                                                                                                        #  ②から終了時 ・・・ finish
                     session[:status] = "stay_s"
@@ -67,7 +69,10 @@ class LearnsController < ApplicationController
             end
 
             if params[:ans].present? #回答が送られたら答え合わせ
+
                 session[:check] = check(session[:r_ans],params[:ans])
+
+                flash[:mess] = "下部に回答結果があります"
 
                 if session[:number] + 1 == session[:total] && session[:status] == "stay_s"
                     session[:status] = "finish" #全ての問題が終了したら進捗状況をfinishにする
@@ -76,6 +81,7 @@ class LearnsController < ApplicationController
             end
         
         else
+            flash[:mess] = "下部に回答結果があります"
             @key = "s_a" 
         end
 

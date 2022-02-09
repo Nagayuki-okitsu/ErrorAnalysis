@@ -3,40 +3,40 @@
 
     <div class="resultbox">
 
-        <% if flash[:mess].present? %>
-            <div class="flash_3"><i class="fas fa-map-marker-alt"></i>  <%= flash[:mess] %></div>
-        <% end %>
-    
         <h3 class="q_num"><i class="fas fa-chevron-left"></i> 第<%= session[:number] + 1 %>問 <i class="fas fa-chevron-right"></i></h3>
 
-        <div class="qes_box">
 
-            <h4><i class="fas fa-external-link-alt"></i> 出力されているエラー</h4>
-            <div style="padding: 20px;">
-                <p><%= @q["q_err"] %></p>
-            </div>
+            <div class="qes_box">
 
-            <% q_arr = @q["q_pro"].split("\n") %>
-            <h4><i class="fas fa-edit"></i> エラーが発生しているプログラム</h4>
-            <div style="padding: 20px;">
-                <% for i in 0..(q_arr.length-1) %>
-
-                    <% if i + 1 < 10 %>
-                        <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
-                    <% else %>
-                        <p><span class="paragraph" style="transform: translateX(-8.5px);"><%= i + 1 %>|</span><%= q_arr[i] %></p>
-                    <% end %>
-                    
+                <% if flash[:mess].present? %>
+                    <div class="flash_3"><i class="fas fa-map-marker-alt"></i>  <%= flash[:mess] %></div>
                 <% end %>
+
+                <h4><i class="fas fa-external-link-alt"></i> 出力されているエラー</h4>
+                <div style="padding: 20px;">
+                    <p><%= @q["q_err"] %></p>
+                </div>
+
+                <% q_arr = @q["q_pro"].split("\n") %>
+                <h4><i class="fas fa-edit"></i> エラーが発生しているプログラム</h4>
+                <div style="padding: 20px;">
+                    <% for i in 0..(q_arr.length-1) %>
+
+                        <% if i + 1 < 10 %>
+                            <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                        <% else %>
+                            <p><span class="paragraph" style="transform: translateX(-8.5px);"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                        <% end %>
+                        
+                    <% end %>
+                </div>
+
             </div>
 
-        </div>
-
-        
 
             <% if session[:check].present? %>
 
-              <div class="choices_box">
+              <div class="choices_box" style="padding-bottom: 30px;">
 
                 <div class="box-title">結果</div>
 
@@ -56,7 +56,7 @@
 
               </div> <%# choices_boxの終了タグ %>
 
-                    <%= button_to test_path, :class => 'choices_button', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113);', :method => :get , params: {status: "next"} do %>
+                    <%= button_to test_path, :class => 'choices_button', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;', :method => :get , params: {status: "next"} do %>
                         <i class="fas fa-arrow-alt-circle-right"></i>続きへ
                     <% end %>
                     
@@ -71,13 +71,13 @@
 
                     <% if session[:status] == "stay_s" %>
 
-                        <%= button_to test_path, :class => 'choices_button', :style => 'width: 150px; background-color: #6862b4; border-color: rgb(119, 117, 113);' , :method => :get , params: {status: "change"} do %>
+                        <%= button_to test_path, :class => 'choices_button', :style => 'width: 150px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get , params: {status: "change"} do %>
                             <i class="fas fa-arrow-alt-circle-right"></i>次の問題へ
                         <% end %>
 
                     <% elsif session[:status] == "finish" %>
 
-                        <%= button_to learn_path, :class => 'choices_button', :style => 'width: 140px; background-color: #6862b4; border-color: rgb(119, 117, 113);' , :method => :get do %>
+                        <%= button_to learn_path, :class => 'choices_button', :style => 'width: 140px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get do %>
                             <i class="fas fa-check-circle"></i>終了する
                         <% end %>
 

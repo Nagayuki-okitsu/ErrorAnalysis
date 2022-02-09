@@ -29,6 +29,8 @@
                 <div class="custom_box">
                     <%= f.radio_button :kind, :NameError %> 
                     <%= f.label(:kind, "NameError", value: "NameError") %>
+                    <%= f.radio_button :kind, :ArgumentError %> 
+                    <%= f.label(:kind, "ArgumentError", value: "ArgumentError") %>
                     <%= f.radio_button :kind, :nothing %>
                     <%= f.label(:kind, "指定しない", value: "nothing") %>
                 </div>
@@ -37,10 +39,10 @@
                 <div class="custom_box">
                     <%= f.radio_button :total, :'1' %> 
                     <%= f.label(:total, "１問", value: "1") %>
-                    <%= f.radio_button :total, :'3' %> 
+                    <%= f.radio_button :total, :'2' %> 
+                    <%= f.label(:total, "２問", value: "2") %>
+                    <%= f.radio_button :total, :'3' %>
                     <%= f.label(:total, "３問", value: "3") %>
-                    <%= f.radio_button :total, :'5' %>
-                    <%= f.label(:total, "５問", value: "5") %>
                 </div>
 
             </div>
