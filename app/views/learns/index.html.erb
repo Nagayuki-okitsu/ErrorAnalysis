@@ -10,9 +10,6 @@
 
         <%= form_with url: test_path, method: :get, local: true do |f| %>
 
-            <button id="fake_btn" class="fake_btn" style="width: 140px; margin-top: 30px;"  disabled><i class="far fa-play-circle"></i>開始する</button>
-            <%= button_tag type: :submit, :id => 'real_btn', :class => 'choices_button', :style => "display: none; width: 140px; margin-top: 30px;"  do %><i class="far fa-play-circle"></i>開始する<% end %>
-
             <div class="choices_box" style="width: 500px; margin: 0 auto; margin-top: 30px;">
 
                 <h4><i class="fas fa-check"></i> 難易度</h4>
@@ -46,6 +43,9 @@
                 </div>
 
             </div>
+
+            <button id="fake_btn" class="fake_btn" style="width: 140px; margin-top: 30px;"  disabled><i class="far fa-play-circle"></i>開始する</button>
+            <%= button_tag type: :submit, :id => 'real_btn', :class => 'choices_button', :style => "display: none; width: 140px; margin-top: 30px;"  do %><i class="far fa-play-circle"></i>開始する<% end %>
 
         <% end %>
             
