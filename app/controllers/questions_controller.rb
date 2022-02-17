@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy show_image show_image_2 show_image_3 show_image_4 show_image_5 check_solved]
   before_action :logged_in_user, only: %i[ new create edit update destroy]
   before_action :current_user, only: %i[ new create edit update destroy]
+  before_action :set_err_mess, only: %i[ index new edit ]
 
   # GET /questions or /questions.json
   def index
@@ -204,6 +205,20 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
       @answer = Answer.where(question_id: params[:id])
     end
+
+    # エラーのキーワードを抽出
+    def set_err_mess
+
+      err_list = open("#{Rails.root}/app/controllers/errorList.yml","r") { |f| YAML.load(f) }
+      err_mess = ""  
+
+      err_list.each do |e_m| 
+        err_mess += "#{e_m["err_mess"]},"
+      end
+
+      @err_mess = err_mess.split(",")
+    end
+       
 
     # Only allow a list of trusted parameters through.
     def question_params

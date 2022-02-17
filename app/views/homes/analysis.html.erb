@@ -30,20 +30,14 @@
       </div> 
 
     <% else %>
-      
-        <% resultFlag = 0 %>
 
-        <% err_list = open("#{Rails.root}/app/views/homes/errorList.yml","r") { |f| YAML.load(f) } %>
-        <% err_list.each do |err| %>
+        <% if @err_list.present? %>
 
-          <% err_mess = err["err_mess"] %>
-
-          <% if params[:err_mess].include?(err_mess)%>
-
+          <% @err_list.each do |err| %>          
             <div class="resultbox">
 
               <h4><i class="fas fa-check-circle"></i>　解析キーワード</h4>
-                <p>"<%= err_mess %>"</p>
+                <p>"<%= err["err_mess"] %>"</p>
               
               <h4><i class="fas fa-check-circle"></i>　主な原因</h4>
                 <p><%= err["cause"] %></p>
@@ -52,26 +46,23 @@
                 <p><%= err["hint"] %></p>
                       
             </div>
-
-            <% resultFlag = 1%>
-
-          <% elsif err_mess == err_list[err_list.length-1]["err_mess"] && resultFlag == 0%>
-
-            <div class="resultbox">
-
-              <div class="mess">
-                <h4 style="color:red;"><i class="fas fa-exclamation-circle"></i> No error was found</h4>
-                <p>エラーキーワードを見つけることができませんでした。<br>このアプリケーションに登録されていないエラーの可能性があります。
-                  <br><br>
-                  <%= button_to new_question_path, :class => 'q_btn', :method => :get do %>
-                    <i class="fas fa-pen q_icon"></i>質問する
-                  <% end %>
-                </p>
-              </div>
-              
-            </div>
-
           <% end %>
+
+        <% else %>
+
+          <div class="resultbox">
+
+            <div class="mess">
+              <h4 style="color:red;"><i class="fas fa-exclamation-circle"></i> No error was found</h4>
+              <p>エラーキーワードを見つけることができませんでした。<br>このアプリケーションに登録されていないエラーの可能性があります。
+                <br><br>
+                <%= button_to new_question_path, :class => 'q_btn', :method => :get do %>
+                  <i class="fas fa-pen q_icon"></i>質問する
+                <% end %>
+              </p>
+            </div>
+            
+          </div>
 
         <% end %>
         

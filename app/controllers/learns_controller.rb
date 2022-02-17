@@ -15,7 +15,7 @@ class LearnsController < ApplicationController
             session[:total] = params[:total].to_i
         end
         
-        learn_arr = open("#{Rails.root}/app/views/learns/learn.yml", "r") { |f| YAML.load(f) } 
+        learn_arr = open("#{Rails.root}/app/controllers/learn.yml", "r") { |f| YAML.load(f) } 
 
         #カスタムとマッチする問題を抽出する
         if session[:kind] == "nothing"  
