@@ -2,188 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-//質問ボタン
-.q_btn{
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0.5em 1.5em 0.5em 1em;
-    width: 150px;
-    color: rgb(243, 241, 236);
-    font-size: 17px;
-    font-weight: 550;
-    background-color: rgb(34, 131, 146);
-    box-shadow: 0 0 10px rgb(78, 76, 76);
-    border-radius: 30px;
-}
-    
-.q_btn:hover{
-    background-color: #043e42;
-    color: rgb(235, 235, 235);
-    box-shadow: 0 0 10px rgb(51, 51, 51);
-}
+.questions{
 
-//回答・編集・削除ボタン
-.q_edit_delete{
-    display: flex;
-    width: 230px;
-    margin: 0 auto;
-}
-
-.edit_btn{
-    margin-right: 30px;
-    width: 100px;
-    z-index: 2;
-    position: relative;
-    padding: 0.5em 1em;
-    align-items: center;
-    font-size: 17px;
-    font-weight: 550;
-    color: rgb(243, 241, 236);
-    background-color: rgb(34, 131, 146);
-    box-shadow: 0 0 10px rgb(78, 76, 76);
-    border-radius: 30px;
-    font-weight: bold;
-    border: 1px  rgb(34, 131, 146);
-    cursor: pointer;
-}
-
-.edit_btn:hover{
-    background-color: #043e42;
-    color: rgb(235, 235, 235);
-    border-color: #043e42;
-    box-shadow: 0 0 10px rgb(51, 51, 51);
-}
-
-.edit_link{
-    z-index: 11;
-    position: relative;
-}
-
-.delete_btn{
-    width: 100px;
-    z-index: 2;
-    position: relative;
-    padding: 0.5em 1em;
-    align-items: center;
-    font-size: 17px;
-    font-weight: 550;
-    color: rgb(243, 241, 236);
-    background-color: rgb(34, 131, 146);
-    box-shadow: 0 0 10px rgb(78, 76, 76);
-    border-radius: 30px;
-    font-weight: bold;
-    border: 1px solid rgb(34, 131, 146);
-    cursor: pointer;
-}
-
-.delete_btn:hover{
-    background-color: #043e42;
-    color: rgb(235, 235, 235);
-    box-shadow: 0 0 10px rgb(51, 51, 51);
-    border-color: #043e42;
-}
-
-.delete_link{
-    z-index: 11;
-    position: relative;
-}
-
-.q_a_box{
-
-    border-radius : 5px; 
-    
-    //質問タイトル
-    h2 {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 30px;
-        position: relative;
-        background: #f1f8ff;
-        padding: 0.25em 0.5em;
-        border-left: solid 2em #41576e;
-        box-shadow: 0 0 5px rgb(99, 99, 99);
-        border-radius : 7px; 
+    //質問箱全体を覆うdiv
+    .q_a_box{
+        border-radius : 5px; 
     }
 
-    h2:before {
-        font-family: "Font Awesome 5 Free";
-        content: "\f303";
-        position: absolute;
-        padding: 0em;
-        color: white;
-        font-weight: 900;
-        left: -1.35em;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-    //ユーザー情報
-    .user_info{
-        text-align: center;
-        width: 150px;
-        position: relative;
-        background: #f1f8ff;
-        padding: 0.25em 0.5em;
-        margin-top: 50px;
-        margin-bottom: 5px;
-        border-left: solid 2em #474e53;
-        box-shadow: 0 0 3px rgb(99, 99, 99);
-        border-radius : 7px;  
-    }
-
-    .user_info:before {
-        font-family: "Font Awesome 5 Free";
-        content: "\f007";
-        position: absolute;
-        padding: 0em;
-        color: white;
-        font-weight: 900;
-        left: -1.35em;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-    //キーワード情報
-    .key_info{
-        text-align: center;
-        width: 150px;
-        position: relative;
-        background: #f1f8ff;
-        padding: 0.25em 0.5em;
-        border-left: solid 2em #a1a17b;
-        box-shadow: 0 0 3px rgb(99, 99, 99);
-        border-radius : 7px;  
-    }
-
-    .key_info:before {
-        font-family: "Font Awesome 5 Free";
-        content: "\f084";
-        position: absolute;
-        padding: 0em;
-        color: white;
-        font-weight: 900;
-        left: -1.35em;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
-
-
+    //キーワードで絞る用の検索ボックス全体を囲むボックス
     .searchArea_around{
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .searchArea_2{
+    //検索ボックス
+    .searchArea{
         margin-left: 10px;
         position       : relative; 
         width          : 200px;              /* BOXの幅               */
@@ -195,7 +29,8 @@
         z-index: 2;
     }
 
-    .searchButton_2 {
+    //検索ボタン
+    .searchButton {
         position       : absolute;
         box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
         height         : 28px;               /* 入力の高さ            */
@@ -210,64 +45,16 @@
         cursor         : pointer;            /* カーソル設定          */
     }
 
-    .groupArea{
-        margin-left: 10px;
-        position       : relative; 
-        width          : 180px;              /* BOXの幅               */
-        height         : 40px;               /* BOXの高さ             */
-        letter-spacing : 0.1em;              /* 文字間隔              */
-        font-weight    : bold;               /* 太字                  */
-        line-height    : 0;                  /* 標準の行高さ          */
-        box-shadow: 0 0 3px gray;
-        z-index: 2;
-    }
-
-    .solveArea{
-        margin-left: 10px;
-        position       : relative; 
-        width          : 140px;              /* BOXの幅               */
-        height         : 40px;               /* BOXの高さ             */
-        letter-spacing : 0.1em;              /* 文字間隔              */
-        font-weight    : bold;               /* 太字                  */
-        line-height    : 0;                  /* 標準の行高さ          */
-        box-shadow: 0 0 3px gray;
-        z-index: 2;
-    }
-
-    .sortArea{
-        margin-left: 10px;
-        position       : relative; 
-        width          : 138.7px;              /* BOXの幅               */
-        height         : 40px;               /* BOXの高さ             */
-        letter-spacing : 0.1em;              /* 文字間隔              */
-        font-weight    : bold;               /* 太字                  */
-        line-height    : 0;                  /* 標準の行高さ          */
-        box-shadow: 0 0 3px gray;
-        z-index: 2;
-    }
-
-    .sortButton {
-        position       : absolute;
-        box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
-        height         : 28px;               /* 入力の高さ            */
-        margin         : 0;                  /* 外余白                */
-        padding        : 6px 7px;           /* 内余白                */
-        top            : 7.5px;                /* ボタン表示位置(上)    */
-        right          : 6px;                /* ボタン表示位置(右)    */
-        border         : none;               /* 枠線　幅,実践,色      */
-        border-radius  : 6px;                /* 右上下の角丸          */
-        background     : #666;               /* ボタンの色            */
-        cursor         : pointer;            /* カーソル設定          */
-    }
-    
-    .sortImg {
+    //アイコン画像
+    .searchImg {
         display        : inline-block;       /* インラインブロック化  */
         width          : auto;               /* 幅は高さに合わせる    */
-        height         : 19px;               /* 画像の高さ            */
+        height         : 16px;               /* 画像の高さ            */
         margin         : 0;                  /* 余白                  */
         vertical-align : middle;             /* 横の文字位置          */
     }
 
+    //×ボタンを囲むボックス
     .liftArea{
         top: -18px;
         margin-left: 50px;
@@ -279,32 +66,309 @@
         z-index: 2;
     }
 
-    .liftButton {
-        position       : absolute;
-        box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
-        height         : 25px;               /* 入力の高さ            */
-        width          : 25px;
-        margin         : 0;                  /* 外余白                */
-        padding        : 5px;           /* 内余白                */
-        top            : 7.5px;                /* ボタン表示位置(上)    */
-        right          : 6px;                /* ボタン表示位置(右)    */
-        border         : none;               /* 枠線　幅,実践,色      */
-        border-radius  : 6px;                /* 右上下の角丸          */
-        background     : #666;               /* ボタンの色            */
-        box-shadow: 0 0 3px gray;
-        cursor         : pointer;            /* カーソル設定          */
+    //質問一覧のテーブル
+    table{
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin-top: 100px;
+        width: 100%;
+    }
+    table tr{
+        border-bottom: solid 1px #eee;
+    }
+    table td{
+        padding: 15px 0;
+    }
+    table .user_td{
+        text-align: left;
+        width: 15%;
+        margin-right: 10px;
+    }
+    table .title_td{
+        text-align: center;
+        width: 50%
+    }
+    table .conte_td{
+        text-align: center;
+        width: 35%;
     }
 
-    .cancelImg {
-        display        : inline-block;       /* インラインブロック化  */
-        width          : auto;               /* 幅は高さに合わせる    */
-        height         : 15px;               /* 画像の高さ            */
-        margin         : 0;                  /* 余白                  */
-        vertical-align : middle;             /* 横の文字位置          */
+    label {
+        display: block; 
+    }
+
+    //質問ユーザー
+    .user{
+        background-size: 35px;
+        background-position: left 5px center;
+        background-repeat: no-repeat;
+        padding-left: 30px;
+    }
+
+    //質問の詳細ボタン
+    .show_btn {
+        display: inline-block;
+        color: rgb(49, 42, 33);
+        background: #e0e0e0;
+        width: 80px;
+        height: 30px;
+        border: 1px solid;
+        border-radius: 5px;
+        text-align: center;
+        padding-top: 5px;
+        padding-right: 5px;
+    }
+    
+    .show_btn:hover {
+        background: rgb(36, 33, 31);
+        color: #e9e6e0;
+    }
+
+    //ここから質問の詳細ページ(show)
+
+    //編集・削除ボタンを囲むボックス
+    .edit_delete_btn_around{
+        display: flex;
+        width: 230px;
+        margin: 0 auto;
+    }
+
+    //編集・削除ボタン
+    .edit_delete_btn{
+        width: 100px;
+        z-index: 2;
+        position: relative;
+        padding: 0.5em 1em;
+        align-items: center;
+        font-size: 17px;
+        font-weight: 550;
+        color: rgb(243, 241, 236);
+        background-color: rgb(34, 131, 146);
+        box-shadow: 0 0 10px rgb(78, 76, 76);
+        border-radius: 30px;
+        font-weight: bold;
+        border: 1px  rgb(34, 131, 146);
+        cursor: pointer;
+    }
+    .edit_delete_btn:hover{
+        background-color: #043e42;
+        color: rgb(235, 235, 235);
+        border-color: #043e42;
+        box-shadow: 0 0 10px rgb(51, 51, 51);
+    }
+    .edit_delete_link{
+        z-index: 11;
+        position: relative;
+    }
+
+    //質問タイトル
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        position: relative;
+        background: #f1f8ff;
+        padding: 0.25em 0.5em;
+        border-left: solid 2em #41576e;
+        box-shadow: 0 0 5px rgb(99, 99, 99);
+        border-radius : 7px; 
+    }
+    h2:before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f303";
+        position: absolute;
+        padding: 0em;
+        color: white;
+        font-weight: 900;
+        left: -1.35em;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    //解決・未解決のチェックボタン
+    .solved_btn{
+        width: 100px;
+        z-index: 2;
+        position: relative;
+        align-items: center;
+        font-size: 17px;
+        color: rgb(49, 47, 47);
+        background-color: #f1f8ff;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+    }
+    .solved_link{
+        z-index: 11;
+        position: relative;
+        margin-left: 50px;
+    }
+
+    //いいねボタン
+    .befor_nice_btn{
+        width: 35px;
+        height: 35px;
+        z-index: 2;
+        position: relative;
+        padding: 3px;
+        align-items: center;
+        font-size: 18px;
+        color: rgb(233, 233, 233);
+        background: rgb(70, 70, 70);
+        font-weight: bold;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0 0 2px rgb(78, 76, 76);
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .after_nice_btn{
+        width: 35px;
+        height: 35px;
+        z-index: 2;
+        position: relative;
+        padding: 3px;
+        align-items: center;
+        font-size: 18px;
+        color: rgb(255, 225, 57);
+        background: rgb(70, 70, 70);
+        font-weight: bold;
+        border: 1px solid rgb(68, 68, 68);
+        box-shadow: 0 0 2px rgb(238, 233, 186);
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .nice_link{
+        z-index: 11;
+        position: relative;
+        margin-left: 50px;
+    }
+
+    //ユーザー＆キーワード情報
+    .info{
+        text-align: center;
+        width: 150px;
+        position: relative;
+        background: #f1f8ff;
+        padding: 0.25em 0.5em;
+        box-shadow: 0 0 3px rgb(99, 99, 99);
+        border-radius : 7px;  
+    }
+    .info:before {
+        font-family: "Font Awesome 5 Free";
+        position: absolute;
+        padding: 0em;
+        color: white;
+        font-weight: 900;
+        left: -1.35em;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    .userInf {
+        margin-top: 50px;
+        margin-bottom: 5px;
+        border-left: solid 2em #474e53;
+    }
+    .userInf:before{
+        content: "\f007";
+    }
+
+    .keyInf{
+        border-left: solid 2em #a1a17b;
+    }
+    .keyInf:before{
+        content: "\f084";
     }
 
 
+    //質問内容を囲むボックス
+    .con_box {
+        margin: 2em 0;
+        background: #f1f1f1;
+        padding: 50px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    }
+    .con_box .box-title {
+        font-size: 1.2em;
+        background: #6e8f9c;
+        padding: 4px;
+        margin-bottom: 50px;
+        text-align: center;
+        color: #FFF;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        border-radius: 30px; 
+    }
+    .con_box p {
+        padding: 15px 20px;
+        margin: 0 0 100px 0;
+    }
 
+
+    //アップロードされている画像
+    .con_img{
+        width: 70%;
+        min-width: 700px;
+        margin-bottom: 50px;
+        border: 5px solid #272e46;
+        border-radius: 3px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    }
+
+    //質問への回答を囲むボックス
+    .ans_box {
+        margin: 2em 0;
+        background: #f1f1f1;
+        padding: 50px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+    }
+    .ans_box .box-title {
+        display: flex;
+        justify-content: center;
+        font-size: 1.2em;
+        background: #6862b4;
+        padding: 4px;
+        padding-left: 50px;
+        margin-bottom: 50px;
+        text-align: center;
+        align-items: center;
+        color: #FFF;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        border-radius : 30px;  
+    }
+    .ans_box p {
+        padding: 15px 20px;
+        margin: 0;
+    }
+    .ans_box h5{
+        color: #679ac9;
+    }
+
+    //回答内容
+    .ans_con{
+        padding-bottom: 50px;
+        border-bottom: 3px solid rgb(223, 223, 223);
+    }
+
+
+    //返信内容を囲むボックス
+    .rep_box{
+        padding-bottom: 30px;
+        padding-top: 10px;
+        margin-left: 70px;
+        margin-right: 10px;
+        border-bottom: 3px solid rgb(223, 223, 223);
+    }
+    .rep_box h5{
+        color: rgb(136, 172, 122);
+    }
+
+
+    //「返信する」ボタン
     .rep_btn  {
         cursor: pointer;
         position: relative;
@@ -331,7 +395,7 @@
     }
 
     
-
+    //回答の編集・削除ボタン
     .ans_edit_delete_btn{
         width: 63.5px;
         z-index: 2;
@@ -349,19 +413,18 @@
         cursor: pointer;
         border-radius: 5px;
     }
-
     .ans_edit_delete_btn:hover{
         color: rgb(255, 255, 255);
         background: #39587c;
         border: 1px solid #39587c;
         box-shadow: 0 0 5px rgb(51, 51, 51);
     }
-
     .ans_edit_delete_link{
         z-index: 11;
         position: relative;
     }
 
+    //返信の編集・削除ボタン
     .rep_edit_delete_btn{
         cursor: pointer;
         position: relative;
@@ -379,243 +442,25 @@
         box-shadow: 0 0 1px rgb(44, 43, 43);
         border-radius: 5px;
     }
-
     .rep_edit_delete_btn:hover{
         background-color: rgb(66, 94, 54);
         color: rgb(255, 255, 255);
         box-shadow: 0 0 2px rgb(0, 0, 0);
     }
-
     .rep_edit_delete_link{
         z-index: 11;
         display: inline-block;
     }
 
-    table{
-        border-collapse: collapse;
-        border-spacing: 0;
-        margin-top: 100px;
-        width: 100%;
-    }
-    
-    table tr{
-        border-bottom: solid 1px #eee;
-    }
+    //ここから質問フォーム
 
-    table td{
-        padding: 15px 0;
-    }
-    
-    table .user_td{
-        text-align: left;
-        width: 15%;
-        margin-right: 10px;
-    }
-
-    table .title_td{
-        text-align: center;
-        width: 50%
-    }
-
-    table .conte_td{
-        text-align: center;
-        width: 35%;
-    }
-
-    .btn-circle-flat {
-        display: inline-block;
-        color: rgb(49, 42, 33);
-        background: #e0e0e0;
-        width: 80px;
-        height: 30px;
-        border: 1px solid;
-        border-radius: 5px;
-        text-align: center;
-        padding-top: 5px;
-        padding-right: 5px;
-    }
-    
-    .btn-circle-flat:hover {
-        background: rgb(36, 33, 31);
-        color: #e9e6e0;
-    }
-
-    .user{
-        background-size: 35px;
-        background-position: left 5px center;
-        background-repeat: no-repeat;
-        padding-left: 30px;
-    }
-    
-    #error_explanation {
-        width: 450px;
-        border: 2px solid red;
-        padding: 7px 7px 0;
-        margin-bottom: 20px;
-        background-color: #f0f0f0; 
-    }
-    
-    #error_explanation h2 {
-        text-align: left;
+    .q_label{
+        color: rgb(85, 83, 83);
         font-weight: bold;
-        padding: 5px 5px 5px 15px;
-        font-size: 12px;
-        margin: -7px -7px 0;
-        background-color: #c00;
-        color: #fff; 
-    }
-    
-    #error_explanation ul li {
-        font-size: 12px;
-        list-style: square; 
-    }
-    
-    label {
-        display: block; 
-    }
-    
-    .con_img{
-        width: 70%;
-        min-width: 700px;
-        margin-bottom: 50px;
-        border: 5px solid #272e46;
-        border-radius: 3px; 
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+        margin-top: 50px;
     }
 
-    .con_box {
-        margin: 2em 0;
-        background: #f1f1f1;
-        padding: 50px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-    }
-
-    .con_box .box-title {
-        font-size: 1.2em;
-        background: #6e8f9c;
-        padding: 4px;
-        margin-bottom: 50px;
-        text-align: center;
-        color: #FFF;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        border-radius: 30px; 
-    }
-    .con_box p {
-        padding: 15px 20px;
-        margin: 0 0 100px 0;
-    }
-
-
-    .ans_box {
-        margin: 2em 0;
-        background: #f1f1f1;
-        padding: 50px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-    }
-    .ans_box .box-title {
-        display: flex;
-        justify-content: center;
-        font-size: 1.2em;
-        background: #6862b4;
-        padding: 4px;
-        padding-left: 50px;
-        margin-bottom: 50px;
-        text-align: center;
-        align-items: center;
-        color: #FFF;
-        font-weight: bold;
-        letter-spacing: 0.05em;
-        border-radius : 30px;  
-    }
-    .ans_box p {
-        padding: 15px 20px;
-        margin: 0;
-    }
-
-    .ans_box h5{
-        color: #679ac9;
-    }
-
-    .rep h5{
-        color: rgb(136, 172, 122);
-    }
-
-
-    .ans_con{
-        padding-bottom: 50px;
-        border-bottom: 3px solid rgb(223, 223, 223);
-    }
-
-    .solved_btn{
-        width: 100px;
-        z-index: 2;
-        position: relative;
-        align-items: center;
-        font-size: 17px;
-        color: rgb(49, 47, 47);
-        background-color: #f1f8ff;
-        font-weight: bold;
-        cursor: pointer;
-        border: none;
-    }
-
-    .solved_link{
-        z-index: 11;
-        position: relative;
-        margin-left: 50px;
-    }
-
-    .befor_nice_btn{
-        width: 35px;
-        height: 35px;
-        z-index: 2;
-        position: relative;
-        padding: 3px;
-        align-items: center;
-        font-size: 18px;
-        color: rgb(233, 233, 233);
-        background: rgb(70, 70, 70);
-        font-weight: bold;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0 0 2px rgb(78, 76, 76);
-        cursor: pointer;
-        border-radius: 50%;
-    }
-
-
-    .after_nice_btn{
-        width: 35px;
-        height: 35px;
-        z-index: 2;
-        position: relative;
-        padding: 3px;
-        align-items: center;
-        font-size: 18px;
-        color: rgb(255, 225, 57);
-        background: rgb(70, 70, 70);
-        font-weight: bold;
-        border: 1px solid rgb(68, 68, 68);
-        box-shadow: 0 0 2px rgb(238, 233, 186);
-        cursor: pointer;
-        border-radius: 50%;
-    }
-
-    .nice_link{
-        z-index: 11;
-        position: relative;
-        margin-left: 50px;
-    }
-
-
-    .rep{
-        padding-bottom: 30px;
-        padding-top: 10px;
-        margin-left: 70px;
-        margin-right: 10px;
-        border-bottom: 3px solid rgb(223, 223, 223);
-    }
-
+    //質問タイトル
     .title_form{
         width: 100%; /*親要素いっぱい広げる*/
         padding: 10px 15px; /*ボックスを大きくする*/
@@ -625,6 +470,7 @@
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     }
 
+    //キーワードのセレクトボックス
     select{
         width: 100%; /*親要素いっぱい広げる*/
         padding: 10px 15px; /*ボックスを大きくする*/
@@ -634,12 +480,7 @@
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     }
 
-    .image_table{
-        margin-top: 30px;
-    }
-
-
-
+    //質問内容
     .con_form{
         width: 100%; /*親要素いっぱい広げる*/
         height: 500px;
@@ -650,14 +491,12 @@
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
     }
 
-    .q_label{
-        color: rgb(85, 83, 83);
-        font-weight: bold;
-        margin-top: 50px;
+    //画像フォーム
+    .image_table{
+        margin-top: 30px;
     }
 
-
-
+    //送信ボタン
     .q_button  {
         cursor: pointer;
         position: relative;
@@ -685,3 +524,4 @@
     }
 
 }
+

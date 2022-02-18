@@ -2,60 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.ans_form_box{
-    background-color: rgb(243, 232, 200);
-    padding-top: 20px;
-    padding-bottom: 0;
-    z-index: 50;
-    position: fixed;
-    text-align: center;
-    width: 60%;
-    min-width: 600px;
-    height: 265px;
-    inset: 0;
-    top: 60vh;
-    margin: auto;
-    box-shadow: 0 0 10px rgb(48, 47, 47);
-    border-radius: 5px;
-}
+.answers{
+ 
+    .ans_form_box{
+        background-color: rgb(243, 232, 200);
+        padding-top: 20px;
+        padding-bottom: 0;
+        z-index: 50;
+        position: fixed;
+        text-align: center;
+        width: 60%;
+        min-width: 600px;
+        height: 265px;
+        inset: 0;
+        top: 60vh;
+        margin: auto;
+        box-shadow: 0 0 10px rgb(48, 47, 47);
+        border-radius: 5px;
+    }
 
-.ans_form{
-    width: 90%; /*親要素いっぱい広げる*/
-    height: 180px;
-    padding: 10px 15px; /*ボックスを大きくする*/
-    font-size: 16px;
-    border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid #ddd; /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-}
+    .ans_form{
+        width: 90%; /*親要素いっぱい広げる*/
+        height: 180px;
+        padding: 10px 15px; /*ボックスを大きくする*/
+        font-size: 16px;
+        border-radius: 3px; /*ボックス角の丸み*/
+        border: 2px solid #ddd; /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+    }
 
-.ans_label{
-    font-size: large;
-    color: rgb(85, 83, 83);
-    font-weight: bold;
-}
+    .ans_label{
+        font-size: large;
+        color: rgb(85, 83, 83);
+        font-weight: bold;
+    }
 
-.ans_button  {
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0.5em 1.5em 0.5em 1em;
-    width: 100px;
-    color: rgb(53, 51, 48);
-    font-size: 16px;
-    font-weight: bold;
-    background-color: rgb(233, 224, 213);
-    border: 2px solid rgb(119, 117, 113); /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-    border-radius: 10px;
-}
-    
-.ans_button:hover {
-    text-decoration: none;
-    background-color: #ccae77;
-    color: rgb(230, 227, 220);
+    .ans_button  {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0.5em 1.5em 0.5em 1em;
+        width: 100px;
+        color: rgb(53, 51, 48);
+        font-size: 16px;
+        font-weight: bold;
+        background-color: rgb(233, 224, 213);
+        border: 2px solid rgb(119, 117, 113); /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        border-radius: 10px;
+    }
+        
+    .ans_button:hover {
+        text-decoration: none;
+        background-color: #ccae77;
+        color: rgb(230, 227, 220);
+    }
+
 }

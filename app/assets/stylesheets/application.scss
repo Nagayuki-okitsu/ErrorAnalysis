@@ -292,7 +292,7 @@ nav h1{
   overflow: visible;
 }
 
-//主内容の要素
+//表示内容全体を囲むボックス
 .content_box{
   display: inline-block;
   position: absolute;
@@ -301,12 +301,40 @@ nav h1{
   height: 87vh;
 }
 
-//周辺要素
+//下部に余裕を持たせるための要素
 .around_box{
   padding-bottom: 280px;
 }
 
-//質問箱用の要素
+//表示している要素を囲むボックス
+.resultbox{
+  margin: auto;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 30px;
+  width: 60%;
+  min-width: 700px;
+  background-color: rgb(233, 244, 250);
+  box-shadow: 0 0 10px rgb(26, 25, 25);
+  border-radius: 5px;
+}
+
+.resultbox p{
+  padding: 20px 0 20px 30px;
+  white-space:pre-wrap;
+}
+
+.resultbox h4 {
+  position: relative;
+  background: #dad7d4;
+  padding: 5px 5px 5px 20px;
+  font-size: 18px;
+  color: #5c5a56;
+  border-radius: 0 10px 10px 0;
+}
+
+//質問箱機能で表示されている要素を囲むボックス
 .q_a_box{
   margin: auto;
   margin-top: 50px;
@@ -335,7 +363,32 @@ nav h1{
   font-size: 16px;
 }
 
-//作成・参加ボタン
+//「質問する」ボタン
+.q_btn{
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5em 1.5em 0.5em 1em;
+  width: 150px;
+  color: rgb(243, 241, 236);
+  font-size: 17px;
+  font-weight: 550;
+  background-color: rgb(34, 131, 146);
+  box-shadow: 0 0 10px rgb(78, 76, 76);
+  border-radius: 30px;
+}
+  
+.q_btn:hover{
+  background-color: #043e42;
+  color: rgb(235, 235, 235);
+  box-shadow: 0 0 10px rgb(51, 51, 51);
+}
+
+//グループ「作成・参加」ボタン
 .c_btn  {
   cursor: pointer;
   position: relative;
@@ -361,8 +414,6 @@ nav h1{
   background-color: #ccae77;
   color: rgb(230, 227, 220);
 }
-
-
 
 
 //背景

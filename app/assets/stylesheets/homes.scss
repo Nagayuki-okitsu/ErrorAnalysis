@@ -1,3 +1,201 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.homes{
+
+    //検索ボックス
+    .searchArea{
+        position       : relative; 
+        width          : 250px;              /* BOXの幅               */
+        height         : 40px;               /* BOXの高さ             */
+        margin         : auto;               /* サンプルを中心に寄せ  */
+        letter-spacing : 0.1em;              /* 文字間隔              */
+        font-weight    : bold;               /* 太字                  */
+        line-height    : 0;                  /* 標準の行高さ          */
+        background-color: rgb(73, 72, 72);
+        box-shadow: 0 0 10px rgb(26, 25, 25);
+        z-index: 2;
+    }
+    
+    //検索ボックス内テキスト
+    .searchText {
+        position       : absolute;
+        display        : block;              /* ブロック化            */
+        box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+        height         : 40px;               /* BOXの高さ             */
+        width          : 100%;               /* テキスト入力の幅      */
+        margin         : 0;                  /* 外余白                */
+        padding        : 0 45px 0 8px;       /* 内余白                */
+        border         : 2px solid rgb(77, 77, 77);     /* 枠線　幅,実践,色      */
+        border-radius  : 6px;                /* 角丸                  */
+        color          : #333;               /* 文字色                */
+        font-size      : 18px;               /* フォントサイズ        */
+        outline        : 0;                  /* 入力の薄い枠を非表示  */
+    }
+    
+    //検索ボタン
+    .searchButton {
+        position       : absolute;
+        box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+        height         : 28px;               /* 入力の高さ            */
+        margin         : 0;                  /* 外余白                */
+        padding        : 6px 10px;           /* 内余白                */
+        top            : 6px;                /* ボタン表示位置(上)    */
+        right          : 6px;                /* ボタン表示位置(右)    */
+        border         : none;               /* 枠線　幅,実践,色      */
+        border-radius  : 6px;                /* 右上下の角丸          */
+        background     : #666;               /* ボタンの色            */
+        color          : #fff;               /* 文字色                */
+        cursor         : pointer;            /* カーソル設定          */
+    }
+    
+    //テキストフォーカス
+    .searchText:focus {
+        background     : #d8d8d8;            /* フォーカス時の背景色  */
+    }
+    
+    //虫眼鏡アイコン画像
+    .searchImg {
+        display        : inline-block;       /* インラインブロック化  */
+        width          : auto;               /* 幅は高さに合わせる    */
+        height         : 16px;               /* 画像の高さ            */
+        margin         : 0;                  /* 余白                  */
+        vertical-align : middle;             /* 横の文字位置          */
+    }
+    
+    //IEの入力エリア右側×消し
+    .searchText::-ms-clear {
+        display        : none;               /* ×を消す              */
+    }
+
+
+    //フェード文章
+    .content {      
+        margin-top: 50px;
+        width:auto;
+        height: auto;
+    }
+
+    .content p {
+        font-size: 18px;
+        color: #fff;
+        line-height: 5em;
+    }
+
+    .al_1 p{
+        line-height: 2em;
+    }
+
+    .al_2 p{
+        line-height: 2em;
+    }
+
+    /*以下フェードイン表示の指定*/
+    .fadein {
+        opacity: 0;
+        animation: fadein 3s ease forwards;
+    }
+
+    @keyframes fadein {
+        100% {  opacity: 1;}
+    }
+    
+    /*以下遅延の指定*/
+    .txt01 {animation-delay: 0s;}
+    .txt02 {animation-delay: 1s;}
+    .txt03 {animation-delay: 2s;}
+    .al_1 {animation-delay: 2s;}
+    .txt04 {animation-delay: 2s;}
+    .txt05 {animation-delay: 3s;}
+    .txt06 {animation-delay: 4s;}
+    .al_2 {animation-delay: 4s;}
+    .txt07 {animation-delay: 4s;}
+    .txt08 {animation-delay: 5s;}
+
+    //フェード文章ブロック
+    .txt02{
+        display: inline-block;
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .txt03{
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .al_1{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .txt04{
+        width: 61%;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .txt05{
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .txt06{
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .al_2{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .txt07{
+        width: 60%;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    .txt08{
+        width: 820px;
+        height: auto;
+        background-color: rgb(125, 159, 231);
+    }
+
+    //フェード文章内画像
+    .copy_ex{
+        border-radius: 3px;
+        width: 60%;
+    }
+
+    .input_ex{
+        border-radius: 3px;
+        width: 40%;
+    }
+
+    .result_ex{
+        border-radius: 3px;
+        width: 80%;
+    }
+
+    .question_ex{
+        border-radius: 3px;
+        width: 80%;
+    }
+    
+}

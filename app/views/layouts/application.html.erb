@@ -20,60 +20,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     
 
-    <script> //フラッシュメッセージを時間経過で削除する処理
+    <script> 
 
-      $(function(){
+      //フラッシュメッセージを時間経過で削除する処理
+      $( () => {
         setTimeout("$('.flash').fadeOut('slow')", 5000);
-      });
-
-      $(function(){
         setTimeout("$('.flash_2').fadeOut('slow')", 10000);
-      });
-
-      $(function(){
         setTimeout("$('.flash_signup').fadeOut('slow')", 15000);
       });
     
-    </script>
 
-    <script> //画面上部に戻るボタンを表示させる処理
+      //画面上部に戻るボタンの処理
+      $( () => {
 
-      $(function() {
+        let appear = false,
+            $pagetop = $('#page_top');
 
-        var appear = false;
-        var pagetop = $('#page_top');
-
-        $(window).scroll(function () {
+        $(window).scroll( () => {
           if ($(this).scrollTop() > 100) {  //100pxスクロールしたら
             if (appear == false) {
               appear = true;
-              pagetop.stop().animate({
+              $pagetop.stop().animate({
                 'right': '0px' //右から0pxの位置に
               }, 300); //0.3秒かけて現れる
             }
           } else {
             if (appear) {
               appear = false;
-              pagetop.stop().animate({
+              $pagetop.stop().animate({
                 'right': '-50px' //右から-50pxの位置に
               }, 300); //0.3秒かけて隠れる
             }
           }
         });
-        pagetop.click(function () {
+
+        $pagetop.click( () => {
           $('body, html').animate({ scrollTop: 0 }, 500); //0.5秒かけてトップへ戻る
           return false;
         });
+
       });
 
-    </script>
-
-    <script> //ラジオボタンが選択されてからボタンを表示させる処理
-
-      $(function(){
-        $('input').change(function() {
+   
+      //学習機能-ラジオボタンが選択されてからボタンを表示させる処理
+      $( () => {
+        $('input').change( () =>  {
   
-          var $d = $('input[name=difc]:checked').val(),
+          let $d = $('input[name=difc]:checked').val(),
               $k = $('input[name=kind]:checked').val(),
               $t = $('input[name=total]:checked').val(),
               $ans = $('input[name=ans]:checked').val();
@@ -89,19 +82,16 @@
         });       
       });
 
-    </script>
-
     
-    <script> //問題の選択肢のdiv要素を移動させる処理
+      //学習機能-問題の選択肢のdiv要素を移動させる処理
+      $( () => {
 
-      $(function() {
-
-        var _isMoving = false; //移動中かどうかのフラグ true:移動中 false:停止中
-        var _clickX,  _clickY; //クリックされた位置
-        var _position;         //クリックされた時の要素の位置
+        let _isMoving = false, //移動中かどうかのフラグ true:移動中 false:停止中
+            _clickX,  _clickY, //クリックされた位置
+            _position;         //クリックされた時の要素の位置
 
         //mousedownイベント
-        $("#target").on("mousedown", function(e) {
+        $("#target").on("mousedown", (e) => {
 
           if (_isMoving) return; //移動中の場合は処理しない
     
@@ -116,7 +106,7 @@
         });
 
         //mousemoveイベント
-        $("#root").on("mousemove", function(e) {
+        $("#root").on("mousemove", (e) => {
          
           if (_isMoving == false) return; //移動中でない場合は処理しない
 
@@ -126,19 +116,20 @@
         });
 
         //mouseupイベント
-        $("#root").on("mouseup", function(e) {
-          console.log("あ")
+        $("#root").on("mouseup", (e) => {
+
           if (_isMoving == false) return; //移動中でない場合は処理しない
          
           _isMoving = false; //停止中にする
         });
 
       });
+
     </script>
 
   </head>
 
-  <body>
+  <body class="<%= controller.controller_name %>">
 
     <%# 背景 %>
     <div class="area"> 
@@ -156,8 +147,10 @@
       </ul>
     </div >
 
+    <%# ナビゲーションバー %>
     <nav>
-
+      
+      <%# プルダウンのリスト %>
       <div class="list">
         <ul class="gnav">
           <li><a href=""><i class="fas fa-list-ul"></i></a>
@@ -184,29 +177,30 @@
         <i class="fas fa-graduation-cap"></i> エラー学習
       <% end %>
 
+      <%# 中央のアプリケーション名 %>
       <h1>-ErrorAnalysis-</h1>
-      
-      <% if logged_in? %>
-        <% if @now_user_show.nil? %>
-          <div class="log">
-            <%= link_to  user_path(@current_user) do %>
-              <button class="log_btn_2"><i class="fas fa-user-check"></i> マイページ</button>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="log">
-            <%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
-              <button class="log_btn_2"><i class="fas fa-user-check"></i> ログアウト</button>
-            <% end %>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="log">
-          <%= link_to  login_path do%>
-            <button class="log_btn"><i class="fas fa-user"></i> ログイン</button>
+
+      <%# 「ログイン・ログアウト・マイページ」ボタンのどれかを表示 %>
+      <div class="log">
+        <% if logged_in? %>
+
+          <%# マイページ閲覧中ならば「ログアウト」ボタンを表示、それ以外なら「マイページ」ボタンを表示 %>
+          <% if @now_user_show.nil? %>
+              <%= link_to  user_path(@current_user) do %>
+                <button class="log_btn_2"><i class="fas fa-user-check"></i> マイページ</button>
+              <% end %>
+          <% else %>
+              <%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do %>
+                <button class="log_btn_2"><i class="fas fa-user-check"></i> ログアウト</button>
+              <% end %>
           <% end %>
-        </div>
-      <% end %>
+          
+        <% else %>
+            <%= link_to  login_path do%>
+              <button class="log_btn"><i class="fas fa-user"></i> ログイン</button>
+            <% end %>
+        <% end %>
+      </div>
 
       <div class="signup_link">
         <%= link_to new_user_path do %>
@@ -219,6 +213,8 @@
     
     <%= yield %>
 
+    <%# ページ上部へ戻るリンク %>
     <div id="page_top"><a href="#"></a></div>
+
   </body>
 </html>

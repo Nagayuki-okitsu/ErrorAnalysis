@@ -2,47 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.sessions{
 
+    .log_label{
+        color: rgb(90, 77, 77);
+        font-weight: bold;
+    }
 
-.log_label{
-    color: rgb(90, 77, 77);
-    font-weight: bold;
-}
+    .log_field{
+        width: 40%; /*親要素いっぱい広げる*/
+        min-width: 200px;
+        padding: 10px 15px; /*ボックスを大きくする*/
+        font-size: 16px;
+        border-radius: 3px; /*ボックス角の丸み*/
+        border: 2px solid rgb(160, 160, 160); /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        margin-bottom: 50px;
+    }
 
-.log_field{
-    width: 40%; /*親要素いっぱい広げる*/
-    min-width: 200px;
-    padding: 10px 15px; /*ボックスを大きくする*/
-    font-size: 16px;
-    border-radius: 3px; /*ボックス角の丸み*/
-    border: 2px solid rgb(160, 160, 160); /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-    margin-bottom: 50px;
-}
+    .log_button  {
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 0.5em 1.5em 0.5em 1em;
+        width: 120px;
+        color: rgb(255, 255, 255);
+        font-size: 14px;
+        font-weight: bold;
+        background-color: rgb(73, 72, 69);
+        border: 2px solid rgb(119, 117, 113); /*枠線*/
+        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        border-radius: 8px;
+        box-shadow: 0 0 3px rgb(54, 53, 53);
+    }
+        
+    .log_button:hover {
+        text-decoration: none;
+        background-color: #292929;
+        color: rgb(255, 255, 255);
+    }
 
-.log_button  {
-    cursor: pointer;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 0.5em 1.5em 0.5em 1em;
-    width: 120px;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    font-weight: bold;
-    background-color: rgb(73, 72, 69);
-    border: 2px solid rgb(119, 117, 113); /*枠線*/
-    box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-    border-radius: 8px;
-    box-shadow: 0 0 3px rgb(54, 53, 53);
-}
-    
-.log_button:hover {
-    text-decoration: none;
-    background-color: #292929;
-    color: rgb(255, 255, 255);
 }
