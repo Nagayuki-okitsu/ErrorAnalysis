@@ -41,12 +41,11 @@ a{
 //flashの装飾
 .flash{
   text-align: center;
-  color: rgb(72, 180, 22);
+  color: #005a0f;
   white-space:pre-wrap;
   margin-top: 10px;
   margin-bottom: 50px;
 }
-
 .flash_2{
   text-align: center;
   color: rgb(255, 0, 0);
@@ -54,7 +53,6 @@ a{
   margin-top: 10px;
   margin-bottom: 50px;
 }
-
 .flash_3{
   text-align: center;
   font-size: 15px;
@@ -76,14 +74,12 @@ a{
   opacity: 0.6;
   border-radius: 50%;
 }
-
 #page_top a{
   position: relative;
   display: block;
   width: 50px;
   height: 50px;
 }
-
 #page_top a::before{
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
@@ -117,29 +113,60 @@ nav{
   left: 0;
 }
 
-//新規登録ボタン
-.signup_btn {
-  width: 90px;
-  height: 25px;
-  background: #041525;
-  color: #ffffff;
-  border-color:#041525;
-  cursor: pointer;
-}
-
-.signup_btn:hover {
-  background: rgb(0, 0, 0);
-  color: #ffffff;
-  border-color:rgb(0, 0, 0);
-  box-shadow: 0 0 3px rgb(22, 20, 18);
-}
-
-.signup_link{
+//各ページリンクのプルダウンリスト（ナビゲーションバー）
+.list{
+  margin-left: 20px;
+  min-width: 102px;
+  height: 45px;
   z-index: 11;
   position: relative;
 }
+.gnav {
+  margin: 7px 0 0 0;
+  display: flex;
+  height: 2rem;
+  width: 50px;
+}
+.gnav > li {/*親階層のみ幅を100%にする*/
+  width: 100%;
+}
+/*プルダウンリスト・リンク共通*/
+.gnav li {
+  list-style: none;
+  position: relative;
+}
+.gnav li a {
+  background: #041525;
+  color: #fff;
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}
+/*子階層以降共通*/
+.gnav li li {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity .5s;
+  width: 120px;
+}
+.gnav li li a {
+  background: #d4dce4;
+  color: rgb(74, 78, 90);
+  border-top: 1px solid #041525;
+  text-align: left;
+  padding-left: 30px;
+}
+.gnav li:hover > ul > li {
+  height: 2rem;
+  opacity: 1;
+  overflow: visible;
+}
 
-//質問箱ボタン（ナビゲーション）
+//質問箱ボタン（ナビゲーションバー）
 .q_nav_btn {
   width: 80px;
   height: 25px;
@@ -150,7 +177,6 @@ nav{
   cursor: pointer;
   border-radius: 2px;
 }
-
 .q_nav_btn:hover {
   background: rgb(0, 0, 0);
   color: #ffffff;
@@ -158,7 +184,7 @@ nav{
   box-shadow: 0 0 3px rgb(22, 20, 18);
 }
 
-//エラー学習ボタン（ナビゲーション）
+//エラー学習ボタン（ナビゲーションバー）
 .st_nav_btn {
   width: 100px;
   height: 25px;
@@ -169,7 +195,6 @@ nav{
   cursor: pointer;
   border-radius: 2px;
 }
-
 .st_nav_btn:hover {
   background: rgb(0, 0, 0);
   color: #ffffff;
@@ -177,7 +202,7 @@ nav{
   box-shadow: 0 0 3px rgb(22, 20, 18);
 }
 
-//「ErrorAnalysis」
+//ナビゲーションバー中央の「ErrorAnalysis」
 nav h1{
   width: 51%;
   min-width: 400px;
@@ -189,7 +214,7 @@ nav h1{
   margin-right: 110px;
 }
 
-//ログインボタン
+//ログインボタン（ナビゲーションバー）
 .log_btn {
   width: 90px;
   height: 25px;
@@ -200,7 +225,6 @@ nav h1{
   cursor: pointer;
   border-radius: 2px;
 }
-
 .log_btn:hover {
   background: rgb(0, 0, 0);
   color: #ffffff;
@@ -208,7 +232,7 @@ nav h1{
   box-shadow: 0 0 3px rgb(22, 20, 18);
 }
 
-//マイページ・ログアウトボタン
+//マイページ・ログアウトボタン（ナビゲーションバー）
 .log_btn_2 {
   width: 100px;
   height: 25px;
@@ -219,78 +243,38 @@ nav h1{
   cursor: pointer;
   border-radius: 2px;
 }
-
 .log_btn_2:hover {
   background: rgb(0, 0, 0);
   color: #ffffff;
   border-color:rgb(0, 0, 0);
   box-shadow: 0 0 3px rgb(22, 20, 18);
 }
-
 .log{
   z-index: 11;
   position: relative;
 }
 
-//各ページへのリンクリスト
-.list{
-  margin-left: 20px;
-  min-width: 102px;
-  height: 45px;
+//新規登録ボタン（ナビゲーションバー）
+.signup_btn {
+  width: 90px;
+  height: 25px;
+  background: #041525;
+  color: #ffffff;
+  border-color:#041525;
+  cursor: pointer;
+}
+.signup_btn:hover {
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+  border-color:rgb(0, 0, 0);
+  box-shadow: 0 0 3px rgb(22, 20, 18);
+}
+.signup_link{
   z-index: 11;
   position: relative;
 }
+//ここまでがナビゲーションバー
 
-.gnav {
-  margin: 7px 0 0 0;
-  display: flex;
-  height: 2rem;
-  width: 50px;
-}
-
-.gnav > li {/*親階層のみ幅を100%にする*/
-    width: 100%;
-}
-
-/*全てのリスト・リンク共通*/
-.gnav li {
-    list-style: none;
-    position: relative;
-}
-
-.gnav li a {
-    background: #041525;
-    color: #fff;
-    display: block;
-    height: 2rem;
-    line-height: 2rem;
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
-}
-
-/*子階層以降共通*/
-.gnav li li {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: opacity .5s;
-  width: 120px;
-}
-
-.gnav li li a {
-  background: #d4dce4;
-  color: rgb(74, 78, 90);
-  border-top: 1px solid #041525;
-  text-align: left;
-  padding-left: 30px;
-}
-
-.gnav li:hover > ul > li {
-  height: 2rem;
-  opacity: 1;
-  overflow: visible;
-}
 
 //表示内容全体を囲むボックス
 .content_box{
@@ -301,12 +285,12 @@ nav h1{
   height: 87vh;
 }
 
-//下部に余裕を持たせるための要素
+//ページ下部に余裕を持たせるための要素
 .around_box{
   padding-bottom: 280px;
 }
 
-//表示している要素を囲むボックス
+//content_box内を区切るボックス
 .resultbox{
   margin: auto;
   text-align: left;
@@ -319,12 +303,10 @@ nav h1{
   box-shadow: 0 0 10px rgb(26, 25, 25);
   border-radius: 5px;
 }
-
 .resultbox p{
   padding: 20px 0 20px 30px;
   white-space:pre-wrap;
 }
-
 .resultbox h4 {
   position: relative;
   background: #dad7d4;
@@ -345,7 +327,6 @@ nav h1{
   background-color: rgb(220, 226, 230);
   box-shadow: 0 0 10px rgb(26, 25, 25);
 }
-
 .q_a_box p{
   padding: 20px 0 20px 30px;
   white-space:pre-wrap;
@@ -355,7 +336,6 @@ nav h1{
 .field_with_errors {
   display: contents;
 }
- 
 .error_ms{
   list-style-position: inside;
   margin-bottom: 50px;
@@ -363,8 +343,73 @@ nav h1{
   font-size: 16px;
 }
 
-//「質問する」ボタン
-.q_btn{
+//検索ボックス
+.searchArea{
+  position       : relative; 
+  width          : 250px;              /* BOXの幅               */
+  height         : 40px;               /* BOXの高さ             */
+  margin         : auto;               /* サンプルを中心に寄せ  */
+  letter-spacing : 0.1em;              /* 文字間隔              */
+  font-weight    : bold;               /* 太字                  */
+  line-height    : 0;                  /* 標準の行高さ          */
+  background-color: rgb(73, 72, 72);
+  box-shadow: 0 0 10px rgb(26, 25, 25);
+  z-index: 2;
+}
+
+//検索ボックス内テキスト
+.searchText {
+  position       : absolute;
+  display        : block;              /* ブロック化            */
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 40px;               /* BOXの高さ             */
+  width          : 100%;               /* テキスト入力の幅      */
+  margin         : 0;                  /* 外余白                */
+  padding        : 0 45px 0 8px;       /* 内余白                */
+  border         : 2px solid rgb(77, 77, 77);     /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 角丸                  */
+  color          : #333;               /* 文字色                */
+  font-size      : 18px;               /* フォントサイズ        */
+  outline        : 0;                  /* 入力の薄い枠を非表示  */
+}
+
+//検索ボタン
+.searchButton {
+  position       : absolute;
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 28px;               /* 入力の高さ            */
+  margin         : 0;                  /* 外余白                */
+  padding        : 6px 10px;           /* 内余白                */
+  top            : 6px;                /* ボタン表示位置(上)    */
+  right          : 6px;                /* ボタン表示位置(右)    */
+  border         : none;               /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 右上下の角丸          */
+  background     : #666;               /* ボタンの色            */
+  color          : #fff;               /* 文字色                */
+  cursor         : pointer;            /* カーソル設定          */
+}
+
+//テキストフォーカス
+.searchText:focus {
+  background     : #d8d8d8;            /* フォーカス時の背景色  */
+}
+
+//虫眼鏡アイコン画像
+.searchImg {
+  display        : inline-block;       /* インラインブロック化  */
+  width          : auto;               /* 幅は高さに合わせる    */
+  height         : 16px;               /* 画像の高さ            */
+  margin         : 0;                  /* 余白                  */
+  vertical-align : middle;             /* 横の文字位置          */
+}
+
+//IEの入力エリア右側×消し
+.searchText::-ms-clear {
+  display        : none;               /* ×を消す              */
+}
+
+//ボタン(以下に設定されているボタンの共通部分）
+.btn{
   cursor: pointer;
   position: relative;
   z-index: 2;
@@ -373,57 +418,161 @@ nav h1{
   align-items: center;
   margin: 0 auto;
   padding: 0.5em 1.5em 0.5em 1em;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgb(51, 51, 51);
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  border-radius: 10px;
+}
+
+//「質問する」ボタン
+.q_btn{
   width: 150px;
   color: rgb(243, 241, 236);
   font-size: 17px;
-  font-weight: 550;
   background-color: rgb(34, 131, 146);
-  box-shadow: 0 0 10px rgb(78, 76, 76);
   border-radius: 30px;
 }
-  
 .q_btn:hover{
   background-color: #043e42;
   color: rgb(235, 235, 235);
   box-shadow: 0 0 10px rgb(51, 51, 51);
 }
 
-//グループ「作成・参加」ボタン
-.c_btn  {
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
+//送信・作成ボタン
+.c_btn {
   margin-top: 50px;
-  padding: 0.5em 1.5em 0.5em 1em;
   width: 100px;
   color: rgb(53, 51, 48);
   font-size: 16px;
-  font-weight: bold;
   background-color: rgb(233, 224, 213);
-  border: 2px solid rgb(119, 117, 113); /*枠線*/
-  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+  box-shadow: 0 0 3px rgb(51, 51, 51);
   border-radius: 30px;
-  transition: 0.3s;
 }
-  
 .c_btn:hover {
-  background-color: #ccae77;
-  color: rgb(230, 227, 220);
+  background-color: rgb(180, 176, 170);
+}
+
+//質問内容を囲むボックス(questionとanswerページで使用）
+.con_box {
+  margin: 2em 0;
+  background: #f1f1f1;
+  padding: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.con_box .box-title {
+  font-size: 1.2em;
+  background: #6e8f9c;
+  padding: 4px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 30px; 
+}
+.con_box p {
+  padding: 15px 20px;
+  margin: 0 0 100px 0;
+}
+
+//アップロードされている画像
+.con_img{
+  width: 70%;
+  min-width: 700px;
+  margin-bottom: 50px;
+  border: 5px solid #272e46;
+  border-radius: 3px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+//回答フォーム（answerとreplyページで使用）
+.ans_form_box{
+  background-color: rgb(243, 232, 200);
+  padding-top: 20px;
+  padding-bottom: 0;
+  z-index: 50;
+  position: fixed;
+  text-align: center;
+  width: 60%;
+  min-width: 600px;
+  height: 265px;
+  inset: 0;
+  top: 60vh;
+  margin: auto;
+  box-shadow: 0 0 10px rgb(48, 47, 47);
+  border-radius: 5px;
+}
+.ans_form{
+  width: 90%; /*親要素いっぱい広げる*/
+  height: 180px;
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+.ans_label{
+  font-size: large;
+  color: rgb(85, 83, 83);
+  font-weight: bold;
+}
+
+ //質問への回答&返信対象の回答を囲むボックス
+ .ans_box {
+  margin: 2em 0;
+  background: #f1f1f1;
+  padding: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+.ans_box .box-title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  background: #6862b4;
+  padding: 4px;
+  padding-left: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  align-items: center;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius : 30px;  
+}
+.ans_box p {
+  padding: 15px 20px;
+  margin: 0;
+}
+.ans_box h5{
+  color: #679ac9;
+}
+//回答内容
+.ans_con{
+  padding-bottom: 50px;
+  border-bottom: 3px solid rgb(223, 223, 223);
+}
+
+//返信内容を囲むボックス(questionとreplyページで使用）
+.rep_box{
+  padding-bottom: 30px;
+  padding-top: 10px;
+  margin-left: 70px;
+  margin-right: 10px;
+  border-bottom: 3px solid rgb(223, 223, 223);
+}
+.rep_box h5{
+  color: rgb(136, 172, 122);
 }
 
 
-//背景
+
+//ここから背景
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 *{
   margin: 0px;
   padding: 0px;
 }
-
 
 .area{
   position: fixed;
@@ -460,7 +609,6 @@ nav h1{
   height: 80px;
   animation-delay: 0s;
 }
-
 
 .circles li:nth-child(2){
   left: 10%;

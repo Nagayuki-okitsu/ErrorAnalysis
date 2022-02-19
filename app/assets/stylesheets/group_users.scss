@@ -4,43 +4,26 @@
 
 .group_users{
 
-    .search_mes{
-        color:rgb(107, 106, 102);
+    //検索ボックス
+    .searchArea{
+        border-radius: 5px;
+        box-shadow: 0 0 3px gray;
     }
 
-    .searchArea_3{
-        position       : relative; 
-        width          : 250px;              /* BOXの幅               */
-        height         : 40px;               /* BOXの高さ             */
-        margin         : auto;               /* サンプルを中心に寄せ  */
-        letter-spacing : 0.1em;              /* 文字間隔              */
-        font-weight    : bold;               /* 太字                  */
-        line-height    : 0;                  /* 標準の行高さ          */
-        box-shadow: 0 0 3px rgb(206, 206, 206);
-        z-index: 2;
+    .search_mes{
+        color:rgb(107, 106, 102);
+        margin-bottom: 10px;
     }
 
     .join_button{
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
         margin-top: 50px;
-        padding: 0.5em 1.5em 0.5em 1em;
         width: 215px;
         color: rgb(53, 51, 48);
         font-size: 16px;
-        font-weight: bold;
         background-color: rgb(233, 224, 213);
         border: 2px solid rgb(119, 117, 113); /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
         border-radius: 30px;
-        transition: 0.3s;
-    }
-        
+    }      
     .join_button:hover {
         background-color: #ccae77;
         color: rgb(230, 227, 220);

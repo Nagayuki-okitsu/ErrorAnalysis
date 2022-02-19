@@ -10,7 +10,7 @@
         
         <h3 class="search_mes">- グループを検索 -</h3>
         <%= form_with url:new_group_user_path, method: :get do |f| %>
-            <div class="searchArea_3">
+            <div class="searchArea">
             <%= text_field_tag "name","", {class: "searchText"} %>
             <div class="searchButton" onclick="goSearch()">
                 <%= image_submit_tag 'search.png', {class:"searchImg"} %>
@@ -27,7 +27,7 @@
             <%= form.hidden_field :user_id, :value => @current_user.id %>
             <%= form.hidden_field :group_id, :value => @group.id %>
 
-            <%= button_tag type: :submit, :class => 'join_button' do %><i class="fas fa-sign-in-alt"></i>このグループに参加<% end %>
+            <%= button_tag type: :submit, :class => 'btn join_button' do %><i class="fas fa-sign-in-alt"></i>このグループに参加<% end %>
         
         <% end %>
 

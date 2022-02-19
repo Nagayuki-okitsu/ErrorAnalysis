@@ -1,7 +1,7 @@
 <div class="content_box">
   <div class="around_box">
 
-    <%= button_to new_question_path, :class => 'q_btn', :method => :get do %>
+    <%= button_to new_question_path, :class => 'btn q_btn', :method => :get do %>
       <i class="fas fa-pen q_icon"></i>質問する
     <% end %>
 
@@ -47,7 +47,7 @@
           </div>
         <% end %>
 
-        <div class="searchArea" style="width:138.7px;">
+        <div class="searchArea" style="width:129.3px;">
           <%= form_with url: questions_path, method: :get do |f| %>
             <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
               <div class="searchButton" style="padding:6px 7px;" onclick="goSearch()">

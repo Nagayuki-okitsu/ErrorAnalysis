@@ -56,7 +56,7 @@
 
               </div> <%# choices_boxの終了タグ %>
 
-                    <%= button_to test_path, :class => 'choices_button', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;', :method => :get , params: {status: "next"} do %>
+                    <%= button_to test_path, :class => 'btn choices_btn', :style => 'width:120px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;', :method => :get , params: {status: "next"} do %>
                         <i class="fas fa-arrow-alt-circle-right"></i>続きへ
                     <% end %>
                     
@@ -71,13 +71,13 @@
 
                     <% if session[:status] == "stay_s" %>
 
-                        <%= button_to test_path, :class => 'choices_button', :style => 'width: 150px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get , params: {status: "change"} do %>
+                        <%= button_to test_path, :class => 'btn choices_btn', :style => 'width: 150px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get , params: {status: "change"} do %>
                             <i class="fas fa-arrow-alt-circle-right"></i>次の問題へ
                         <% end %>
 
                     <% elsif session[:status] == "finish" %>
 
-                        <%= button_to learn_path, :class => 'choices_button', :style => 'width: 140px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get do %>
+                        <%= button_to learn_path, :class => 'btn choices_btn', :style => 'width: 140px; background-color: #6862b4; border-color: rgb(119, 117, 113); margin-bottom: 30px;' , :method => :get do %>
                             <i class="fas fa-check-circle"></i>終了する
                         <% end %>
 
@@ -111,10 +111,7 @@
                             <p><%= f.label :ans, "(4) #{@q["#{@key}"][3]}", {value: :d, style: "display: inline-block;"} %></p><br>
                     
                             <button class="fake_btn" id="fake_btn" style="margin-top: 20px;" disabled><i class="fas fa-check-circle"></i>回答</button>
-
-                            <%= button_tag type: :submit, :id => 'real_btn',  :class => 'choices_button', :style => 'display: none; margin-top: 20px;' do %>
-                                <i class="fas fa-check-circle"></i>回答
-                            <% end %>
+                            <%= button_tag type: :submit, :id => 'real_btn',  :class => 'btn choices_btn', :style => 'display: none; margin-top: 20px;' do %><i class="fas fa-check-circle"></i>回答<% end %>
 
                         <% end %>
 

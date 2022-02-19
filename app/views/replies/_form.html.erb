@@ -24,7 +24,7 @@
     
     <% if rep.present? %>
       <% rep.each do |rep| %>
-        <div class="rep">
+        <div class="rep_box">
           <h5><i class="fas fa-user-circle user_icon_2"></i> <%= User.find_by(id: rep.user_id).name %></h5>
           <p><%= rep.reply %></p>
         </div>
@@ -43,7 +43,7 @@
         <%= form.text_area :reply, class: "ans_form" %>
       </div>
 
-      <%= button_tag type: :submit, :class => 'ans_button' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+      <%= button_tag type: :submit, :class => 'btn c_btn', :style => 'margin-top: 0;' do %><i class="fas fa-paper-plane"></i>送信<% end %>
     </div>
 
   <% end %>

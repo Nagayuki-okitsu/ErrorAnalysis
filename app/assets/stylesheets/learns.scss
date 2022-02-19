@@ -185,23 +185,15 @@
         cursor: pointer;
     }
 
-    .choices_button  {
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        padding: 0.2em 1.5em 0.2em 1em;
+    .choices_btn  {
+        height: 35px;
         width: 100px;
         color: rgb(252, 252, 252);
         font-size: 16px;
-        font-weight: bold;
         background-color: #cac8df;
-        border: 2px solid #cac8df; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+        border: 2px solid #cac8df; 
         border-radius: 10px;
+        box-shadow: none;
     }
 
     .fake_btn{
@@ -211,11 +203,12 @@
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
-        padding: 0.2em 1.5em 0.2em 1em;
+        padding: 0.5em 1.5em 0.5em 1em;
         width: 100px;
+        height: 35px;
+        font-weight: bold;
         color: rgb(252, 252, 252);
         font-size: 16px;
-        font-weight: bold;
         background-color: #cac8df;
         border: 2px solid #cac8df; /*枠線*/
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/

@@ -5,17 +5,17 @@
       <div class="edit_delete_btn_around">
         <div class="edit_delete_link">
           <%= link_to  edit_question_path(@question) do%>
-            <button class="edit_delete_btn" style="margin-right:30px;"><i class="fas fa-pen q_icon"></i> 編集</button>
+            <button class="btn edit_delete_btn" style="margin-right:30px;"><i class="fas fa-pen q_icon"></i> 編集</button>
           <% end %>
         </div>
         <div class="edit_delete_link">
           <%= link_to  question_path(@question), method: :delete,data: {confirm: "この質問とこれに対する回答、返信が全て削除されます。\n削除した内容を復元することはできません。\n※この質問への回答に押された「いいね」は保存されます。\n本当に削除しますか？"} do%>
-            <button class="edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+            <button class="btn edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
           <% end %>
         </div>
       </div>
     <% else %>
-      <%= button_to new_answer_path, :class => 'q_btn', :method => :get , params: {q_id: @question.id} do %>
+      <%= button_to new_answer_path, :class => 'btn q_btn', :method => :get , params: {q_id: @question.id} do %>
         <i class="fas fa-pen q_icon"></i>回答する
       <% end %>
     <% end %>
@@ -96,13 +96,13 @@
 
                       <div class="ans_edit_delete_link">
                         <%= link_to  edit_answer_path(answer) do%>
-                          <button class="ans_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+                          <button class="btn ans_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
                         <% end %>
                       </div>
                       
                       <div class="ans_edit_delete_link">
                         <%= link_to  answer_path(answer), method: :delete,data: {confirm: "この回答のみが削除されます。\n削除した内容を復元することはできません。\n本当に削除しますか？"} do%>
-                          <button class="ans_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+                          <button class="btn ans_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
                         <% end %>
                       </div>
 
@@ -137,13 +137,13 @@
                     <% if current_user?(User.find_by(id: rep.user_id)) %>
                       <div class="rep_edit_delete_link">
                         <%= link_to  edit_reply_path(rep) do%>
-                          <button class="rep_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
+                          <button class="btn rep_edit_delete_btn"><i class="fas fa-pen q_icon"></i> 編集</button>
                         <% end %>
                       </div>
 
                       <div class="rep_edit_delete_link">
                         <%= link_to  reply_path(rep), method: :delete,data: {confirm: "削除した返信を復元することはできません。\n本当に削除しますか？"} do%>
-                          <button class="rep_edit_delete_btn"><i class="fas fa-trash-alt"></i> 削除</button>
+                          <button class="btn rep_edit_delete_btn" style="margin: 0 5px;"><i class="fas fa-trash-alt"></i> 削除</button>
                         <% end %>
                       </div>
                     <% end %>
@@ -157,8 +157,8 @@
             <% end %>
 
             <div align="right">
-              <%= button_to new_reply_path, :class => 'rep_btn', :method => :get , params: {ans_id: answer.id} do %>
-                <i class="fas fa-reply"></i>返信する
+              <%= button_to new_reply_path, :class => 'btn rep_btn', :method => :get , params: {ans_id: answer.id} do %>
+                <i class="fas fa-reply"></i> 返信する
               <% end %>
             </div>
           </div>

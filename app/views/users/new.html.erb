@@ -49,9 +49,9 @@
         <%= form.password_field :password, class: "signup_field" %><br>
 
         <%= form.label "パスワード（確認用）", class: "signup_label" %><br>
-        <%= form.password_field :password_confirmation, class: "signup_field" %><br>
+        <%= form.password_field :password_confirmation, class: "signup_field", style: "margin-bottom: 10px;" %><br>
 
-        <%= button_tag type: :submit, :class => 'c_btn' do %><i class="fas fa-user"></i> 登録<% end %>
+        <%= button_tag type: :submit, :class => 'btn c_btn' do %><i class="fas fa-user"></i> 登録<% end %>
       <% end %>
       
     </div>
