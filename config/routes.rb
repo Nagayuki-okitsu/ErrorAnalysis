@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     member { get :show_image }
     member { get :show_image_2 }
     member { get :show_image_3}
+    member { get :show_image_4}
+    member { get :show_image_5}
   end
   resources :homes do
     get :analysis, on: :collection 

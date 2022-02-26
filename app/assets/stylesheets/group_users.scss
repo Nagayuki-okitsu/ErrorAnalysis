@@ -4,6 +4,17 @@
 
 .group_users{
 
+    //全体を中央寄せ
+    .content_box{
+        text-align: center;
+    }
+
+    //調整
+    .adjustment{
+        text-align:center;
+        padding: 100px 20px 100px 20px;
+    }
+
     //検索ボックス
     .searchArea{
         border-radius: 5px;

@@ -1,26 +1,21 @@
-<div class="content_box" align="center">
-  <div class="around_box">  
+<div class="wit_link">
+  <%= link_to  group_user_path(group_id: @group.id), method: :delete,data: {confirm: "本当に退会しますか？"} do%>
+    <button class="btn wit_btn"><i class="fas fa-sign-out-alt"></i> このグループから退会する</button>
+  <% end %>
+</div>
 
-    <div class="wit_link">
-      <%= link_to  group_user_path(group_id: @group.id), method: :delete,data: {confirm: "本当に退会しますか？"} do%>
-        <button class="btn wit_btn"><i class="fas fa-sign-out-alt"></i> このグループから退会する</button>
+<div class="resultbox">
+
+  <h2 class="g_name"><i class="fas fa-users user_icon"></i> <%= @group.name %></h2>
+
+  <div class="g_user">
+    <ul>
+      <% @group.group_users.each do |group_user| %>
+        <li>
+          <i class="fas fa-user-circle user_icon"></i><%= User.find(group_user.user_id).name %>
+        </li>
       <% end %>
-    </div>
-
-    <div class="resultbox">
-
-      <h2 class="g_name"><i class="fas fa-users user_icon"></i> <%= @group.name %></h2>
-
-      <div class="g_user">
-        <ul>
-            <% @group.group_users.each do |group_user| %>
-                <li>
-                  <i class="fas fa-user-circle user_icon"></i><%= User.find(group_user.user_id).name %>
-                </li>
-            <% end %>
-        </ul>
-      </div>
-      
-    </div>
+    </ul>
   </div>
+     
 </div>

@@ -1,73 +1,68 @@
-<div class="content_box" align="center">
-  <div class="around_box">
+<%= form_with url:analysis_homes_path, method: :get do |f| %>
+  <div class="searchArea">
+    <%= text_field_tag "err_mess","", {class: "searchText"} %>
+    <div class="searchButton" onclick="goSearch()">
+      <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+    </div>
+  </div>
+<% end %>
 
-    <%= form_with url:analysis_homes_path, method: :get do |f| %>
-      <div class="searchArea">
-        <%= text_field_tag "err_mess","", {class: "searchText"} %>
-        <div class="searchButton" onclick="goSearch()">
-          <%= image_submit_tag 'search.png', {class:"searchImg"} %>
+<% if @flg == false %>
+
+  <% if flash[:log_mes] %>
+    <div class="flash"><%= flash[:log_mes] %></div>
+  <% end %>
+
+  <div class="wrap" align="center">
+    <div class="content">
+      <p class="fadein txt01">これはエラーを解析するアプリケーションです</p>
+      <p class="fadein txt02">１ , エラーメッセージをコピー</i><br><%= image_tag 'example_copy.png', class: 'copy_ex'%></p>
+      <p class="fadein txt03"><i class="fas fa-angle-double-down"></i><br>２ , 検索ボックスに貼り付け<br><%= image_tag 'example_input.png', class:'input_ex'%></p>
+      <div class="fadein al_1"><p class="fadein txt04">※解析の精度を高めるため一度の実行で出力された全てのエラーメッセージを貼り付けてください。(14029字まで対応）</p></div>
+      <p class="fadein txt05"><i class="fas fa-angle-double-down"></i><br>３ , Enter または 検索ボタンクリックで解析開始<br><%= image_tag 'example_result.png', class: 'result_ex'%></p>
+      <p class="fadein txt06"><i class="fas fa-angle-double-down"></i><br>４ , 解決できなかったら質問箱で質問<br><%= image_tag 'example_question.png', class: 'question_ex'%><br></p>
+      <div class="fadein al_2"><p class="fadein txt07">※質問箱ではエラーの解決方法だけでなくプログラムの組み方などプログラミングに関する様々な質問を投稿できます。</p></div>
+      <p class="fadein txt08"><i class="fas fa-angle-double-down"></i><br>５ , 学習機能を利用してエラーへの対応力UP<br><%= image_tag 'example_learn.png', class: 'question_ex'%><br></p>
+    </div>
+  </div> 
+
+<% else %>
+
+    <% if @err_list.present? %>
+
+      <% @err_list.each do |err| %>          
+        <div class="resultbox">
+
+          <h4><i class="fas fa-check-circle"></i>　解析キーワード</h4>
+            <p>"<%= err["err_mess"] %>"</p>
+          
+          <h4><i class="fas fa-check-circle"></i>　主な原因</h4>
+            <p><%= err["cause"] %></p>
+
+          <h4><i class="fas fa-check-circle"></i>　ヒント</h4>
+            <p><%= err["hint"] %></p>
+                  
         </div>
-      </div>
-    <% end %>
-
-    <% if @flg == false %>
-    
-      <% if flash[:log_mes] %>
-        <div class="flash"><%= flash[:log_mes] %></div>
       <% end %>
-
-      <div class="wrap">
-        <div class="content">
-          <p class="fadein txt01">これはエラーを解析するアプリケーションです</p>
-          <p class="fadein txt02">１ , エラーメッセージをコピー</i><br><%= image_tag 'example_copy.png', class: 'copy_ex'%></p>
-          <p class="fadein txt03"><i class="fas fa-angle-double-down"></i><br>２ , 検索ボックスに貼り付け<br><%= image_tag 'example_input.png', class:'input_ex'%></p>
-          <div class="fadein al_1"><p class="fadein txt04">※解析の精度を高めるため一度の実行で出力された全てのエラーメッセージを貼り付けてください。(14029字まで対応）</p></div>
-          <p class="fadein txt05"><i class="fas fa-angle-double-down"></i><br>３ , Enter または 検索ボタンクリックで解析開始<br><%= image_tag 'example_result.png', class: 'result_ex'%></p>
-          <p class="fadein txt06"><i class="fas fa-angle-double-down"></i><br>４ , 解決できなかったら質問箱で質問<br><%= image_tag 'example_question.png', class: 'question_ex'%><br></p>
-          <div class="fadein al_2"><p class="fadein txt07">※質問箱ではエラーの解決方法だけでなくプログラムの組み方などプログラミングに関する様々な質問を投稿できます。</p></div>
-          <p class="fadein txt08"><i class="fas fa-angle-double-down"></i><br>５ , 学習機能を利用してエラーへの対応力UP<br><%= image_tag 'example_learn.png', class: 'question_ex'%><br></p>
-        </div>
-      </div> 
 
     <% else %>
 
-        <% if @err_list.present? %>
+      <div class="resultbox">
 
-          <% @err_list.each do |err| %>          
-            <div class="resultbox">
-
-              <h4><i class="fas fa-check-circle"></i>　解析キーワード</h4>
-                <p>"<%= err["err_mess"] %>"</p>
-              
-              <h4><i class="fas fa-check-circle"></i>　主な原因</h4>
-                <p><%= err["cause"] %></p>
-
-              <h4><i class="fas fa-check-circle"></i>　ヒント</h4>
-                <p><%= err["hint"] %></p>
-                      
-            </div>
-          <% end %>
-
-        <% else %>
-
-          <div class="resultbox">
-
-            <div align="center">
-              <h4 style="color:red;"><i class="fas fa-exclamation-circle"></i> No error was found</h4>
-              <p>エラーキーワードを見つけることができませんでした。<br>このアプリケーションに登録されていないエラーの可能性があります。
-                <br><br>
-                <%= button_to new_question_path, :class => 'btn q_btn', :method => :get do %>
-                  <i class="fas fa-pen q_icon"></i>質問する
-                <% end %>
-              </p>
-            </div>
-            
-          </div>
-
-        <% end %>
+        <div align="center">
+          <h4 style="color:red;"><i class="fas fa-exclamation-circle"></i> No error was found</h4>
+          <p>エラーキーワードを見つけることができませんでした。<br>このアプリケーションに登録されていないエラーの可能性があります。
+            <br><br>
+            <%= button_to new_question_path, :class => 'btn q_btn', :method => :get do %>
+              <i class="fas fa-pen q_icon"></i>質問する
+            <% end %>
+          </p>
+        </div>
         
+      </div>
+
     <% end %>
+    
+<% end %>
 
-  </div>
 
-</div>

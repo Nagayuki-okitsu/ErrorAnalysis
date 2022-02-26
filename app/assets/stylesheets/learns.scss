@@ -2,7 +2,93 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+//アクションごとに調整
+.learns-index{
+
+    .resultbox{
+        width: 700px; 
+        padding-top: 15px;
+    }
+
+    .adjustment{
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    .fake_btn{
+        margin-top: 20px;
+    }
+
+    #real_btn{
+        display: none;
+        width: 140px;
+        margin-top: 30px;
+    }    
+
+}
+
+.learns-test{
+
+    .adjustment{
+        padding-bottom: 30px;
+    }
+
+    .p_adj{
+        margin-left: 30px;
+    }
+
+    .fake_btn{
+        width: 140px;
+        margin-top: 30px;
+    }
+
+    .q_adjustment{
+        padding: 20px;
+    }
+
+    .pa_adjustment{
+        transform: translateX(-8.5px);
+    }
+
+    .next_btn_adj{
+        width:120px;
+        background-color: #6862b4;
+        border-color: rgb(119, 117, 113);
+        margin-bottom: 30px;
+    }
+
+    .change_btn_adj{
+        width: 150px;
+        background-color: #6862b4;
+        border-color: rgb(119, 117, 113);
+        margin-bottom: 30px;
+    }
+
+    .finish_btn_adj{
+        width: 140px;
+        background-color: #6862b4;
+        border-color: rgb(119, 117, 113);
+        margin-bottom: 30px;
+    }
+
+    .label_adj{
+        display: inline-block;
+    }
+
+    #real_btn{
+        display: none;
+        margin-top: 20px;
+    }
+}
+
+
 .learns{
+
+    //全体を中央寄せ
+    .content_box{
+        text-align: center;
+    }
 
     .l_t_box{
         margin: 0 auto;

@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 2022_01_27_143856) do
   end
 
   #yamlで管理しているため使用していない
-  create_table "error_lists", force: :cascade do |t|
-    t.string "err_mess"
-    t.string "cause"
-    t.text "advice"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+  # create_table "error_lists", force: :cascade do |t|
+  #   t.string "err_mess"
+  #   t.string "cause"
+  #   t.text "advice"
+  #   t.datetime "created_at", precision: 6, null: false
+  #   t.datetime "updated_at", precision: 6, null: false
+  # end
 
   create_table "group_users", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_143856) do
   end
 
   create_table "questions", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "title"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
@@ -73,21 +74,20 @@ ActiveRecord::Schema.define(version: 2022_01_27_143856) do
     t.string "key"
     t.binary "image"
     t.string "image_content_type"
-    t.bigint "user_id"
+    t.string "file_name"
     t.binary "image_2"
     t.string "image_content_type_2"
+    t.string "file_name_2"
     t.binary "image_3"
     t.string "image_content_type_3"
-    t.string "file_name"
-    t.string "file_name_2"
     t.string "file_name_3"
-    t.boolean "solved", default: false, null: false
     t.binary "image_4"
     t.string "image_content_type_4"
     t.string "file_name_4"
     t.binary "image_5"
     t.string "image_content_type_5"
     t.string "file_name_5"
+    t.boolean "solved", default: false, null: false
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 

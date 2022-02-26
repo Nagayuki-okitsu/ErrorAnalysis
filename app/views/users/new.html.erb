@@ -1,59 +1,55 @@
-<div class="content_box" align="center">
-  <div class="around_box">
+<div class="resultbox adjustment">
 
-    <div class="resultbox" style="text-align:center; padding: 40px 20px 10px 20px;">
-      <% if @user.errors.any? %>
-        <% blank_flg = 0 %>
-        <div class="error_ms">
-          <ul>
-          <% @user.errors.full_messages.each do |error| %>
-            
-            <% msg = "" %>
-            <% if error.include?("can't be blank") %>
-              <% if blank_flg == 1 %>
-                <% next %>
-              <% else %>
-                <% blank_flg = 1 %>
-                <% msg = "全ての入力欄に記入してください" %>
-              <% end %>
-            <% elsif error == ("Name is too long (maximum is 8 characters)") %>
-              <% msg = "ニックネームは8文字以下に設定してください" %>
-            <% elsif error == ("Email has already been taken") %>
-              <% msg = "そのメールアドレスはすでに使用されています" %>
-            <% elsif error == ("Email is invalid") %>
-              <% msg = "無効なメールアドレスです" %>
-            <% elsif error == ("Password confirmation doesn't match Password") %>
-              <% msg = "パスワードと確認用パスワードが一致しません" %>
-            <% elsif error == ("Password is too short (minimum is 4 characters)") %>
-              <% msg = "パスワードは4文字以上で設定してください" %>
-            <% elsif error == ("Password is too long (maximum is 18 characters)") %>
-              <% msg = "パスワードは18文字以下で設定してください" %>
-            <% end %>
-
-            <li><%= msg %></li>
-
+  <% if @user.errors.any? %>
+    <% blank_flg = 0 %>
+    <div class="error_ms">
+      <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        
+        <% msg = "" %>
+        <% if error.include?("can't be blank") %>
+          <% if blank_flg == 1 %>
+            <% next %>
+          <% else %>
+            <% blank_flg = 1 %>
+            <% msg = "全ての入力欄に記入してください" %>
           <% end %>
-          </ul>
-        </div>
+        <% elsif error == ("Name is too long (maximum is 8 characters)") %>
+          <% msg = "ニックネームは8文字以下に設定してください" %>
+        <% elsif error == ("Email has already been taken") %>
+          <% msg = "そのメールアドレスはすでに使用されています" %>
+        <% elsif error == ("Email is invalid") %>
+          <% msg = "無効なメールアドレスです" %>
+        <% elsif error == ("Password confirmation doesn't match Password") %>
+          <% msg = "パスワードと確認用パスワードが一致しません" %>
+        <% elsif error == ("Password is too short (minimum is 4 characters)") %>
+          <% msg = "パスワードは4文字以上で設定してください" %>
+        <% elsif error == ("Password is too long (maximum is 18 characters)") %>
+          <% msg = "パスワードは18文字以下で設定してください" %>
+        <% end %>
+
+        <li><%= msg %></li>
+
       <% end %>
-
-      <%= form_with model: @user do |form| %>
-
-        <%= form.label "ニックネーム(8文字以下)", class: "signup_label" %><br>
-        <%= form.text_field :name, class: "signup_field" %><br>
-
-        <%= form.label :メールアドレス, class: "signup_label" %><br>
-        <%= form.text_field :email, class: "signup_field" %><br>
-
-        <%= form.label "パスワード(4～18文字)", class: "signup_label" %><br>
-        <%= form.password_field :password, class: "signup_field" %><br>
-
-        <%= form.label "パスワード（確認用）", class: "signup_label" %><br>
-        <%= form.password_field :password_confirmation, class: "signup_field", style: "margin-bottom: 10px;" %><br>
-
-        <%= button_tag type: :submit, :class => 'btn c_btn' do %><i class="fas fa-user"></i> 登録<% end %>
-      <% end %>
-      
+      </ul>
     </div>
-  </div>
+  <% end %>
+
+  <%= form_with model: @user do |form| %>
+
+    <%= form.label "ニックネーム(8文字以下)", class: "signup_label" %><br>
+    <%= form.text_field :name, class: "signup_field" %><br>
+
+    <%= form.label :メールアドレス, class: "signup_label" %><br>
+    <%= form.text_field :email, class: "signup_field" %><br>
+
+    <%= form.label "パスワード(4～18文字)", class: "signup_label" %><br>
+    <%= form.password_field :password, class: "signup_field" %><br>
+
+    <%= form.label "パスワード（確認用）", class: "signup_label" %><br>
+    <%= form.password_field :password_confirmation, class: "signup_field", style: "margin-bottom: 10px;" %><br>
+
+    <%= button_tag type: :submit, :class => 'btn c_btn' do %><i class="fas fa-user"></i> 登録<% end %>
+  <% end %>
+  
 </div>

@@ -4,6 +4,17 @@
 
 .users{
 
+    //全体を中央寄せ
+    .content_box{
+        text-align: center;
+    }
+
+    //調整
+    .adjustment{
+        text-align:center;
+        padding: 40px 20px 10px 20px;
+    }
+
     .g_c_j{
         display: flex;
         width: 350px;
@@ -130,6 +141,7 @@
 
 
     .u_info table{
+        margin: 0 auto;
         width: 80%;
         max-width: 1000px;
         min-width: 800px;

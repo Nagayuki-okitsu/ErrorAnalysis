@@ -4,13 +4,17 @@
 
 .homes{
 
+    //全体を中央寄せ
+    .content_box{
+        text-align: center;
+    }
+
     //フェード文章
     .content {      
         margin-top: 50px;
         width:auto;
         height: auto;
     }
-
     .content p {
         font-size: 18px;
         color: #fff;

@@ -67,6 +67,23 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
+    image_list = []
+    if @question.image.present?
+      image_list.push({"name" => @question.file_name[0,@question.file_name.index('.')], "path" => show_image_question_path(@question)})
+    end
+    if @question.image_2.present?
+      image_list.push({"name" => @question.file_name_2[0,@question.file_name_2.index('.')], "path" => show_image_2_question_path(@question)})
+    end
+    if @question.image_3.present?
+      image_list.push({"name" => @question.file_name_3[0,@question.file_name_3.index('.')], "path" => show_image_3_question_path(@question)})
+    end
+    if @question.image_4.present?
+      image_list.push({"name" => @question.file_name_4[0,@question.file_name_4.index('.')], "path" => show_image_4_question_path(@question)})
+    end
+    if @question.image_5.present?
+      image_list.push({"name" => @question.file_name_5[0,@question.file_name_5.index('.')], "path" => show_image_5_question_path(@question)})
+    end
+    @image_list = image_list
   end
 
   # GET /questions/new
@@ -88,37 +105,13 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = @current_user.id
 
-    if params[:question][:image].present?
-      @question.image = params[:question][:image].read
-      @question.file_name = params[:question][:image].original_filename
-      @question.image_content_type = params[:question][:image].content_type
-    end
-    if params[:question][:image_2].present?
-      @question.image_2 = params[:question][:image_2].read
-      @question.file_name_2 = params[:question][:image_2].original_filename
-      @question.image_content_type_2 = params[:question][:image_2].content_type
-    end
-    if params[:question][:image_3].present?
-      @question.image_3 = params[:question][:image_3].read
-      @question.file_name_3 = params[:question][:image_3].original_filename
-      @question.image_content_type_3 = params[:question][:image_3].content_type
-    end
-    if params[:question][:image_4].present?
-      @question.image_4 = params[:question][:image_4].read
-      @question.file_name_4 = params[:question][:image_4].original_filename
-      @question.image_content_type_4 = params[:question][:image_4].content_type
-    end    
-    if params[:question][:image_5].present?
-      @question.image_5 = params[:question][:image_5].read
-      @question.file_name_5 = params[:question][:image_5].original_filename
-      @question.image_content_type_5 = params[:question][:image_5].content_type
-    end
-
+    check_image
   
     if @question.save
       flash[:q_mes] = "質問を投稿しました。マイページの質問一覧からこのページを閲覧できます。"
       redirect_to @question
     else
+      set_err_mess
       render :new
     end
     
@@ -127,36 +120,12 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1 or /questions/1.json
   def update
 
-    
-    if params[:question][:image].present?
-      @question.image = params[:question][:image].read
-      @question.file_name = params[:question][:image].original_filename
-      @question.image_content_type = params[:question][:image].content_type
-    end
-    if params[:question][:image_2].present?
-      @question.image_2 = params[:question][:image_2].read
-      @question.file_name_2 = params[:question][:image_2].original_filename
-      @question.image_content_type_2 = params[:question][:image_2].content_type
-    end
-    if params[:question][:image_3].present?
-      @question.image_3 = params[:question][:image_3].read
-      @question.file_name_3 = params[:question][:image_3].original_filename
-      @question.image_content_type_3 = params[:question][:image_3].content_type
-    end    
-    if params[:question][:image_4].present?
-      @question.image_4 = params[:question][:image_4].read
-      @question.file_name_4 = params[:question][:image_4].original_filename
-      @question.image_content_type_4 = params[:question][:image_4].content_type
-    end    
-    if params[:question][:image_5].present?
-      @question.image_5 = params[:question][:image_5].read
-      @question.file_name_5 = params[:question][:image_5].original_filename
-      @question.image_content_type_5 = params[:question][:image_5].content_type
-    end    
+    check_image
     
     if @question.update(question_params)
       redirect_to @question
     else
+      set_err_mess
       render :edit
     end
       
@@ -217,6 +186,34 @@ class QuestionsController < ApplicationController
       end
 
       @err_mess = err_mess.split(",")
+    end
+
+    def check_image
+      if params[:question][:image].present?
+        @question.image = params[:question][:image].read
+        @question.file_name = params[:question][:image].original_filename
+        @question.image_content_type = params[:question][:image].content_type
+      end
+      if params[:question][:image_2].present?
+        @question.image_2 = params[:question][:image_2].read
+        @question.file_name_2 = params[:question][:image_2].original_filename
+        @question.image_content_type_2 = params[:question][:image_2].content_type
+      end
+      if params[:question][:image_3].present?
+        @question.image_3 = params[:question][:image_3].read
+        @question.file_name_3 = params[:question][:image_3].original_filename
+        @question.image_content_type_3 = params[:question][:image_3].content_type
+      end
+      if params[:question][:image_4].present?
+        @question.image_4 = params[:question][:image_4].read
+        @question.file_name_4 = params[:question][:image_4].original_filename
+        @question.image_content_type_4 = params[:question][:image_4].content_type
+      end    
+      if params[:question][:image_5].present?
+        @question.image_5 = params[:question][:image_5].read
+        @question.file_name_5 = params[:question][:image_5].original_filename
+        @question.image_content_type_5 = params[:question][:image_5].content_type
+      end
     end
        
 

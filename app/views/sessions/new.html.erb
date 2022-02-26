@@ -1,17 +1,15 @@
-<div class="content_box" align="center">
-  <div class="resultbox", style="text-align:center">
+<div class="resultbox adjustment">
 
-    <% if flash[:log_mes] %>
-      <div class="flash_2"><%= flash[:log_mes] %></div>
-    <% end %>
+  <% if flash[:log_mes] %>
+    <div class="flash_2"><%= flash[:log_mes] %></div>
+  <% end %>
 
-    <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :メールアドレス , class: "log_label" %><br>
-      <%= f.email_field :email , class: "log_field" %><br>
-      <%= f.label :パスワード, class: "log_label" %><br>
-      <%= f.password_field :password, class: "log_field" %><br>
-      <%= button_tag type: :submit, :class => 'log_button' do %><i class="fas fa-user"></i> ログイン<% end %>
-    <% end %>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :メールアドレス , class: "log_label" %><br>
+    <%= f.email_field :email , class: "log_field" %><br>
+    <%= f.label :パスワード, class: "log_label" %><br>
+    <%= f.password_field :password, class: "log_field" %><br>
+    <%= button_tag type: :submit, :class => 'log_button' do %><i class="fas fa-user"></i> ログイン<% end %>
+  <% end %>
     
-  </div>
 </div>

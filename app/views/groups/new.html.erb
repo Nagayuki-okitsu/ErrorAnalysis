@@ -1,10 +1,8 @@
-<div class="content_box" align="center">
+<div class="resultbox adjustment">
 
-  <div class="resultbox" style="text-align:center; padding: 100px 20px 50px 20px;">
-
-    <% if @group.errors.any? %>
-      <div class="error_ms">
-        <ul>
+  <% if @group.errors.any? %>
+    <div class="error_ms">
+      <ul>
         <% @group.errors.full_messages.each do |error| %>
           
           <% msg = "" %>
@@ -19,23 +17,22 @@
           <li><%= msg %></li>
 
         <% end %>
-        </ul>
-      </div>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with(model: @group) do |form| %>
+
+    <%= form.label "グループ名 (８文字以内)", class: "name_label"%><br>
+    <%= form.text_field :name , class: "name_form" %>
+
+    <%= form.fields_for :group_users do |gu| %>
+      <%= gu.hidden_field :user_id, :value => @current_user.id %>
+      <%= gu.hidden_field :group_id, :value => @group.id %>
     <% end %>
 
-    <%= form_with(model: @group) do |form| %>
+    <%= button_tag type: :submit, :class => 'btn c_btn' do %><i class="fas fa-plus-circle"></i>作成<% end %>
+  
+  <% end %>
 
-        <%= form.label "グループ名 (８文字以内)", class: "name_label"%><br>
-        <%= form.text_field :name , class: "name_form" %>
-
-        <%= form.fields_for :group_users do |gu| %>
-            <%= gu.hidden_field :user_id, :value => @current_user.id %>
-            <%= gu.hidden_field :group_id, :value => @group.id %>
-        <% end %>
-
-        <%= button_tag type: :submit, :class => 'btn c_btn' do %><i class="fas fa-plus-circle"></i>作成<% end %>
-    
-    <% end %>
-
-  </div>
 </div>

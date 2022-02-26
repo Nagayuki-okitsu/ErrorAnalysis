@@ -1,55 +1,49 @@
-<div class="content_box" align="center">
-  <div class="around_box">
+<div class="resultbox">
 
-    <div class="resultbox" style="width: 700px; padding-top: 15px;">
-    
-        <div class="l_t_box">
-            <h3 class="learnTitle"><i class="fas fa-user-graduate learn_icon"></i> エラー学習</h3>
-            <div class="inner">ー問題をカスタマイズしてくださいー</div>
-        </div>
+    <div class="l_t_box">
+        <h3 class="learnTitle"><i class="fas fa-user-graduate learn_icon"></i> エラー学習</h3>
+        <div class="inner">ー問題をカスタマイズしてくださいー</div>
+    </div>
 
-        <%= form_with url: test_path, method: :get, local: true do |f| %>
+    <%= form_with url: test_path, method: :get, local: true do |f| %>
 
-            <div class="choices_box" style="width: 500px; margin: 0 auto; margin-top: 30px;">
+        <div class="choices_box adjustment">
 
-                <h4><i class="fas fa-check"></i> 難易度</h4>
-                <div class="custom_box">
-                    <%= f.radio_button :difc, :easy %>
-                    <%= f.label(:difc, "簡単", value: "easy") %>
-                    <%= f.radio_button :difc, :normal %> 
-                    <%= f.label(:difc, "普通", value: "normal") %>
-                    <%= f.radio_button :difc, :hard %> 
-                    <%= f.label(:difc, "難しい", value: "hard") %>
-                </div>
-
-                <h4><i class="fas fa-check"></i> エラーの種類</h4>
-                <div class="custom_box">
-                    <%= f.radio_button :kind, :NameError %> 
-                    <%= f.label(:kind, "NameError", value: "NameError") %>
-                    <%= f.radio_button :kind, :ArgumentError %> 
-                    <%= f.label(:kind, "ArgumentError", value: "ArgumentError") %>
-                    <%= f.radio_button :kind, :nothing %>
-                    <%= f.label(:kind, "指定しない", value: "nothing") %>
-                </div>
-
-                <h4><i class="fas fa-check"></i> 問題数</h4>
-                <div class="custom_box">
-                    <%= f.radio_button :total, :'1' %> 
-                    <%= f.label(:total, "１問", value: "1") %>
-                    <%= f.radio_button :total, :'2' %> 
-                    <%= f.label(:total, "２問", value: "2") %>
-                    <%= f.radio_button :total, :'3' %>
-                    <%= f.label(:total, "３問", value: "3") %>
-                </div>
-
+            <h4><i class="fas fa-check"></i> 難易度</h4>
+            <div class="custom_box">
+                <%= f.radio_button :difc, :easy %>
+                <%= f.label(:difc, "簡単", value: "easy") %>
+                <%= f.radio_button :difc, :normal %> 
+                <%= f.label(:difc, "普通", value: "normal") %>
+                <%= f.radio_button :difc, :hard %> 
+                <%= f.label(:difc, "難しい", value: "hard") %>
             </div>
 
-            <button id="fake_btn" class="fake_btn" style="width: 140px; margin-top: 30px;"  disabled><i class="far fa-play-circle"></i>開始する</button>
-            <%= button_tag type: :submit, :id => 'real_btn', :class => 'btn choices_btn', :style => "display: none; width: 140px; margin-top: 30px;"  do %><i class="far fa-play-circle"></i>開始する<% end %>
+            <h4><i class="fas fa-check"></i> エラーの種類</h4>
+            <div class="custom_box">
+                <%= f.radio_button :kind, :NameError %> 
+                <%= f.label(:kind, "NameError", value: "NameError") %>
+                <%= f.radio_button :kind, :ArgumentError %> 
+                <%= f.label(:kind, "ArgumentError", value: "ArgumentError") %>
+                <%= f.radio_button :kind, :nothing %>
+                <%= f.label(:kind, "指定しない", value: "nothing") %>
+            </div>
 
-        <% end %>
+            <h4><i class="fas fa-check"></i> 問題数</h4>
+            <div class="custom_box">
+                <%= f.radio_button :total, :'1' %> 
+                <%= f.label(:total, "１問", value: "1") %>
+                <%= f.radio_button :total, :'2' %> 
+                <%= f.label(:total, "２問", value: "2") %>
+                <%= f.radio_button :total, :'3' %>
+                <%= f.label(:total, "３問", value: "3") %>
+            </div>
+
+        </div>
+
+        <button id="fake_btn" class="fake_btn" disabled><i class="far fa-play-circle"></i>開始する</button>
+        <%= button_tag type: :submit, :id => 'real_btn', :class => 'btn choices_btn' do %><i class="far fa-play-circle"></i>開始する<% end %>
+
+    <% end %>
             
-
-    </div>
-  </div>
 </div>

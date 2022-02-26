@@ -62,10 +62,10 @@
           <% save_img += "5つ目「#{@image_5}」 " %>
         <% end %>
         
-        <p style="color: red;">※ 前回投稿した画像は保存されています。新たに画像を追加する場合は未保存の箇所にファイルをアップしてください。<br>　画像を置き換えたい場合はその画像が保存されてる箇所にファイルをアップしてください。<br>　( 保存済み: <%= save_img%>)<br> </p>
+        <p class="red">※ 前回投稿した画像は保存されています。新たに画像を追加する場合は未保存の箇所にファイルをアップしてください。<br>　画像を置き換えたい場合はその画像が保存されてる箇所にファイルをアップしてください。<br>　( 保存済み: <%= save_img%>)<br> </p>
       <% end %>
 
-        <tr><td style="padding-bottom: 0;"><p style="color: blue; padding: 0 0 0 30px;">( ファイル名も公開されます。何についての画像なのかをファイル名に付けてください。)</p></td></tr>
+        <tr><td class="img_td_adj"><p class="img_p_adj">( ファイル名も公開されます。何についての画像なのかをファイル名に付けてください。)</p></td></tr>
         <tr><td>・１つ目　<%= form.file_field :image, class: "image_field" %></td></tr>
         <tr><td>・２つ目　<%= form.file_field :image_2, class: "image_field" %></td></tr>
         <tr><td>・３つ目　<%= form.file_field :image_3, class: "image_field" %></td></tr>

@@ -1,8 +1,18 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 .groups{
+
+    //全体を中央寄せ
+    .content_box{
+        text-align: center;
+    }
+
+    //調整
+    .adjustment{
+        text-align:center;
+        padding: 100px 20px 50px 20px;
+    }
 
     .wit_btn{
         width: 270px;

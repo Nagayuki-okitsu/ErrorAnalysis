@@ -132,6 +132,9 @@
         z-index: 11;
         position: relative;
     }
+    .edit_btn_adj{
+        margin-right:30px;
+    }
 
     //質問タイトル
     h2 {
@@ -365,6 +368,13 @@
     //画像フォーム
     .image_table{
         margin-top: 30px;
+    }
+    .img_td_adj{
+        padding-bottom: 0;
+    }
+    .img_p_adj{
+        color: blue;
+        padding: 0 0 0 30px;
     }
 
     //送信ボタン
