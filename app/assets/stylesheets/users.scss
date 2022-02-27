@@ -14,6 +14,10 @@
         text-align:center;
         padding: 40px 20px 10px 20px;
     }
+    .mes_adj{
+        color: #005a0f;
+        padding-top: 20px;
+    }
 
     .g_c_j{
         display: flex;
@@ -97,6 +101,9 @@
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
         margin-bottom: 50px;
     }
+    .sig_fi_adj{
+        margin-bottom: 10px;
+    }
 
     .signup_button  {
         cursor: pointer;
@@ -116,7 +123,6 @@
         box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
         border-radius: 8px;
     }
-        
     .signup_button:hover {
         text-decoration: none;
         background-color: #f0f0f0;

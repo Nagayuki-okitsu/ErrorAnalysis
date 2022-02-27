@@ -52,16 +52,7 @@
   <h5 class="info userInf"><%= User.find_by(id: @question.user_id).name %></h5>
   <h5 class="info keyInf red"><% if @question.key.present? %><%= @question.key %><% else %>キーワードなし<% end %></h5>
 
-  <div class="con_box">
-    <div class="box-title">質問内容</div>
-    <p><%= @question.content %></p>
-
-    <% @image_list.each do |img| %>
-      <div class="center">「<%= img["name"] %>」</div>
-      <div class="center"><%= image_tag(img["path"],{class: "con_img"}) %></div>
-    <% end %>
-    
-  </div>
+  <%= render 'layouts/qContent' %>
 
   <% if @answer.present? %>
     
@@ -69,9 +60,8 @@
 
       <div class="ans_box">
           <div class="box-title">
-          
-            <div style="font-size: 15px; padding-right: 5px;">
-              <%= User.find_by(id: answer.user_id).name %>さんの</div>回答
+                
+            <span class="ans_user_name_adj"><%= User.find_by(id: answer.user_id).name %>さんの</span>回答
             
             <% if logged_in? %>
                 <% if current_user.own?(answer) %>
@@ -125,7 +115,7 @@
 
                   <div class="rep_edit_delete_link">
                     <%= link_to  reply_path(rep), method: :delete,data: {confirm: "削除した返信を復元することはできません。\n本当に削除しますか？"} do%>
-                      <button class="btn rep_edit_delete_btn" style="margin: 0 5px;"><i class="fas fa-trash-alt"></i> 削除</button>
+                      <button class="btn rep_edit_delete_btn delete_btn_adj"><i class="fas fa-trash-alt"></i> 削除</button>
                     <% end %>
                   </div>
                 <% end %>

@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+//アクションごとに調整
+
+.questions-show{
+
+    .ans_user_name_adj{
+        font-size: 15px;
+        padding-right: 5px;
+    }
+
+    .delete_btn_adj{
+        margin: 0 5px;
+    }
+    
+}
+
 .questions{
 
     //質問箱全体を覆うdiv

@@ -356,6 +356,10 @@ nav h1{
   color: red;
   font-size: 16px;
 }
+.err_ms_adj{
+  font-size: 17px;
+  text-align: center;
+}
 
 //検索ボックス
 .searchArea{
@@ -464,6 +468,9 @@ nav h1{
 }
 .c_btn:hover {
   background-color: rgb(180, 176, 170);
+}
+.c_btn_adj{
+  margin-top: 0;
 }
 
 //質問内容を囲むボックス(questionとanswerページで使用）

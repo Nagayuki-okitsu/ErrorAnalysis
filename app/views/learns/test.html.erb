@@ -21,7 +21,7 @@
                 <% if i + 1 < 10 %>
                     <p><span class="paragraph"><%= i + 1 %>|</span><%= q_arr[i] %></p>
                 <% else %>
-                    <p><span class="paragraph pa_adjustment"><%= i + 1 %>|</span><%= q_arr[i] %></p>
+                    <p><span class="paragraph pa_adj"><%= i + 1 %>|</span><%= q_arr[i] %></p>
                 <% end %>
                 
             <% end %>
@@ -34,19 +34,19 @@
 
         <div class="choices_box adjustment">
 
-        <div class="box-title">結果</div>
+            <div class="box-title">結果</div>
 
-        <% if session[:check] == "correct" %>
-            <p class="judge red"><i class="far fa-circle"></i> 正解</p>
-        <% else %>
-            <p class="judge blue"><i class="fas fa-times"></i> 不正解</p>
-        <% end %>
+            <% if session[:check] == "correct" %>
+                <p class="judge red"><i class="far fa-circle"></i> 正解</p>
+            <% else %>
+                <p class="judge blue"><i class="fas fa-times"></i> 不正解</p>
+            <% end %>
 
-        <p>・・・ 正解（<%= session[:r_ans] %>）</p><br>
+            <p>・・・ 正解（<%= session[:r_ans] %>）</p><br>
 
-        <% for i in 0..3 %>
-            <p class="p_adj"><%= "(#{i+1}) #{@q["#{@key}"][i]}" %></p><br>
-        <% end %>
+            <% for i in 0..3 %>
+                <p class="p_adj"><%= "(#{i+1}) #{@q["#{@key}"][i]}" %></p><br>
+            <% end %>
 
         <% if session[:status] == "stay_c" %>
 

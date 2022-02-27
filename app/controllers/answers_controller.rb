@@ -15,6 +15,7 @@ class AnswersController < ApplicationController
   def new
     @answer = Answer.new
     @question = Question.find(params[:q_id])
+    set_image
   end
 
   # GET /answers/1/edit
@@ -32,6 +33,7 @@ class AnswersController < ApplicationController
         redirect_to question_path(Question.find(@answer.question_id))
       else
         @question = Question.find(@answer.question_id)
+        set_image
         render :new
       end
   end
@@ -48,7 +50,7 @@ class AnswersController < ApplicationController
 
   # DELETE /answers/1 or /answers/1.json
   def destroy
-    #削除されたいいねを表示するための処理
+    #削除する回答に対するいいねは残しておく
     Nice.where(answer_id: @answer.id).length.times do 
       @delete_nice = DeleteNice.new
       @delete_nice.delete_answer_include_nice = @answer.user_id

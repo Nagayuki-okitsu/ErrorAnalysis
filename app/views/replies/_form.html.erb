@@ -2,8 +2,8 @@
   <%= form_with(model: reply) do |form| %>
 
     <% if reply.errors.any? %>
-      <div class="error_ms", style="font-size: 17px; text-align: center;">
-        <h5 style="color: red;">・返信内容を入力してください</h5>
+      <div class="error_ms err_ms_adj">
+        <h5 class="red">・返信内容を入力してください</h5>
       </div>
     <% end %>
 
@@ -43,7 +43,7 @@
         <%= form.text_area :reply, class: "ans_form" %>
       </div>
 
-      <%= button_tag type: :submit, :class => 'btn c_btn', :style => 'margin-top: 0;' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+      <%= button_tag type: :submit, :class => 'btn c_btn c_btn_adj' do %><i class="fas fa-paper-plane"></i>送信<% end %>
     </div>
 
   <% end %>

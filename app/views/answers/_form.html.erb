@@ -1,36 +1,12 @@
 <%= form_with(model: answer) do |form| %>
 
   <% if answer.errors.any? %>
-    <div class="error_ms", style="font-size: 17px; text-align: center;">
+    <div class="error_ms err_ms_adj">
       <h5>・回答内容を入力してください</h5>
     </div>
   <% end %>
 
-  <div class="con_box">
-    <div class="box-title">質問内容</div>
-    <p><%= @question.content %></p>
-
-    <% if @question.image.present? %> 
-      <div style="text-align:center;">「<%= @question.file_name[0,@question.file_name.index('.')] %>」</div>
-      <div style="text-align:center;"><%= image_tag(show_image_question_path(@question),{class: "con_img"}) %></div>
-    <% end %>
-    <% if @question.image_2.present? %> 
-      <div style="text-align:center;">「<%= @question.file_name_2[0,@question.file_name_2.index('.')] %>」</div>
-      <div style="text-align:center;"><%= image_tag(show_image_2_question_path(@question),{class: "con_img"}) %></div>    
-    <% end %>
-    <% if @question.image_3.present? %> 
-      <div style="text-align:center;">「<%= @question.file_name_3[0,@question.file_name_3.index('.')] %>」</div>
-      <div style="text-align:center;"><%= image_tag(show_image_3_question_path(@question),{class: "con_img"}) %></div>
-    <% end %>
-    <% if @question.image_4.present? %> 
-      <div style="text-align:center;">「<%= @question.file_name_4[0,@question.file_name_4.index('.')] %>」</div>
-      <div style="text-align:center;"><%= image_tag(show_image_4_question_path(@question),{class: "con_img"}) %></div>
-    <% end %>
-    <% if @question.image_5.present? %> 
-      <div style="text-align:center;">「<%= @question.file_name_5[0,@question.file_name_5.index('.')] %>」</div>
-      <div style="text-align:center;"><%= image_tag(show_image_5_question_path(@question),{class: "con_img"}) %></div>
-    <% end %>
-  </div>
+  <%= render 'layouts/qContent' %>
 
   <%= form.hidden_field :question_id, :value => @question.id %>
 
@@ -40,7 +16,7 @@
       <%= form.text_area :answer, class: "ans_form" %>
     </div>
 
-    <%= button_tag type: :submit, :class => 'btn c_btn', :style => 'margin-top: 0;' do %><i class="fas fa-paper-plane"></i>送信<% end %>
+    <%= button_tag type: :submit, :class => 'btn c_btn c_btn_adj' do %><i class="fas fa-paper-plane"></i>送信<% end %>
   </div>
 
 <% end %>

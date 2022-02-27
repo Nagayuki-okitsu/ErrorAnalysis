@@ -67,23 +67,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1 or /questions/1.json
   def show
-    image_list = []
-    if @question.image.present?
-      image_list.push({"name" => @question.file_name[0,@question.file_name.index('.')], "path" => show_image_question_path(@question)})
-    end
-    if @question.image_2.present?
-      image_list.push({"name" => @question.file_name_2[0,@question.file_name_2.index('.')], "path" => show_image_2_question_path(@question)})
-    end
-    if @question.image_3.present?
-      image_list.push({"name" => @question.file_name_3[0,@question.file_name_3.index('.')], "path" => show_image_3_question_path(@question)})
-    end
-    if @question.image_4.present?
-      image_list.push({"name" => @question.file_name_4[0,@question.file_name_4.index('.')], "path" => show_image_4_question_path(@question)})
-    end
-    if @question.image_5.present?
-      image_list.push({"name" => @question.file_name_5[0,@question.file_name_5.index('.')], "path" => show_image_5_question_path(@question)})
-    end
-    @image_list = image_list
+    set_image
   end
 
   # GET /questions/new
