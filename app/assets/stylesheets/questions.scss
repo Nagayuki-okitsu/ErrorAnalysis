@@ -38,6 +38,9 @@
         box-shadow: 0 0 3px gray;
         border-radius: 3px; 
     }
+    .Area-adj{
+        width: 135px;
+    }
 
     .searchArea select{
         width: 100%;
@@ -59,6 +62,23 @@
         box-shadow: 0 0 3px gray;
         z-index: 2;
     }
+
+    .sortBtn-adj{
+        padding:6px 7px;
+    }
+    .sImg-adj{
+        height:19px;
+    }
+
+    .liftBtn-adj{
+        height:25px;
+        width:25px;
+        padding:5px;
+    }
+    .lImg-adj{
+        height:15px;
+    }
+    
 
     //質問一覧のテーブル
     table{

@@ -35,8 +35,7 @@
       <% else %>
         <% s.push("未解決","解決済み") %>
       <% end %>
-
-      <div class="searchArea" style="width:140px;">
+      <div class="searchArea Area-adj">
         <%= f.select :solve_key, [[ s[1],s[1] ]],{ include_blank: s[0] } %>
           <div class="searchButton" onclick="goSearch()">
             <%= image_submit_tag 'search.png', {class:"searchImg"} %>
@@ -44,19 +43,25 @@
       </div>
     <% end %>
 
-    <div class="searchArea" style="width:129.3px;">
+    <% s = [] %><%# sortのs %>
+    <% if session[:sort_key].present? %>
+      <% (session[:sort_key] == "古い順")? s.push("古い順","新しい順") : s.push("新しい順","古い順") %>
+    <% else %>
+      <% s.push("新しい順","古い順") %>
+    <% end %>
+    <div class="searchArea Area-adj">
       <%= form_with url: questions_path, method: :get do |f| %>
-        <%= f.select :sort_key, [['新しい順 （ デフォルト ）', '新しい順'],['古い順', '古い順']],{ include_blank: (session[:sort_key].present?)?  session[:sort_key] : "並び替え"} %>
-          <div class="searchButton" style="padding:6px 7px;" onclick="goSearch()">
-            <%= image_submit_tag 'sort1.png', {class:"searchImg", style:"height:19px;"} %>
+        <%= f.select :sort_key, [[ s[1],s[1] ]],{ include_blank: s[0] } %>
+          <div class="searchButton sortBtn-adj" onclick="goSearch()">
+            <%= image_submit_tag 'sort1.png', {class:"searchImg sImg-adj"} %>
           </div>
       <% end %>
     </div>
 
     <div class="liftArea">
       <%= form_with url: questions_path, method: :get do |f| %>
-          <div class="searchButton" style="height:25px; width:25px; padding:5px;" onclick="goSearch()">
-            <%= image_submit_tag 'cancel1.png', {class:"searchlImg", style:"height:15px;"} %>
+          <div class="searchButton liftBtn-adj" onclick="goSearch()">
+            <%= image_submit_tag 'cancel1.png', {class:"searchlImg lImg-adj"} %>
           </div>
       <% end %>
     </div>
