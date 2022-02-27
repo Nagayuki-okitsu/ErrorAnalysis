@@ -158,7 +158,7 @@ nav{
   color: rgb(74, 78, 90);
   border-top: 1px solid #041525;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 20px;
 }
 .gnav li:hover > ul > li {
   height: 2rem;
@@ -189,6 +189,7 @@ nav{
   width: 100px;
   height: 25px;
   margin-left: 15px;
+  margin-right: 100px;
   background: #041525;
   color: #ffffff;
   border-color:#041525;
@@ -203,16 +204,28 @@ nav{
 }
 
 //ナビゲーションバー中央の「ErrorAnalysis」
-nav h1{
-  width: 51%;
-  min-width: 400px;
-  font-family: 'Corben', cursive;
-  text-align: center;
-  color:rgb(224, 224, 224);
+nav .home-link{
+  max-width: 250px;
+  min-width: 250px;
   padding: 0;
-  margin: 0;
-  margin-right: 110px;
+  margin: 0 25% 0 8.5%;
 }
+nav .title_img{
+  width: 100%;
+  display: inline;
+  padding-top: 10px;
+}
+//「ErrorAnalysis」をh1で表示する場合のcss
+// nav h1{
+//   width: 51%;
+//   min-width: 400px;
+//   font-family: 'Corben', cursive;
+//   text-align: center;
+//   color:rgb(224, 224, 224);
+//   padding: 0;
+//   margin: 0;
+//   margin-right: 110px;
+// }
 
 //ログインボタン（ナビゲーションバー）
 .log_btn {

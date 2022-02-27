@@ -159,6 +159,7 @@
               <li><%= link_to questions_path do %><i class="fas fa-box-open"></i> 質問箱<% end %></li>
               <li><%= link_to learn_path do %><i class="fas fa-graduation-cap"></i> エラー学習<% end %></li>
               <% if logged_in? %>
+                <li><%= link_to  user_path(@current_user) do%><i class="fas fa-user-check"></i> マイページ<% end %></li>
                 <li><%= link_to  logout_path, method: :delete, data: {confirm: "ログアウトしますか？"} do%><i class="fas fa-user"></i> ログアウト<% end %></li>
               <% else %>
                 <li><%= link_to  login_path do%><i class="fas fa-user"></i> ログイン<% end %></li>
@@ -178,7 +179,8 @@
       <% end %>
 
       <%# 中央のアプリケーション名 %>
-      <h1>-ErrorAnalysis-</h1>
+      <%= link_to '/', {class: "home-link"} do %> <%= image_tag 'title.png', class:"title_img" %> <% end %>
+      <%# <h1>-ErrorAnalysis-</h1> %>
 
       <%# 「ログイン・ログアウト・マイページ」ボタンのどれかを表示 %>
       <div class="log">
