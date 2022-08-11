@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2022_01_27_143856) do
   end
 
   #yamlで管理しているため使用していない
+  #seedsにある"error_lists.yml"は以前DBで管理していた時のもの。
+  #現在はcontrollerで"errorList.yml"から直接取得しているので使用していない。
   # create_table "error_lists", force: :cascade do |t|
   #   t.string "err_mess"
   #   t.string "cause"

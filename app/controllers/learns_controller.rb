@@ -88,6 +88,12 @@ class LearnsController < ApplicationController
         q = learn_arr[session[:q_arr_index][session[:number]]] #問題を抽出する
         @q = order_q(q,session[:q_order],"#{@key}") #抽出した問題を並べ替えてインスタンスとする
 
+        if session[:status] == "stay_c"
+            @state = "前半"
+        else
+            @state = "後半"
+        end
+
     end
 
     def custom_q(learn_arr,key,val) #カスタム通りの問題を作成するメソッド

@@ -1,6 +1,6 @@
 <div class="resultbox">
 
-    <h3 class="q_num"><i class="fas fa-chevron-left"></i> 第<%= session[:number] + 1 %>問 <i class="fas fa-chevron-right"></i></h3>
+    <h3 class="q_num"><i class="fas fa-chevron-left"></i> 第<%= session[:number] + 1 %>問 - <%= @state %><i class="fas fa-chevron-right"></i></h3>
 
     <div class="qes_box">
 
@@ -52,7 +52,7 @@
 
         </div> <%# choices_boxの終了タグ %>
 
-            <%= button_to test_path, :class => 'btn choices_btn next_btn_adj', :method => :get , params: {status: "next"} do %>
+            <%= button_to test_path, :class => 'btn learn_btn_2 next_btn_adj', :method => :get , params: {status: "next"} do %>
                 <i class="fas fa-arrow-alt-circle-right"></i>続きへ
             <% end %>
             
@@ -67,13 +67,13 @@
 
             <% if session[:status] == "stay_s" %>
 
-                <%= button_to test_path, :class => 'btn choices_btn change_btn_adj', :method => :get , params: {status: "change"} do %>
+                <%= button_to test_path, :class => 'btn learn_btn_2 change_btn_adj', :method => :get , params: {status: "change"} do %>
                     <i class="fas fa-arrow-alt-circle-right"></i>次の問題へ
                 <% end %>
 
             <% elsif session[:status] == "finish" %>
 
-                <%= button_to learn_path, :class => 'btn choices_btn finish_btn_adj', :method => :get do %>
+                <%= button_to learn_path, :class => 'btn learn_btn_2 finish_btn_adj', :method => :get do %>
                     <i class="fas fa-check-circle"></i>終了する
                 <% end %>
 
@@ -106,8 +106,8 @@
                     <%= f.radio_button :ans, :d %>
                     <p><%= f.label :ans, "(4) #{@q["#{@key}"][3]}", {value: :d, class: "label_adj"} %></p><br>
             
-                    <button class="fake_btn" id="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
-                    <%= button_tag type: :submit, :id => 'real_btn',  :class => 'btn choices_btn' do %><i class="fas fa-check-circle"></i>回答<% end %>
+                    <button class="btn learn_btn" id="fake_btn" disabled><i class="fas fa-check-circle"></i>回答</button>
+                    <%= button_tag type: :submit, :id => 'real_btn',  :class => 'btn learn_btn' do %><i class="fas fa-check-circle"></i>回答<% end %>
 
                 <% end %>
 

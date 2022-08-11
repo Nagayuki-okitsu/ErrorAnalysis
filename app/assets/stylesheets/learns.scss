@@ -8,22 +8,24 @@
     .resultbox{
         width: 700px; 
         padding-top: 15px;
+        text-align: center;
     }
 
     .adjustment{
         width: 500px;
         margin: 0 auto;
+        margin-top: 2em;
+        margin-bottom: 2em;
         margin-top: 30px;
     }
 
-    .fake_btn{
-        margin-top: 20px;
+    #fake_btn{
+        width: 130px;
     }
 
     #real_btn{
         display: none;
-        width: 140px;
-        margin-top: 30px;
+        width: 130px;
     }    
 
 }
@@ -38,11 +40,6 @@
         margin-left: 30px;
     }
 
-    .fake_btn{
-        width: 140px;
-        margin-top: 30px;
-    }
-
     .q_adjustment{
         padding: 20px;
     }
@@ -53,32 +50,29 @@
 
     .next_btn_adj{
         width:120px;
-        background-color: #6862b4;
-        border-color: rgb(119, 117, 113);
-        margin-bottom: 30px;
     }
 
     .change_btn_adj{
         width: 150px;
-        background-color: #6862b4;
-        border-color: rgb(119, 117, 113);
-        margin-bottom: 30px;
     }
 
     .finish_btn_adj{
         width: 140px;
-        background-color: #6862b4;
-        border-color: rgb(119, 117, 113);
-        margin-bottom: 30px;
     }
 
     .label_adj{
         display: inline-block;
     }
 
+    #fake_btn{
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
     #real_btn{
         display: none;
-        margin-top: 20px;
+        margin-top: 30px;
+        margin-bottom: 10px;
     }
 }
 
@@ -149,7 +143,6 @@
     }
 
     .choices_box {
-        margin: 2em 0;
         padding: 10px 10px 10px 10px;
         background: #f1f1f1;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.22);
@@ -272,34 +265,24 @@
     }
 
     .choices_btn  {
-        height: 35px;
-        width: 100px;
-        color: rgb(252, 252, 252);
-        font-size: 16px;
-        background-color: #cac8df;
-        border: 2px solid #cac8df; 
-        border-radius: 10px;
         box-shadow: none;
     }
 
-    .fake_btn{
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        padding: 0.5em 1.5em 0.5em 1em;
-        width: 100px;
+    .learn_btn{
         height: 35px;
-        font-weight: bold;
         color: rgb(252, 252, 252);
         font-size: 16px;
         background-color: #cac8df;
         border: 2px solid #cac8df; /*枠線*/
-        box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
-        border-radius: 10px;
-        opacity: 0.7;
+        opacity: 0.5;
     }
 
+    .learn_btn_2{  //続き、次へ、終了ボタン用
+        height: 35px;
+        color: rgb(252, 252, 252);
+        font-size: 16px;
+        background-color: #6862b4;
+        border-color: rgb(119, 117, 113);
+        margin-top: 30px;
+    }
 }

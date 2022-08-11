@@ -73,9 +73,10 @@
 
           if ($d != undefined && $k != undefined && $t != undefined || $ans != undefined) {
             $('#fake_btn').hide();
-            $('#real_btn').show().animate({
+            $('#real_btn').css("display", "flex").animate({
               backgroundColor: '#6862b4',
-              borderColor: 'rgb(119, 117, 113)'
+              borderColor: 'rgb(119, 117, 113)',
+              opacity: 1
             }, 100);
           }
 
