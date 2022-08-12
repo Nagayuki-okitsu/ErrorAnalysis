@@ -102,13 +102,26 @@
 - err_mess: NameError
   cause: 変数や配列の名前が間違っています。
   hint: |
-          　エラー文の中にどのように間違っているか、どこで間違えているかが記載されています。
+          　エラー文の中に、間違えた名前と最も近い名前の変数や配列が「Did you mean?  〇〇」のように記載されていることがあります。
       
-          　該当する箇所を確認してみましょう。
+          　もし記載があればその変数、配列を使用している箇所を確認してみましょう。
+
+
+
 
           　　例）
-          　　　エラー文に「 Did you mean?  applo 」のような記載がある確率が高いため探してみましょう。
-          　　（この例ではappleをapploにしてしまっているということがわかります）
+
+          　　【エラーのあるプログラム】
+          
+          　　1:　apple = "りんご"
+          　　2:
+          　　3:　puts applo
+          
+          　　【エラー文】
+
+          　　main.rb:3:in `<main>': undefined local variable or method `applo' for main:Object 
+          　　(NameError)  Did you mean?  apple
+          　　　　　　　　　　　　　↑「3行目の'applo'は'apple'の間違いではないですか？」という意味
 
 
 
