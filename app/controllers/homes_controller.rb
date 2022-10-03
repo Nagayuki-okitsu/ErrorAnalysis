@@ -14,7 +14,6 @@ class HomesController < ApplicationController
         end
       end
 
-
     else
 
       @flg = false

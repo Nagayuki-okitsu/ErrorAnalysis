@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
   root to: 'homes#analysis'
 
+  get 'analysis', to: 'homes#analysis' 
+
   resources :answers
 
   resources :replies, only: [:new, :create,:edit, :update, :destroy] 
@@ -21,9 +23,6 @@ Rails.application.routes.draw do
     member { get :show_image_3}
     member { get :show_image_4}
     member { get :show_image_5}
-  end
-  resources :homes do
-    get :analysis, on: :collection 
   end
 
   get    '/login',   to: 'sessions#new'
