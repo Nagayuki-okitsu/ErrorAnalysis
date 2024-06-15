@@ -1,29 +1,16 @@
-<<<<<<< HEAD
-# README
+## アプリケーションについて
+プログラミング中のエラーを解析するアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+出力されたエラーを全てコピーして本アプリにペーストするだけでエラーを解析できます。
 
-Things you may want to cover:
+エラー文からキーワードを探索し、ヒットしたエラーに関する情報を出力します。
 
-* Ruby version
+## 対象者
+エラーのキーワードを理解するのが難しい初級者レベルの方が対象です。
 
-* System dependencies
+高度な解析は不可能なため上級者には不向きです。
 
-* Configuration
+## Apacheについて
+Herokuの一律有料化に伴いクラウドへのデプロイを中止しました。
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# ErrorAnalysis
-エラー解析・解決アプリケーション（ErrorAnalysis）用のリポジトリ
->>>>>>> origin/main
+現在はローカルサーバーでの実行のみに対応しています。
